@@ -1,4 +1,5 @@
 #include "FastLED.h"
+#include "LightsModel.h"
 
 #define NUM_LEDS 80
 #define PIN 6
@@ -11,39 +12,6 @@ CRGB leds2[NUM_LEDS2];
 
 const int ledPin = 13;
 unsigned long debounceDelay = 50; // the debounce time; increase if the output flickers
-
-class LightsModel
-{
-public:
-  int buttonPin;
-  int relayPin;
-  bool lightsState;
-  bool buttonState;
-  bool lastButtonState;
-
-  // the following variable are unsigned longs because the time, measured in
-  // milliseconds, will quickly become a bigger number than can be stored in an int.
-  unsigned long lastDebounceTime = 0;
-  bool withLed;
-  int ledStripStart;
-  int ledStripLenth;
-
-  LightsModel::LightsModel(
-      int buttonPin,
-      int relayPin,
-      bool lightsState,
-      bool withLed,
-      int ledStripStart,
-      int ledStripLenth)
-  {
-    this->buttonPin = buttonPin;
-    this->relayPin = relayPin;
-    this->lightsState = lightsState;
-    this->withLed = withLed;
-    this->ledStripStart = ledStripStart;
-    this->ledStripLenth = ledStripLenth;
-  }
-};
 
 LightsModel lights1(2, 5, LOW, false, 0, 0);
 LightsModel lights2(3, 7, LOW, false, 0, 0);
@@ -81,7 +49,7 @@ void loop()
   readButton3(lights4);
 }
 
-void readButton3(LightsModel& model)
+void readButton3(LightsModel &model)
 {
   // read the state of the switch into a local variable:
   int reading = digitalRead(model.buttonPin);
