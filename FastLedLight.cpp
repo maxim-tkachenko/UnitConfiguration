@@ -1,7 +1,7 @@
-#include "LedLight.h"
+#include "FastLedLight.h"
 #include "FastLED.h"
 
-LedLight::LedLight(
+FastLedLight::FastLedLight(
   int buttonPin,
   bool initialState,
   int ledStripStart,
@@ -12,21 +12,21 @@ LedLight::LedLight(
   this->leds = new CRGB[ledStripLenth];
 }
 
-LedLight::~LedLight() {
+FastLedLight::~FastLedLight() {
   delete[] leds;
 }
 
-void LedLight::set(bool state) {
-  log("LedLight::set s");
+void FastLedLight::set(bool state) {
+  log("FastLedLight::set s");
 
   switchLed(lightsState, ledStripStart, ledStripLenth);
   ILight::set(state);
 
-  log("LedLight:set e");
+  log("FastLedLight:set e");
 }
 
-void LedLight::switchLed(bool state, int ledStripStart, int ledStripLenth) {
-  log("LedLight::switchLed s");
+void FastLedLight::switchLed(bool state, int ledStripStart, int ledStripLenth) {
+  log("FastLedLight::switchLed s");
   if (state) {
     //FastLED.setBrightness(16);
     //FastLED.setTemperature(Candle);
@@ -38,10 +38,10 @@ void LedLight::switchLed(bool state, int ledStripStart, int ledStripLenth) {
     //      FastLED[0].clear();
     setColor(CRGB::Red, ledStripStart, ledStripLenth);
   }
-  log("LedLight::switchLed e");
+  log("FastLedLight::switchLed e");
 }
 
-void LedLight::setColor(CRGB color, int ledStripStart, int ledStripLenth) {
+void FastLedLight::setColor(CRGB color, int ledStripStart, int ledStripLenth) {
   fillOne(color, ledStripStart, ledStripLenth);
   return;
 
@@ -84,7 +84,7 @@ void LedLight::setColor(CRGB color, int ledStripStart, int ledStripLenth) {
     }*/
 }
 
-void LedLight::fillOne(CRGB color, int ledStripStart, int ledStripLenth) {
+void FastLedLight::fillOne(CRGB color, int ledStripStart, int ledStripLenth) {
   //  if (ledStripStart > 0)
   //  {
   //    fill_solid(leds2, ledStripLenth, color);
@@ -96,13 +96,13 @@ void LedLight::fillOne(CRGB color, int ledStripStart, int ledStripLenth) {
   //    FastLED[0].showLeds(255);
   //  }
 
-  log("LedLight::fillOne s");
+  log("FastLedLight::fillOne s");
 
   fill_solid(leds, ledStripLenth, color);
 
-  log("LedLight::fillOne s1");
+  log("FastLedLight::fillOne s1");
 
   controller->showLeds(10);
 
-  log("LedLight::fillOne e");
+  log("FastLedLight::fillOne e");
 }

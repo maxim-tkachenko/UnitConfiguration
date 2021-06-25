@@ -1,6 +1,6 @@
 #include "FastLED.h"
 #include "Light.h"
-#include "LedLight.h"
+#include "FastLedLight.h"
 
 #define NUM_LEDS 71
 #define PINNN 6
@@ -17,8 +17,8 @@ unsigned long debounceDelay = 50;  // the debounce time; increase if the output 
 #define lights3InitialState true
 Light lights1(2, 5, LOW);
 Light lights2(3, 7, LOW);
-LedLight lights3(2/*9*/, false, 0, 5);  //NUM_LEDS);
-LedLight lights4(10, LOW, NUM_LEDS, NUM_LEDS2);
+FastLedLight lights3(2/*9*/, false, 0, 5);  //NUM_LEDS);
+FastLedLight lights4(10, LOW, NUM_LEDS, NUM_LEDS2);
 
 // CLEDController *controller;
 

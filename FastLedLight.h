@@ -1,10 +1,10 @@
 #include "ILight.h"
 #include "FastLED.h"
 
-#ifndef LedLight_h
-#define LedLight_h
+#ifndef FastLedLight_h
+#define FastLedLight_h
 
-class LedLight : public ILight {
+class FastLedLight : public ILight {
   private:
     CLEDController *controller;
 
@@ -18,23 +18,23 @@ class LedLight : public ILight {
     CRGB *leds;
     //CRGB leds[5];
 
-    LedLight(
+    FastLedLight(
       int buttonPin,
       bool initialState,
       int ledStripStart,
       int ledStripLenth);
 
-    ~LedLight();
+    ~FastLedLight();
 
     //template <ESPIChipsets CHIPSET, uint8_t DATA_PIN, EOrder RGB_ORDER>
     template<uint8_t DATA_PIN>
     void init(int nLedsOrOffset) {
-      log("LedLight:init s");
+      log("FastLedLight:init s");
 
       controller = &FastLED.addLeds<WS2812B, DATA_PIN, GRB>(leds, ledStripLenth);
       ILight::init();
 
-      log("LedLight:init e");
+      log("FastLedLight:init e");
     }
 
     virtual void set(bool state);
