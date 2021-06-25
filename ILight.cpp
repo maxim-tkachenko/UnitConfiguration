@@ -2,25 +2,29 @@
 #include "Arduino.h"
 
 ILight::ILight(
-  int buttonPin,
-  bool initialState) {
+    int buttonPin,
+    bool initialState)
+{
   this->buttonPin = buttonPin;
   this->lightsState = initialState;
 }
 
-void ILight::init() {
+void ILight::init()
+{
   log("ILight::init s");
 
   pinMode(buttonPin, INPUT);
-  set(lightsState);  // verify what's called
+  set(lightsState); // verify what's called
 
   log("ILight::init e");
 }
 
-void ILight::set(bool state) {
+void ILight::set(bool state)
+{
   log("ILight::set s");
 
-  if (!_initialized) {
+  if (!_initialized)
+  {
     pinMode(ledPin, OUTPUT);
     _initialized = true;
   }
@@ -32,7 +36,8 @@ void ILight::set(bool state) {
   log("ILight::set e");
 }
 
-void ILight::log(char message[]) {
+void ILight::log(char message[])
+{
   Serial.println(message);
   //delay(100);
 }
