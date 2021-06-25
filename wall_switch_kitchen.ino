@@ -41,7 +41,7 @@ void loop()
 void readButton3(ILight &model)
 {
   // read the state of the switch into a local variable:
-  int reading = digitalRead(model.buttonPin);
+  int reading = model.readButtonState();
 
   // check to see if you just pressed the button
   // (i.e. the input went from LOW to HIGH), and you've waited long enough
@@ -65,7 +65,7 @@ void readButton3(ILight &model)
       model.buttonState = reading;
 
       // only toggle the lights if the new button state is HIGH
-      if (model.buttonState == HIGH)
+      if (model.buttonState)
       {
         model.set(!model.lightsState);
       }

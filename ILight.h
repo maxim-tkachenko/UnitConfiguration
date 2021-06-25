@@ -1,13 +1,18 @@
+#include "Arduino.h"
+
 #ifndef ILight_h
 #define ILight_h
 
-class ILight {
+class ILight
+{
+private:
     // if debug
-    static const int ledPin = 13;
+    static const int _ledPin = LED_BUILTIN;
     volatile bool _initialized = false;
 
-  public:
-    int buttonPin;
+    int _buttonPin;
+
+public:
     bool lightsState;
     bool buttonState;
     bool lastButtonState;
@@ -18,13 +23,13 @@ class ILight {
 
     void init();
     virtual void set(bool state);
-
+    uint8_t readButtonState();
     void log(char message[]);
 
-  protected:
+protected:
     ILight(
-      int buttonPin,
-      bool initialState);
+        int buttonPin,
+        bool initialState);
 };
 
 #endif

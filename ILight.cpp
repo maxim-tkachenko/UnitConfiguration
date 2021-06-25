@@ -5,7 +5,7 @@ ILight::ILight(
     int buttonPin,
     bool initialState)
 {
-  this->buttonPin = buttonPin;
+  this->_buttonPin = buttonPin;
   this->lightsState = initialState;
 }
 
@@ -13,8 +13,8 @@ void ILight::init()
 {
   log("ILight::init s");
 
-  pinMode(buttonPin, INPUT);
-  set(lightsState); // verify what's called
+  pinMode(_buttonPin, INPUT);
+  set(lightsState);
 
   log("ILight::init e");
 }
@@ -25,15 +25,20 @@ void ILight::set(bool state)
 
   if (!_initialized)
   {
-    pinMode(ledPin, OUTPUT);
+    pinMode(_ledPin, OUTPUT);
     _initialized = true;
   }
 
-  digitalWrite(ledPin, state);
+  digitalWrite(_ledPin, state);
 
   lightsState = state;
 
   log("ILight::set e");
+}
+
+uint8_t ILight::readButtonState()
+{
+  return digitalRead(_buttonPin);
 }
 
 void ILight::log(char message[])
