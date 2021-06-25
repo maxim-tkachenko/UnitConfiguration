@@ -2,21 +2,24 @@
 #include "FastLED.h"
 
 FastLedLight::FastLedLight(
-  int buttonPin,
-  bool initialState,
-  int ledStripStart,
-  int ledStripLenth)
-  : ILight(buttonPin, initialState) {
+    int buttonPin,
+    bool initialState,
+    int ledStripStart,
+    int ledStripLenth)
+    : ILight(buttonPin, initialState)
+{
   this->ledStripStart = ledStripStart;
   this->ledStripLenth = ledStripLenth;
   this->leds = new CRGB[ledStripLenth];
 }
 
-FastLedLight::~FastLedLight() {
+FastLedLight::~FastLedLight()
+{
   delete[] leds;
 }
 
-void FastLedLight::set(bool state) {
+void FastLedLight::set(bool state)
+{
   log("FastLedLight::set s");
 
   switchLed(lightsState, ledStripStart, ledStripLenth);
@@ -25,13 +28,17 @@ void FastLedLight::set(bool state) {
   log("FastLedLight:set e");
 }
 
-void FastLedLight::switchLed(bool state, int ledStripStart, int ledStripLenth) {
+void FastLedLight::switchLed(bool state, int ledStripStart, int ledStripLenth)
+{
   log("FastLedLight::switchLed s");
-  if (state) {
+  if (state)
+  {
     //FastLED.setBrightness(16);
     //FastLED.setTemperature(Candle);
     setColor(CRGB::Green, ledStripStart, ledStripLenth);
-  } else {
+  }
+  else
+  {
     //    if (ledStripStart > 0)
     //      FastLED[1].clear();
     //    else
@@ -41,7 +48,8 @@ void FastLedLight::switchLed(bool state, int ledStripStart, int ledStripLenth) {
   log("FastLedLight::switchLed e");
 }
 
-void FastLedLight::setColor(CRGB color, int ledStripStart, int ledStripLenth) {
+void FastLedLight::setColor(CRGB color, int ledStripStart, int ledStripLenth)
+{
   fillOne(color, ledStripStart, ledStripLenth);
   return;
 
@@ -84,7 +92,8 @@ void FastLedLight::setColor(CRGB color, int ledStripStart, int ledStripLenth) {
     }*/
 }
 
-void FastLedLight::fillOne(CRGB color, int ledStripStart, int ledStripLenth) {
+void FastLedLight::fillOne(CRGB color, int ledStripStart, int ledStripLenth)
+{
   //  if (ledStripStart > 0)
   //  {
   //    fill_solid(leds2, ledStripLenth, color);

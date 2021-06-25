@@ -2,52 +2,32 @@
 #include "Light.h"
 #include "FastLedLight.h"
 
-#define NUM_LEDS 71
-#define PINNN 6
+#define NUM_LEDS 5 //71
+#define PIN 6
 
 #define NUM_LEDS2 143
 #define PIN2 8
 
-//CRGB leds1[NUM_LEDS];
-//CRGB leds2[NUM_LEDS2];
+// the debounce time; increase if the output flickers
+unsigned long debounceDelay = 50;
 
-//const int ledPin = 13;
-unsigned long debounceDelay = 50;  // the debounce time; increase if the output flickers
+Light lights1(2, 5, false);
+Light lights2(3, 7, false);
+FastLedLight lights3(2 /*9*/, false, 0, NUM_LEDS);
+FastLedLight lights4(10, false, NUM_LEDS, NUM_LEDS2);
 
-#define lights3InitialState true
-Light lights1(2, 5, LOW);
-Light lights2(3, 7, LOW);
-FastLedLight lights3(2/*9*/, false, 0, 5);  //NUM_LEDS);
-FastLedLight lights4(10, LOW, NUM_LEDS, NUM_LEDS2);
-
-// CLEDController *controller;
-
-void setup() {
+void setup()
+{
   Serial.begin(9600);
   while (!Serial)
     ;
 
   Serial.println("started");
 
-  //  pinMode(ledPin, OUTPUT);
-  //  FastLED.addLeds<WS2812B, PIN, GRB>(leds1, NUM_LEDS);
-  //  FastLED.addLeds<WS2812B, PIN2, GRB>(leds2, NUM_LEDS2);
-  //
-  //  init(lights1);
-  //  init(lights2);
-  //  init(lights3);
-  //  init(lights4);
-
-  //controller = &FastLED.addLeds<WS2812B, PIN, GRB>(lights3.leds, NUM_LEDS);
-  //FastLED.addLeds<WS2812B, PIN2, GRB>(lights3.leds, NUM_LEDS2);
-
-  //lights1.init();
-  //lights2.init();
-  //lights3.init<WS2812B, PINNN, GRB>(NUM_LEDS);
-  // lights4.init<WS2812B, 5, GRB>(NUM_LEDS2);
-
-  lights3.init<PINNN>(3);
-  //lights3.set(false);
+  lights1.init();
+  lights2.init();
+  lights3.init<PIN>();
+  lights4.init<PIN2>();
 }
 
 //void init(ILight model)
@@ -61,14 +41,16 @@ void setup() {
 //    switchLed(model.lightsState, model.ledStripStart, model.ledStripLenth);
 //}
 
-void loop() {
+void loop()
+{
   // readButton3(lights1);
   // readButton3(lights2);
   readButton3(lights3);
   // readButton3(lights4);
 }
 
-void readButton3(ILight &model) {
+void readButton3(ILight &model)
+{
   // read the state of the switch into a local variable:
   int reading = digitalRead(model.buttonPin);
   //Serial.println(reading);
@@ -78,21 +60,25 @@ void readButton3(ILight &model) {
   // since the last press to ignore any noise:
 
   // If the switch changed, due to noise or pressing:
-  if (reading != model.lastButtonState) {
+  if (reading != model.lastButtonState)
+  {
     // reset the debouncing timer
     model.lastDebounceTime = millis();
   }
 
-  if ((millis() - model.lastDebounceTime) > debounceDelay) {
+  if ((millis() - model.lastDebounceTime) > debounceDelay)
+  {
     // whatever the reading is at, it's been there for longer than the debounce
     // delay, so take it as the actual current state:
 
     // if the button state has changed:
-    if (reading != model.buttonState) {
+    if (reading != model.buttonState)
+    {
       model.buttonState = reading;
 
       // only toggle the lights if the new button state is HIGH
-      if (model.buttonState == HIGH) {
+      if (model.buttonState == HIGH)
+      {
         Serial.println("button detected");
         //        model.lightsState = !model.lightsState;
         //
