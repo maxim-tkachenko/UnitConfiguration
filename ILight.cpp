@@ -1,11 +1,8 @@
 #include "ILight.h"
 #include "Arduino.h"
 
-ILight::ILight(
-    int buttonPin,
-    bool initialState)
+ILight::ILight(bool initialState)
 {
-  this->_buttonPin = buttonPin;
   this->lightsState = initialState;
 }
 
@@ -13,7 +10,6 @@ void ILight::init()
 {
   log("ILight::init s");
 
-  pinMode(_buttonPin, INPUT);
   set(lightsState);
 
   log("ILight::init e");
@@ -36,13 +32,9 @@ void ILight::set(bool state)
   log("ILight::set e");
 }
 
-uint8_t ILight::readButtonState()
-{
-  return digitalRead(_buttonPin);
-}
-
 void ILight::log(char message[])
 {
-  Serial.println(message);
+  //Serial.println(__PRETTY_FUNCTION__);
+  //Serial.println(message);
   //delay(100);
 }

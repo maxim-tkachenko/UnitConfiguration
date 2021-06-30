@@ -3,20 +3,18 @@
 #ifndef Light_h
 #define Light_h
 
-class Light: public ILight
+class Light : public ILight
 {
-    //private:
-    //    int relayPin;
+protected:
+  int relayPin;
 
-  public:
-    int relayPin;
-    Light(
-      int buttonPin,
+public:
+  Light(
       int relayPin,
       bool initialState);
 
-    void init();
-    void set(bool state);
+  void init();
+  void set(bool state);
 };
 
 #endif

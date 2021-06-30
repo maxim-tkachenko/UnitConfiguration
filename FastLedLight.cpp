@@ -2,11 +2,10 @@
 #include "FastLED.h"
 
 FastLedLight::FastLedLight(
-    int buttonPin,
     bool initialState,
     int ledStripStart,
     int ledStripLenth)
-    : ILight(buttonPin, initialState)
+    : ILight(initialState)
 {
   this->ledStripStart = ledStripStart;
   this->ledStripLenth = ledStripLenth;
@@ -22,7 +21,7 @@ void FastLedLight::set(bool state)
 {
   log("FastLedLight::set s");
 
-  switchLed(lightsState, ledStripStart, ledStripLenth);
+  switchLed(state, ledStripStart, ledStripLenth);
   ILight::set(state);
 
   log("FastLedLight:set e");
@@ -111,7 +110,7 @@ void FastLedLight::fillOne(CRGB color, int ledStripStart, int ledStripLenth)
 
   log("FastLedLight::fillOne s1");
 
-  controller->showLeds(10);
+  controller->showLeds(1);
 
   log("FastLedLight::fillOne e");
 }

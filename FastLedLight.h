@@ -19,7 +19,6 @@ public:
   CRGB *leds;
 
   FastLedLight(
-      int buttonPin,
       bool initialState,
       int ledStripStart,
       int ledStripLenth);
@@ -38,7 +37,7 @@ public:
     log("FastLedLight:init e");
   }
 
-  virtual void set(bool state);
+  void set(bool state);
 };
 
 #endif
