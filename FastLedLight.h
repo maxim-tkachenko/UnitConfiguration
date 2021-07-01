@@ -14,15 +14,10 @@ private:
   void fillOne(CRGB color, int ledStripStart, int ledStripLenth);
 
 public:
-  int ledStripStart;
   int ledStripLenth;
   CRGB *leds;
 
-  FastLedLight(
-      bool initialState,
-      int ledStripStart,
-      int ledStripLenth);
-
+  FastLedLight(bool initialState, int ledStripLenth);
   ~FastLedLight();
 
   //template <ESPIChipsets CHIPSET, uint8_t DATA_PIN, EOrder RGB_ORDER>

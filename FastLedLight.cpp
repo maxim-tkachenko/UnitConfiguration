@@ -1,13 +1,9 @@
 #include "FastLedLight.h"
 #include "FastLED.h"
 
-FastLedLight::FastLedLight(
-    bool initialState,
-    int ledStripStart,
-    int ledStripLenth)
+FastLedLight::FastLedLight(bool initialState, int ledStripLenth)
     : ILight(initialState)
 {
-  this->ledStripStart = ledStripStart;
   this->ledStripLenth = ledStripLenth;
   this->leds = new CRGB[ledStripLenth];
 }
@@ -21,7 +17,7 @@ void FastLedLight::set(bool state)
 {
   log("FastLedLight::set s");
 
-  switchLed(state, ledStripStart, ledStripLenth);
+  switchLed(state, 0, ledStripLenth);
   ILight::set(state);
 
   log("FastLedLight:set e");

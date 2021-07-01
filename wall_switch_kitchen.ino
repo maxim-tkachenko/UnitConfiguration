@@ -17,7 +17,7 @@
 
 LightUnit *lightUnit3;
 ButtonDebounced button3(2 /*9*/);
-FastLedLight lights3(false, 0, NUM_LEDS);
+FastLedLight lights3(false, NUM_LEDS);
 
 void setup()
 {
