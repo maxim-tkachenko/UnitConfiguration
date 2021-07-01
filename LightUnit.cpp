@@ -17,10 +17,10 @@ void LightUnit::check()
     if (_button->readState())
     {
         Serial.println("LightUnit::check true");
-        Serial.println(_light->lightsState);
+        Serial.println(_light->get());
         // Serial.println(__func__);
         // Serial.println(__FUNCTION__);
         // Serial.println(__PRETTY_FUNCTION__);
-        _light->set(!_light->lightsState);
+        _light->switchState();
     }
 }

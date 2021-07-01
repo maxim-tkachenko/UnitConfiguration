@@ -1,9 +1,8 @@
 #include "Light.h"
 #include "Arduino.h"
 
-Light::Light(
-    int relayPin,
-    bool initialState) : ILight(initialState)
+Light::Light(int relayPin, bool initialState)
+    : ILight(initialState)
 {
   this->relayPin = relayPin;
 }

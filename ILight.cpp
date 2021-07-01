@@ -3,16 +3,21 @@
 
 ILight::ILight(bool initialState)
 {
-  this->lightsState = initialState;
+  this->_state = initialState;
 }
 
 void ILight::init()
 {
   log("ILight::init s");
 
-  set(lightsState);
+  set(_state);
 
   log("ILight::init e");
+}
+
+bool ILight::get()
+{
+  return _state;
 }
 
 void ILight::set(bool state)
@@ -27,9 +32,14 @@ void ILight::set(bool state)
 
   digitalWrite(_ledPin, state);
 
-  lightsState = state;
+  _state = state;
 
   log("ILight::set e");
+}
+
+void ILight::switchState()
+{
+  set(!_state);
 }
 
 void ILight::log(char message[])

@@ -9,9 +9,7 @@ protected:
   int relayPin;
 
 public:
-  Light(
-      int relayPin,
-      bool initialState);
+  Light(int relayPin, bool initialState);
 
   void init();
   void set(bool state);
