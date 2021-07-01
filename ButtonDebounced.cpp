@@ -32,11 +32,15 @@ bool ButtonDebounced::readState()
         if (reading != buttonState)
         {
             buttonState = reading;
+            if (buttonState)
+            {
+                return true;
+            }
         }
     }
 
     // save the reading. Next time through the loop, it'll be the lastButtonState:
     lastButtonState = reading;
 
-    return buttonState;
+    return false;
 }

@@ -16,14 +16,6 @@ void LightUnit::check()
     //Serial.println("LightUnit::check s");
     if (_button->readState())
     {
-        // if ((millis() - lastDebounceTime) < debounceDelay)
-        // {
-        //     //Serial.println("LightUnit::check skipped");
-        //     return;
-        // }
-
-        // lastDebounceTime = millis();
-
         Serial.println("LightUnit::check true");
         Serial.println(_light->lightsState);
         // Serial.println(__func__);
