@@ -1,4 +1,5 @@
 #include "Arduino.h"
+#include "IPlatform.h"
 
 #ifndef ILight_h
 #define ILight_h
@@ -13,7 +14,9 @@ private:
     volatile bool _initialized = false;
 
 protected:
+    IPlatform *pPlatform;
     ILight(bool initialState);
+    virtual ~ILight();
     void log(const char c[]);
 
 public:

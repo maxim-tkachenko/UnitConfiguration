@@ -1,9 +1,16 @@
 #include "ILight.h"
 #include "Arduino.h"
+#include "AVRPlatform.h"
 
 ILight::ILight(bool initialState)
 {
+  pPlatform = new AVRPlatform();
   this->_state = initialState;
+}
+
+ILight::~ILight()
+{
+  delete pPlatform;
 }
 
 void ILight::init()
@@ -44,7 +51,5 @@ void ILight::switchState()
 
 void ILight::log(const char c[])
 {
-  //Serial.println(__PRETTY_FUNCTION__);
-  Serial.println(c);
-  //delay(100);
+  pPlatform->print(c);
 }
