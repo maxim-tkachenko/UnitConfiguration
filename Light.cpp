@@ -1,5 +1,4 @@
 #include "Light.h"
-#include "Arduino.h"
 
 Light::Light(int relayPin, bool initialState)
     : ILight(initialState)
@@ -10,13 +9,13 @@ Light::Light(int relayPin, bool initialState)
 void Light::init()
 {
   ILight::init();
-  pinMode(relayPin, OUTPUT);
+  pPlatform->pinOut(relayPin);
 }
 
 void Light::set(bool state)
 {
   log("Light::set");
 
-  digitalWrite(relayPin, state);
+  pPlatform->digitalSet(relayPin, state);
   ILight::set(state);
 }
