@@ -12,3 +12,13 @@ int AVRPlatform::ledPin()
 {
     return LED_BUILTIN;
 }
+
+void AVRPlatform::pinIn(uint8_t pin)
+{
+    pinMode(pin, INPUT);
+}
+
+void AVRPlatform::pinOut(uint8_t pin)
+{
+    pinMode(pin, OUTPUT);
+}

@@ -35,7 +35,7 @@ void ILight::set(bool state)
 
   if (!_initialized)
   {
-    pinMode(_ledPin, OUTPUT);
+    pPlatform->pinOut(_ledPin);
     _initialized = true;
   }
 
