@@ -11,6 +11,7 @@ public:
     int ledPin();
     void pinIn(uint8_t pin);
     void pinOut(uint8_t pin);
+    void digitalSet(uint8_t pin, uint8_t value);
 };
 
 #endif

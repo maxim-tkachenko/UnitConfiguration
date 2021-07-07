@@ -1,5 +1,4 @@
 #include "ILight.h"
-#include "Arduino.h"
 #include "AVRPlatform.h"
 
 ILight::ILight(bool initialState)
@@ -39,7 +38,7 @@ void ILight::set(bool state)
     _initialized = true;
   }
 
-  digitalWrite(_ledPin, state);
+  pPlatform->digitalSet(_ledPin, state);
 
   _state = state;
 

@@ -22,3 +22,8 @@ void AVRPlatform::pinOut(uint8_t pin)
 {
     pinMode(pin, OUTPUT);
 }
+
+void AVRPlatform::digitalSet(uint8_t pin, uint8_t value)
+{
+    digitalWrite(pin, value);
+}

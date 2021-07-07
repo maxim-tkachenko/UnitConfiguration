@@ -9,7 +9,7 @@ private:
     bool _state;
 
     // if debug
-    int _ledPin;
+    uint8_t _ledPin;
     volatile bool _initialized = false;
 
 protected:

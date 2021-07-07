@@ -11,6 +11,7 @@ public:
     virtual int ledPin() = 0;
     virtual void pinIn(uint8_t pin) = 0;
     virtual void pinOut(uint8_t pin) = 0;
+    virtual void digitalSet(uint8_t pin, uint8_t value) = 0;
 };
 
 #endif
