@@ -11,7 +11,7 @@ private:
     ILight *_light;
 
 public:
-    LightUnit(Button &button, ILight &light);
+    LightUnit(Button *button, ILight *light);
     ~LightUnit();
     void check();
 };

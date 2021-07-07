@@ -1,10 +1,10 @@
 #include "LightUnit.h"
 #include "Arduino.h"
 
-LightUnit::LightUnit(Button &button, ILight &light)
+LightUnit::LightUnit(Button *button, ILight *light)
 {
-    this->_button = &button;
-    this->_light = &light;
+    _button = button;
+    _light = light;
 }
 
 LightUnit::~LightUnit()

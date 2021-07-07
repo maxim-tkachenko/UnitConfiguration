@@ -20,6 +20,15 @@ public:
   FastLedLight(bool initialState, int ledStripLenth);
   ~FastLedLight();
 
+  template <uint8_t DATA_PIN>
+  static FastLedLight *create(bool initialState, int ledStripLenth)
+  {
+    auto fll = new FastLedLight(initialState, ledStripLenth);
+    fll->init<DATA_PIN>();
+
+    return fll;
+  }
+
   //template <ESPIChipsets CHIPSET, uint8_t DATA_PIN, EOrder RGB_ORDER>
   template <uint8_t DATA_PIN>
   void init()
