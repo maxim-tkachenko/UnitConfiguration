@@ -5,12 +5,14 @@
 ILight::ILight(bool initialState)
 {
   pPlatform = new AVRPlatform();
+  _ledPin = pPlatform->ledPin();
+
   this->_state = initialState;
 }
 
 ILight::~ILight()
 {
-  delete pPlatform;
+  // delete pPlatform;
 }
 
 void ILight::init()

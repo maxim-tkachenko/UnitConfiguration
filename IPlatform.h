@@ -4,7 +4,9 @@
 class IPlatform
 {
 public:
+    // virtual ~IPlatform();
     virtual void print(const char c[]) = 0;
+    virtual int ledPin() = 0;
 };
 
 #endif

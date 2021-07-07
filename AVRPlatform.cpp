@@ -7,3 +7,8 @@ void AVRPlatform::print(const char c[])
     Serial.println(c);
     //delay(100);
 }
+
+int AVRPlatform::ledPin()
+{
+    return LED_BUILTIN;
+}

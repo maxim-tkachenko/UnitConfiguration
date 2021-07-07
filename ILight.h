@@ -1,4 +1,3 @@
-#include "Arduino.h"
 #include "IPlatform.h"
 
 #ifndef ILight_h
@@ -10,7 +9,7 @@ private:
     bool _state;
 
     // if debug
-    static const int _ledPin = LED_BUILTIN;
+    int _ledPin;
     volatile bool _initialized = false;
 
 protected:
