@@ -14,7 +14,7 @@ private:
 
 protected:
     ILight(bool initialState);
-    void log(char message[]);
+    void log(const char c[]);
 
 public:
     void init();

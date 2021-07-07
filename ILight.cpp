@@ -42,9 +42,9 @@ void ILight::switchState()
   set(!_state);
 }
 
-void ILight::log(char message[])
+void ILight::log(const char c[])
 {
   //Serial.println(__PRETTY_FUNCTION__);
-  //Serial.println(message);
+  Serial.println(c);
   //delay(100);
 }
