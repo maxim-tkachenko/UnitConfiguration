@@ -12,6 +12,8 @@ public:
     void pinIn(uint8_t pin);
     void pinOut(uint8_t pin);
     void digitalSet(uint8_t pin, uint8_t value);
+    int digitalGet(uint8_t pin);
+    unsigned long milliseconds();
 };
 
 #endif

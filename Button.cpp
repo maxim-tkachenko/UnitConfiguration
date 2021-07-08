@@ -1,20 +1,21 @@
 #include "Button.h"
-#include "Arduino.h"
+#include "AVRPlatform.h"
 
 Button::Button(uint8_t pin)
 {
     _buttonPin = pin;
+    pPlatform = new AVRPlatform();
 
     init();
 }
 
 void Button::init()
 {
-    pinMode(_buttonPin, INPUT);
+    pPlatform->pinIn(_buttonPin);
 }
 
 bool Button::readState()
 {
-   //Serial.println("Button::readState");
-    return digitalRead(_buttonPin);
+    //Serial.println("Button::readState");
+    return pPlatform->digitalGet(_buttonPin);
 }

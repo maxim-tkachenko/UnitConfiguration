@@ -27,3 +27,13 @@ void AVRPlatform::digitalSet(uint8_t pin, uint8_t value)
 {
     digitalWrite(pin, value);
 }
+
+int AVRPlatform::digitalGet(uint8_t pin)
+{
+    return digitalRead(pin);
+}
+
+unsigned long AVRPlatform::milliseconds()
+{
+    return millis();
+}

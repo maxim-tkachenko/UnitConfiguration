@@ -1,5 +1,4 @@
 #include "ButtonDebounced.h"
-#include "Arduino.h"
 
 ButtonDebounced::ButtonDebounced(uint8_t pin) : Button(pin)
 {
@@ -20,10 +19,10 @@ bool ButtonDebounced::readState()
     if (reading != lastButtonState)
     {
         // reset the debouncing timer
-        lastDebounceTime = millis();
+        lastDebounceTime = pPlatform->milliseconds();
     }
 
-    if ((millis() - lastDebounceTime) > debounceDelay)
+    if ((pPlatform->milliseconds() - lastDebounceTime) > debounceDelay)
     {
         // whatever the reading is at, it's been there for longer than the debounce
         // delay, so take it as the actual current state:
