@@ -3,14 +3,14 @@
 	"tasks": [
 		{
 			"type": "cppbuild",
-			"label": "C/C++: clang++ build active file",
+			"label": "C/C++: clang++ build main file",
 			"command": "/usr/bin/clang++",
 			"args": [
 				"-std=c++11",
 				"-g",
 				"${fileDirname}/main.cpp",
 				"-o",
-				"${fileDirname}/${fileBasenameNoExtension}"
+				"${fileDirname}/main"
 			],
 			"options": {
 				"cwd": "${fileDirname}"
