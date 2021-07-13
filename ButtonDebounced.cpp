@@ -2,6 +2,7 @@
 
 ButtonDebounced::ButtonDebounced(uint8_t pin) : Button(pin)
 {
+    debounceDelay = 50;
 }
 
 bool ButtonDebounced::readState()
