@@ -1,7 +1,7 @@
-#include "ILight.h"
-
 #ifndef Light_h
 #define Light_h
+
+#include "ILight.h"
 
 class Light : public ILight
 {

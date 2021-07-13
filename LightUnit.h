@@ -1,8 +1,8 @@
-#include "Button.h"
-#include "ILight.h"
-
 #ifndef LightUnit_h
 #define LightUnit_h
+
+#include "Button.h"
+#include "ILight.h"
 
 class LightUnit
 {

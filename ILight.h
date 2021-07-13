@@ -1,7 +1,7 @@
-#include "IPlatform.h"
-
 #ifndef ILight_h
 #define ILight_h
+
+#include "IPlatform.h"
 
 class ILight
 {

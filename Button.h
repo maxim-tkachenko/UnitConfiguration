@@ -1,8 +1,8 @@
-#include "_uint8_t.h"
-#include "IPlatform.h"
-
 #ifndef Button_h
 #define Button_h
+
+#include "_uint8_t.h"
+#include "IPlatform.h"
 
 class Button
 {

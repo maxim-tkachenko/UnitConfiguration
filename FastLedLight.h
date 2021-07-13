@@ -1,10 +1,10 @@
 #ifdef __AVR
 
-#include "ILight.h"
-#include "FastLED.h"
-
 #ifndef FastLedLight_h
 #define FastLedLight_h
+
+#include "ILight.h"
+#include "FastLED.h"
 
 class FastLedLight : public ILight
 {

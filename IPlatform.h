@@ -1,7 +1,7 @@
-#include "_uint8_t.h"
-
 #ifndef IPlatform_h
 #define IPlatform_h
+
+#include "_uint8_t.h"
 
 #ifdef __AVR
 #include "Arduino.h"

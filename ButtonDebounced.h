@@ -1,7 +1,7 @@
-#include "Button.h"
-
 #ifndef ButtonDebounced_h
 #define ButtonDebounced_h
+
+#include "Button.h"
 
 class ButtonDebounced : public Button
 {

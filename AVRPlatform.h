@@ -1,7 +1,7 @@
-#include "IPlatform.h"
-
 #ifndef AVRPlatform_h
 #define AVRPlatform_h
+
+#include "IPlatform.h"
 
 class AVRPlatform : public IPlatform
 {

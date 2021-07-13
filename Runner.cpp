@@ -1,3 +1,6 @@
+#ifndef Runner_cpp
+#define Runner_cpp
+
 #ifdef __AVR
 #include "FastLedLight.h"
 #else
@@ -6,9 +9,6 @@
 #include "ButtonDebounced.h"
 #include "LightUnit.h"
 #include "AVRPlatform.h"
-
-#ifndef Runner_cpp
-#define Runner_cpp
 
 class Runner
 {
