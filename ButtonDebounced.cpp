@@ -2,7 +2,7 @@
 
 ButtonDebounced::ButtonDebounced(uint8_t pin) : Button(pin)
 {
-    debounceDelay = 50;
+    _debounceDelay = 50;
 }
 
 ButtonDebounced::~ButtonDebounced()
@@ -22,30 +22,30 @@ bool ButtonDebounced::readState()
     // since the last press to ignore any noise:
 
     // If the switch changed, due to noise or pressing:
-    if (reading != lastButtonState)
+    if (reading != _lastButtonState)
     {
         // reset the debouncing timer
-        lastDebounceTime = pPlatform->milliseconds();
+        _lastDebounceTime = pPlatform->milliseconds();
     }
 
-    if ((pPlatform->milliseconds() - lastDebounceTime) > debounceDelay)
+    if ((pPlatform->milliseconds() - _lastDebounceTime) > _debounceDelay)
     {
         // whatever the reading is at, it's been there for longer than the debounce
         // delay, so take it as the actual current state:
 
         // if the button state has changed:
-        if (reading != buttonState)
+        if (reading != _buttonState)
         {
-            buttonState = reading;
-            if (buttonState)
+            _buttonState = reading;
+            if (_buttonState)
             {
                 return true;
             }
         }
     }
 
-    // save the reading. Next time through the loop, it'll be the lastButtonState:
-    lastButtonState = reading;
+    // save the reading. Next time through the loop, it'll be the _lastButtonState:
+    _lastButtonState = reading;
 
     return false;
 }

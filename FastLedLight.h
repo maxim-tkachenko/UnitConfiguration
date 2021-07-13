@@ -9,16 +9,15 @@
 class FastLedLight : public ILight
 {
 private:
-  CLEDController *controller;
+  int _ledStripLenth;
+  CRGB *_leds;
+  CLEDController *_controller;
 
   void switchLed(bool state, int ledStripStart, int ledStripLenth);
   void setColor(CRGB color, int ledStripStart, int ledStripLenth);
   void fillOne(CRGB color, int ledStripStart, int ledStripLenth);
 
 public:
-  int ledStripLenth;
-  CRGB *leds;
-
   FastLedLight(bool initialState, int ledStripLenth);
   virtual ~FastLedLight();
 
@@ -37,7 +36,7 @@ public:
   {
     log("FastLedLight:init s");
 
-    controller = &FastLED.addLeds<WS2812B, DATA_PIN, GRB>(leds, ledStripLenth);
+    _controller = &FastLED.addLeds<WS2812B, DATA_PIN, GRB>(_leds, _ledStripLenth);
     ILight::init();
 
     log("FastLedLight:init e");
