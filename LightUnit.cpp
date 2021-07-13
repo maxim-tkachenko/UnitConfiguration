@@ -8,6 +8,8 @@ LightUnit::LightUnit(Button *button, ILight *light)
 
 LightUnit::~LightUnit()
 {
+    delete _button;
+    delete _light;
 }
 
 void LightUnit::check()

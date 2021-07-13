@@ -5,6 +5,10 @@ ButtonDebounced::ButtonDebounced(uint8_t pin) : Button(pin)
     debounceDelay = 50;
 }
 
+ButtonDebounced::~ButtonDebounced()
+{
+}
+
 bool ButtonDebounced::readState()
 {
     //Serial.println("ButtonDebounced::readState");

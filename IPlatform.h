@@ -6,7 +6,10 @@
 class IPlatform
 {
 public:
-    // virtual ~IPlatform();
+    virtual ~IPlatform()
+    {
+    };
+
     virtual void print(const char c[]) = 0;
     virtual int ledPin() = 0;
     virtual void pinIn(uint8_t pin) = 0;

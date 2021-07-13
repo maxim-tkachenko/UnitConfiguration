@@ -14,6 +14,7 @@ protected:
 
 public:
     Button(uint8_t pin);
+    virtual ~Button();
     virtual bool readState();
 };
 

@@ -15,10 +15,10 @@ private:
 protected:
     IPlatform *pPlatform;
     ILight(bool initialState);
-    virtual ~ILight();
     void log(const char c[]);
 
 public:
+    virtual ~ILight();
     void init();
     virtual bool get();
     virtual void set(bool state);

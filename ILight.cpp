@@ -11,7 +11,7 @@ ILight::ILight(bool initialState)
 
 ILight::~ILight()
 {
-  // delete pPlatform;
+  delete pPlatform;
 }
 
 void ILight::init()

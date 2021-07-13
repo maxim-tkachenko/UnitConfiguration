@@ -6,6 +6,10 @@ Light::Light(int relayPin, bool initialState)
   this->relayPin = relayPin;
 }
 
+Light::~Light()
+{
+}
+
 void Light::init()
 {
   ILight::init();

@@ -10,6 +10,7 @@ protected:
 
 public:
   Light(int relayPin, bool initialState);
+  virtual ~Light();
 
   void init();
   void set(bool state);

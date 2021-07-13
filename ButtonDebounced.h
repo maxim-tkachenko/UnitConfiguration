@@ -18,6 +18,7 @@ private:
 
 public:
     ButtonDebounced(uint8_t pin);
+    virtual ~ButtonDebounced();
     virtual bool readState();
 };
 

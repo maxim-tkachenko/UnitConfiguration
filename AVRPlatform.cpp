@@ -7,6 +7,10 @@
 using namespace std;
 #endif
 
+AVRPlatform::~AVRPlatform()
+{
+}
+
 void AVRPlatform::print(const char c[])
 {
 #ifdef __AVR

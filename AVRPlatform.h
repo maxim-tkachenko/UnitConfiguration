@@ -6,7 +6,7 @@
 class AVRPlatform : public IPlatform
 {
 public:
-    // ~AVRPlatform();
+    virtual ~AVRPlatform();
     void print(const char c[]);
     int ledPin();
     void pinIn(uint8_t pin);

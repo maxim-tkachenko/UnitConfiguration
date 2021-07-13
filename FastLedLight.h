@@ -20,7 +20,7 @@ public:
   CRGB *leds;
 
   FastLedLight(bool initialState, int ledStripLenth);
-  ~FastLedLight();
+  virtual ~FastLedLight();
 
   template <uint8_t DATA_PIN>
   static FastLedLight *create(bool initialState, int ledStripLenth)

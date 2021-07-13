@@ -9,6 +9,11 @@ Button::Button(uint8_t pin)
     init();
 }
 
+Button::~Button()
+{
+    delete pPlatform;
+}
+
 void Button::init()
 {
     pPlatform->pinIn(_buttonPin);
