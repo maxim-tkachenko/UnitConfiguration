@@ -8,9 +8,9 @@
 			"args": [
 				"-std=c++11",
 				"-g",
-				"${fileDirname}/main.cpp",
+				"\"${workspaceFolder}\"/*.cpp",
 				"-o",
-				"${fileDirname}/main"
+				"${workspaceFolder}/main"
 			],
 			"options": {
 				"cwd": "${fileDirname}"
