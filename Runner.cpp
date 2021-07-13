@@ -1,4 +1,8 @@
+#ifdef __AVR
 #include "FastLedLight.h"
+#else
+#include "Light.h"
+#endif
 #include "ButtonDebounced.h"
 #include "LightUnit.h"
 
@@ -27,8 +31,14 @@ public:
 
     void setup()
     {
-        lightUnit3 = new LightUnit(new ButtonDebounced(2 /*9*/),
-                                   FastLedLight::create<LED1_PIN>(false, NUM_LEDS));
+        auto *light =
+#ifdef __AVR
+            FastLedLight::create<LED1_PIN>(false, NUM_LEDS);
+#else
+            new Light(444, false);
+        light->init();
+#endif
+        lightUnit3 = new LightUnit(new ButtonDebounced(2 /*9*/), light);
 
         // lights1.init();
         // lights2.init();
