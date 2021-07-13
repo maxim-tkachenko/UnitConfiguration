@@ -1,4 +1,3 @@
-#include "Arduino.h"
 #include "Runner.cpp"
 // #include "ArduinoTrace.h"
 
@@ -8,11 +7,6 @@ Runner runner;
 
 void setup()
 {
-  Serial.begin(9600);
-  while (!Serial)
-    ;
-
-  Serial.println("v0.5");
   // Serial.println(__func__);
   // Serial.println(__FUNCTION__);
   // Serial.println(__PRETTY_FUNCTION__);

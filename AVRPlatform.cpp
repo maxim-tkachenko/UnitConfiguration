@@ -7,6 +7,22 @@
 using namespace std;
 #endif
 
+AVRPlatform::AVRPlatform()
+{
+    if (_initialized)
+    {
+        return;
+    }
+
+#ifdef __AVR
+    Serial.begin(9600);
+    while (!Serial)
+        ;
+#endif
+
+    _initialized = true;
+}
+
 AVRPlatform::~AVRPlatform()
 {
     print(__PRETTY_FUNCTION__);

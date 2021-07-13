@@ -5,6 +5,7 @@
 #endif
 #include "ButtonDebounced.h"
 #include "LightUnit.h"
+#include "AVRPlatform.h"
 
 #ifndef Runner_cpp
 #define Runner_cpp
@@ -18,6 +19,8 @@ class Runner
 #define LED2_PIN 8
 
 private:
+    AVRPlatform _platform;
+
     // Light lights1(2, 5, false);
     // Light lights2(3, 7, false);
     LightUnit *lightUnit3;
@@ -26,11 +29,15 @@ private:
 public:
     ~Runner()
     {
+        _platform.print(__PRETTY_FUNCTION__);
         delete lightUnit3;
     }
 
     void setup()
     {
+        _platform.print("v0.5");
+        _platform.print(__PRETTY_FUNCTION__);
+
         auto *light =
 #ifdef __AVR
             FastLedLight::create<LED1_PIN>(false, NUM_LEDS);
@@ -47,6 +54,7 @@ public:
 
     void loop()
     {
+        _platform.print(__PRETTY_FUNCTION__);
         lightUnit3->check();
 
         // readButton3(lights1);

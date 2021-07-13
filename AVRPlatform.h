@@ -5,7 +5,11 @@
 
 class AVRPlatform : public IPlatform
 {
+private:
+    volatile bool _initialized;
+
 public:
+    AVRPlatform();
     virtual ~AVRPlatform();
     void print(const char c[]);
     int ledPin();
