@@ -9,6 +9,7 @@ using namespace std;
 
 AVRPlatform::~AVRPlatform()
 {
+    print(__PRETTY_FUNCTION__);
 }
 
 void AVRPlatform::print(const char c[])

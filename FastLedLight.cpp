@@ -12,6 +12,7 @@ FastLedLight::FastLedLight(bool initialState, int ledStripLenth)
 
 FastLedLight::~FastLedLight()
 {
+  pPlatform->print(__PRETTY_FUNCTION__);
   delete[] leds;
 }
 

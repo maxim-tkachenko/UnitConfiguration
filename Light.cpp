@@ -8,6 +8,7 @@ Light::Light(int relayPin, bool initialState)
 
 Light::~Light()
 {
+  pPlatform->print(__PRETTY_FUNCTION__);
 }
 
 void Light::init()

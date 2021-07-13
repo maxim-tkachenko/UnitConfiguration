@@ -11,6 +11,7 @@ Button::Button(uint8_t pin)
 
 Button::~Button()
 {
+    pPlatform->print(__PRETTY_FUNCTION__);
     delete pPlatform;
 }
 

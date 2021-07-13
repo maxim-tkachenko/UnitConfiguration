@@ -11,6 +11,7 @@ ILight::ILight(bool initialState)
 
 ILight::~ILight()
 {
+  pPlatform->print(__PRETTY_FUNCTION__);
   delete pPlatform;
 }
 

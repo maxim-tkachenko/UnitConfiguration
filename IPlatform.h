@@ -3,11 +3,23 @@
 #ifndef IPlatform_h
 #define IPlatform_h
 
+#ifdef __AVR
+#include "Arduino.h"
+#else
+#include <iostream>
+using namespace std;
+#endif
+
 class IPlatform
 {
 public:
     virtual ~IPlatform()
     {
+#ifdef __AVR
+        Serial.println(__PRETTY_FUNCTION__);
+#else
+        cout << __PRETTY_FUNCTION__ << endl;
+#endif
     };
 
     virtual void print(const char c[]) = 0;

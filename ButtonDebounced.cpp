@@ -7,6 +7,7 @@ ButtonDebounced::ButtonDebounced(uint8_t pin) : Button(pin)
 
 ButtonDebounced::~ButtonDebounced()
 {
+    pPlatform->print(__PRETTY_FUNCTION__);
 }
 
 bool ButtonDebounced::readState()
