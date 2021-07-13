@@ -2,6 +2,8 @@
 #include "Runner.cpp"
 // #include "ArduinoTrace.h"
 
+#define __AVR
+
 Runner runner;
 
 void setup()
@@ -10,7 +12,7 @@ void setup()
   while (!Serial)
     ;
 
-  Serial.println("started4");
+  Serial.println("v0.5");
   // Serial.println(__func__);
   // Serial.println(__FUNCTION__);
   // Serial.println(__PRETTY_FUNCTION__);

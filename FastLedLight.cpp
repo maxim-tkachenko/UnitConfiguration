@@ -1,3 +1,5 @@
+#ifdef __AVR
+
 #include "FastLedLight.h"
 #include "FastLED.h"
 
@@ -110,3 +112,5 @@ void FastLedLight::fillOne(CRGB color, int ledStripStart, int ledStripLenth)
 
   log("FastLedLight::fillOne e");
 }
+
+#endif

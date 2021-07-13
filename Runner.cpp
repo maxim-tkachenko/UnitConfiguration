@@ -1,5 +1,3 @@
-#include "FastLED.h"
-#include "Light.h"
 #include "FastLedLight.h"
 #include "ButtonDebounced.h"
 #include "LightUnit.h"

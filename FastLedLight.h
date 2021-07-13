@@ -1,3 +1,5 @@
+#ifdef __AVR
+
 #include "ILight.h"
 #include "FastLED.h"
 
@@ -44,4 +46,5 @@ public:
   void set(bool state);
 };
 
+#endif
 #endif
