@@ -1,10 +1,37 @@
-#ifdef __AVR
-
 #ifndef FastLedLight_h
 #define FastLedLight_h
 
 #include "ILight.h"
+
+#ifdef __AVR
 #include "FastLED.h"
+#else
+#include "AVRPlatform.h"
+
+#ifndef FastLedLightFake_h
+#define FastLedLightFake_h
+
+struct CRGB
+{
+  static CRGB Green;
+  static CRGB Red;
+};
+
+class CLEDController
+{
+private:
+  AVRPlatform _platform;
+
+public:
+  void showLeds(uint8_t brightness = 255)
+  {
+    _platform.print(__PRETTY_FUNCTION__);
+  }
+};
+
+void fill_solid(struct CRGB *leds, int numToFill, const struct CRGB &color);
+#endif
+#endif
 
 class FastLedLight : public ILight
 {
@@ -36,7 +63,13 @@ public:
   {
     log("FastLedLight:init s");
 
-    _controller = &FastLED.addLeds<WS2812B, DATA_PIN, GRB>(_leds, _ledStripLenth);
+    _controller =
+#ifdef __AVR
+        &FastLED.addLeds<WS2812B, DATA_PIN, GRB>(_leds, _ledStripLenth);
+#else
+        new CLEDController();
+#endif
+
     ILight::init();
 
     log("FastLedLight:init e");
@@ -45,5 +78,4 @@ public:
   void set(bool state);
 };
 
-#endif
 #endif

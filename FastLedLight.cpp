@@ -1,7 +1,10 @@
-#ifdef __AVR
-
 #include "FastLedLight.h"
-#include "FastLED.h"
+
+#ifdef FastLedLightFake_h
+void fill_solid(struct CRGB *leds, int numToFill, const struct CRGB &color)
+{
+}
+#endif
 
 FastLedLight::FastLedLight(bool initialState, int ledStripLenth)
     : ILight(initialState)
@@ -113,5 +116,3 @@ void FastLedLight::fillOne(CRGB color, int ledStripStart, int ledStripLenth)
 
   log("FastLedLight::fillOne e");
 }
-
-#endif

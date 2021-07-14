@@ -1,11 +1,7 @@
 #ifndef Runner_cpp
 #define Runner_cpp
 
-#ifdef __AVR
 #include "FastLedLight.h"
-#else
-#include "Light.h"
-#endif
 #include "ButtonDebounced.h"
 #include "LightUnit.h"
 #include "AVRPlatform.h"
@@ -40,12 +36,7 @@ public:
 
         lightUnit3 = new LightUnit(
             new ButtonDebounced(2 /*9*/),
-#ifdef __AVR
-            FastLedLight::create<LED1_PIN>(false, NUM_LEDS)
-#else
-            new Light(LED1_PIN, false)
-#endif
-        );
+            FastLedLight::create<LED1_PIN>(false, NUM_LEDS));
 
         // lights1.init();
         // lights2.init();
