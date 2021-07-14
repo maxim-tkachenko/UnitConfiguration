@@ -6,7 +6,7 @@
 			"label": "C/C++: clang++ build main file",
 			"command": "/usr/bin/clang++",
 			"args": [
-				"-std=c++11",
+				"-std=c++17",
 				"-g",
 				"\"${workspaceFolder}\"/*.cpp",
 				"-o",

@@ -6,7 +6,7 @@
 class AVRPlatform : public IPlatform
 {
 private:
-    volatile bool _initialized;
+    inline static bool _initialized = false;
 
 public:
     AVRPlatform();
