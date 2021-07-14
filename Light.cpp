@@ -4,6 +4,7 @@ Light::Light(int relayPin, bool initialState)
     : ILight(initialState)
 {
   this->relayPin = relayPin;
+  init();
 }
 
 Light::~Light()

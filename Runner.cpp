@@ -38,14 +38,14 @@ public:
         _platform.print("v0.5");
         _platform.print(__PRETTY_FUNCTION__);
 
-        auto *light =
+        lightUnit3 = new LightUnit(
+            new ButtonDebounced(2 /*9*/),
 #ifdef __AVR
-            FastLedLight::create<LED1_PIN>(false, NUM_LEDS);
+            FastLedLight::create<LED1_PIN>(false, NUM_LEDS)
 #else
-            new Light(444, false);
-        light->init();
+            new Light(LED1_PIN, false)
 #endif
-        lightUnit3 = new LightUnit(new ButtonDebounced(2 /*9*/), light);
+        );
 
         // lights1.init();
         // lights2.init();
