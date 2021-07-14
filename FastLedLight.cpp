@@ -33,7 +33,7 @@ void FastLedLight::switchLed(bool state, int ledStripStart, int ledStripLenth)
   {
     //FastLED.setBrightness(16);
     //FastLED.setTemperature(Candle);
-    setColor(CRGB::Green, ledStripStart, _ledStripLenth);
+    setColor(CRGB::Green, ledStripStart, ledStripLenth);
   }
   else
   {
@@ -41,14 +41,14 @@ void FastLedLight::switchLed(bool state, int ledStripStart, int ledStripLenth)
     //      FastLED[1].clear();
     //    else
     //      FastLED[0].clear();
-    setColor(CRGB::Red, ledStripStart, _ledStripLenth);
+    setColor(CRGB::Red, ledStripStart, ledStripLenth);
   }
   log("FastLedLight::switchLed e");
 }
 
 void FastLedLight::setColor(CRGB color, int ledStripStart, int ledStripLenth)
 {
-  fillOne(color, ledStripStart, _ledStripLenth);
+  fillOne(color, ledStripStart, ledStripLenth);
   return;
 
   /*
@@ -94,18 +94,18 @@ void FastLedLight::fillOne(CRGB color, int ledStripStart, int ledStripLenth)
 {
   //  if (ledStripStart > 0)
   //  {
-  //    fill_solid(leds2, _ledStripLenth, color);
+  //    fill_solid(leds2, ledStripLenth, color);
   //    FastLED[1].showLeds(255);
   //  }
   //  else
   //  {
-  //    fill_solid(leds1, _ledStripLenth, color);
+  //    fill_solid(leds1, ledStripLenth, color);
   //    FastLED[0].showLeds(255);
   //  }
 
   log("FastLedLight::fillOne s");
 
-  fill_solid(_leds, _ledStripLenth, color);
+  fill_solid(_leds, ledStripLenth, color);
 
   log("FastLedLight::fillOne s1");
 
