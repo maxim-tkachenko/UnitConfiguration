@@ -54,7 +54,7 @@ public:
 
     void loop()
     {
-        _platform.print(__PRETTY_FUNCTION__);
+        // _platform.print(__PRETTY_FUNCTION__);
         lightUnit3->check();
 
         // readButton3(lights1);
