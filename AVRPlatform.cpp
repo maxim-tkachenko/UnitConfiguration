@@ -9,7 +9,9 @@ using namespace std;
 
 AVRPlatform::~AVRPlatform()
 {
+#ifdef PLATFORM_FEATURES_DESTRUCTION_LOG_ENABLED
     print(__PRETTY_FUNCTION__);
+#endif
 }
 
 void AVRPlatform::print(const char c[])

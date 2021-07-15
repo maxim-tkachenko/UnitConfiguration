@@ -21,6 +21,9 @@ private:
 public:
     KitchenConfiguration()
     {
+        AVRPlatform platform;
+        platform.print(__PRETTY_FUNCTION__);
+
         units[0] = new LightUnit(
             new ButtonDebounced(2 /*9*/),
             FastLedLight::create<LED1_PIN>(false, NUM_LEDS));

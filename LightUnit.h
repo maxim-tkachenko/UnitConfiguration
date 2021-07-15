@@ -3,10 +3,12 @@
 
 #include "Button.h"
 #include "ILight.h"
+#include "AVRPlatform.h"
 
 class LightUnit
 {
 private:
+    AVRPlatform platform;
     Button *_button;
     ILight *_light;
 
