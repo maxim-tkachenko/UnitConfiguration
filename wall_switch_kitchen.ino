@@ -1,4 +1,5 @@
-#include "Runner.cpp"
+#include "Runner.h"
+#include "KitchenConfiguration.cpp"
 // #include "ArduinoTrace.h"
 
 #define __AVR
@@ -11,7 +12,8 @@ void setup()
   // Serial.println(__FUNCTION__);
   // Serial.println(__PRETTY_FUNCTION__);
 
-  runner.setup();
+  AVRPlatform::init();
+  runner.setup(new KitchenConfiguration());
 }
 
 void loop()

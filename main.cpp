@@ -1,12 +1,13 @@
 #ifndef __AVR
 
-#include "Runner.cpp"
+#include "Runner.h"
+#include "KitchenConfiguration.cpp"
 
 Runner runner;
 
 int main()
 {
-    runner.setup();
+    runner.setup(new KitchenConfiguration());
     runner.loop();
 
     return 0;

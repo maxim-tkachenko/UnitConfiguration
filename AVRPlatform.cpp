@@ -7,17 +7,6 @@
 using namespace std;
 #endif
 
-void AVRPlatform::init()
-{
-#ifdef __AVR
-    Serial.begin(9600);
-    while (!Serial)
-        ;
-#endif
-
-    print(__PRETTY_FUNCTION__);
-}
-
 AVRPlatform::~AVRPlatform()
 {
     print(__PRETTY_FUNCTION__);

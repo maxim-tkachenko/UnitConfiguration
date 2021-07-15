@@ -7,7 +7,16 @@ class AVRPlatform : public IPlatform
 {
 public:
     virtual ~AVRPlatform();
-    void init();
+    static void init()
+    {
+#ifdef __AVR
+        Serial.begin(9600);
+        while (!Serial)
+            ;
+
+        Serial.println(__PRETTY_FUNCTION__);
+#endif
+    }
     void print(const char c[]);
     int ledPin();
     void pinIn(uint8_t pin);

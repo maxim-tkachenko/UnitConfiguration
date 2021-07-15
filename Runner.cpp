@@ -2,39 +2,47 @@
 #define Runner_cpp
 
 #include "AVRPlatform.h"
-#include "KitchenConfiguration.cpp"
+#include "IConfiguration.h"
 
 class Runner
 {
 private:
     AVRPlatform _platform;
-    KitchenConfiguration *_configuretion;
+    IBaseConfiguration *_configuration;
+
+    void loopImpl()
+    {
+        auto next = _configuration->next();
+        if (next == nullptr)
+        {
+            return;
+        }
+
+        next->check();
+        loopImpl();
+    }
 
 public:
     ~Runner()
     {
         _platform.print(__PRETTY_FUNCTION__);
-        delete _configuretion;
+        delete _configuration;
     }
 
-    void setup()
+    void setup(IBaseConfiguration *configuration)
     {
-        // serial must be initialized in the setup function of arduino project
-        _platform.init();
         _platform.print("v0.6");
         _platform.print(__PRETTY_FUNCTION__);
 
-        _configuretion = new KitchenConfiguration();
+        _configuration = configuration;
     }
 
     void loop()
     {
         // _platform.print(__PRETTY_FUNCTION__);
 
-        for (auto unit : _configuretion->units)
-        {
-            unit->check();
-        }
+        _configuration->reset();
+        loopImpl();
     }
 };
 

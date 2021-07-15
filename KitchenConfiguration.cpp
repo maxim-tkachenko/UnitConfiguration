@@ -1,11 +1,11 @@
 #ifndef KitchenConfiguration_cpp
 #define KitchenConfiguration_cpp
 
+#include "IConfiguration.h"
 #include "FastLedLight.h"
 #include "ButtonDebounced.h"
-#include "LightUnit.h"
 
-class KitchenConfiguration
+class KitchenConfiguration : public IConfiguration<1>
 {
 #define NUM_LEDS 5 //71
 #define LED1_PIN 6
@@ -19,8 +19,6 @@ private:
     // FastLedLight lights4(10, false, NUM_LEDS, NUM_LEDS2);
 
 public:
-    LightUnit *units[1];
-
     KitchenConfiguration()
     {
         units[0] = new LightUnit(
@@ -30,14 +28,6 @@ public:
         // lights1.init();
         // lights2.init();
         // lights4.init<LED2_PIN>();
-    }
-
-    ~KitchenConfiguration()
-    {
-        for (auto &unit : units)
-        {
-            delete unit;
-        }
     }
 };
 
