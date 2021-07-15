@@ -5,12 +5,9 @@
 
 class AVRPlatform : public IPlatform
 {
-private:
-    inline static bool _initialized = false;
-
 public:
-    AVRPlatform();
     virtual ~AVRPlatform();
+    void init();
     void print(const char c[]);
     int ledPin();
     void pinIn(uint8_t pin);

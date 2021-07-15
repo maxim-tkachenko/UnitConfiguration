@@ -31,6 +31,8 @@ public:
 
     void setup()
     {
+        // serial must be initialized in the setup function of arduino project
+        _platform.init();
         _platform.print("v0.5");
         _platform.print(__PRETTY_FUNCTION__);
 
