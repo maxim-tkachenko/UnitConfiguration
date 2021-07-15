@@ -1,49 +1,35 @@
-#ifndef Runner_cpp
-#define Runner_cpp
+#include "Runner.h"
 
-#include "AVRPlatform.h"
-#include "IConfiguration.h"
-
-class Runner
+Runner::~Runner()
 {
-private:
-    AVRPlatform _platform;
-    IBaseConfiguration *_configuration;
+    _platform.print(__PRETTY_FUNCTION__);
+    delete _configuration;
+}
 
-    void loopImpl()
+void Runner::setup(IBaseConfiguration *configuration)
+{
+    _platform.print("v0.7");
+    _platform.print(__PRETTY_FUNCTION__);
+
+    _configuration = configuration;
+}
+
+void Runner::loop()
+{
+    // _platform.print(__PRETTY_FUNCTION__);
+
+    _configuration->reset();
+    loopImpl();
+}
+
+void Runner::loopImpl()
+{
+    auto next = _configuration->next();
+    if (next == nullptr)
     {
-        auto next = _configuration->next();
-        if (next == nullptr)
-        {
-            return;
-        }
-
-        next->check();
-        loopImpl();
+        return;
     }
 
-public:
-    ~Runner()
-    {
-        _platform.print(__PRETTY_FUNCTION__);
-        delete _configuration;
-    }
-
-    void setup(IBaseConfiguration *configuration)
-    {
-        _platform.print("v0.6");
-        _platform.print(__PRETTY_FUNCTION__);
-
-        _configuration = configuration;
-    }
-
-    void loop()
-    {
-        // _platform.print(__PRETTY_FUNCTION__);
-
-        _configuration->reset();
-        loopImpl();
-    }
-};
-
-#endif
+    next->check();
+    loopImpl();
+}
