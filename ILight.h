@@ -10,7 +10,7 @@ private:
 
     // if debug
     uint8_t _ledPin;
-    volatile bool _initialized;
+    inline static bool _initialized;
 
 protected:
     IPlatform *pPlatform;
