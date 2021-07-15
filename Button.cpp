@@ -3,9 +3,9 @@
 
 Button::Button(uint8_t pin)
 {
-    _buttonPin = pin;
     pPlatform = new AVRPlatform();
 
+    _buttonPin = pin;
     init();
 }
 

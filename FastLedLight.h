@@ -61,7 +61,7 @@ public:
   template <uint8_t DATA_PIN>
   void init()
   {
-    log("FastLedLight:init s");
+    log(__PRETTY_FUNCTION__);
 
     _controller =
 #ifdef __AVR
@@ -71,8 +71,6 @@ public:
 #endif
 
     ILight::init();
-
-    log("FastLedLight:init e");
   }
 
   void set(bool state);

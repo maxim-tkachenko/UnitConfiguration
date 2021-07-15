@@ -3,6 +3,8 @@
 Light::Light(int relayPin, bool initialState)
     : ILight(initialState)
 {
+  log(__PRETTY_FUNCTION__);
+
   this->relayPin = relayPin;
   init();
 }
@@ -14,13 +16,15 @@ Light::~Light()
 
 void Light::init()
 {
+  log(__PRETTY_FUNCTION__);
+
   ILight::init();
   pPlatform->pinOut(relayPin);
 }
 
 void Light::set(bool state)
 {
-  log("Light::set");
+  log(__PRETTY_FUNCTION__);
 
   pPlatform->digitalSet(relayPin, state);
   ILight::set(state);

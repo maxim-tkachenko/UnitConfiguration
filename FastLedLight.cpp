@@ -9,6 +9,8 @@ void fill_solid(struct CRGB *leds, int numToFill, const struct CRGB &color)
 FastLedLight::FastLedLight(bool initialState, int ledStripLenth)
     : ILight(initialState)
 {
+  log(__PRETTY_FUNCTION__);
+
   _ledStripLenth = ledStripLenth;
   _leds = new CRGB[_ledStripLenth];
 }
@@ -21,17 +23,16 @@ FastLedLight::~FastLedLight()
 
 void FastLedLight::set(bool state)
 {
-  log("FastLedLight::set s");
+  log(__PRETTY_FUNCTION__);
 
   switchLed(state, 0, _ledStripLenth);
   ILight::set(state);
-
-  log("FastLedLight:set e");
 }
 
 void FastLedLight::switchLed(bool state, int ledStripStart, int ledStripLenth)
 {
-  log("FastLedLight::switchLed s");
+  log(__PRETTY_FUNCTION__);
+
   if (state)
   {
     //FastLED.setBrightness(16);
@@ -46,7 +47,6 @@ void FastLedLight::switchLed(bool state, int ledStripStart, int ledStripLenth)
     //      FastLED[0].clear();
     setColor(CRGB::Red, ledStripStart, ledStripLenth);
   }
-  log("FastLedLight::switchLed e");
 }
 
 void FastLedLight::setColor(CRGB color, int ledStripStart, int ledStripLenth)
@@ -106,13 +106,9 @@ void FastLedLight::fillOne(CRGB color, int ledStripStart, int ledStripLenth)
   //    FastLED[0].showLeds(255);
   //  }
 
-  log("FastLedLight::fillOne s");
+  log(__PRETTY_FUNCTION__);
 
   fill_solid(_leds, ledStripLenth, color);
 
-  log("FastLedLight::fillOne s1");
-
   _controller->showLeds(1);
-
-  log("FastLedLight::fillOne e");
 }

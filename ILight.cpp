@@ -4,6 +4,8 @@
 ILight::ILight(bool initialState)
 {
   pPlatform = new AVRPlatform();
+  log(__PRETTY_FUNCTION__);
+
   _ledPin = pPlatform->ledPin();
 
   _state = initialState;
@@ -11,27 +13,27 @@ ILight::ILight(bool initialState)
 
 ILight::~ILight()
 {
-  pPlatform->print(__PRETTY_FUNCTION__);
+  log(__PRETTY_FUNCTION__);
   delete pPlatform;
 }
 
 void ILight::init()
 {
-  log("ILight::init s");
+  log(__PRETTY_FUNCTION__);
 
   set(_state);
-
-  log("ILight::init e");
 }
 
 bool ILight::get()
 {
+  log(__PRETTY_FUNCTION__);
+
   return _state;
 }
 
 void ILight::set(bool state)
 {
-  log("ILight::set s");
+  log(__PRETTY_FUNCTION__);
 
   if (!_initialized)
   {
@@ -42,12 +44,12 @@ void ILight::set(bool state)
   pPlatform->digitalSet(_ledPin, state);
 
   _state = state;
-
-  log("ILight::set e");
 }
 
 void ILight::switchState()
 {
+  log(__PRETTY_FUNCTION__);
+
   set(!_state);
 }
 
