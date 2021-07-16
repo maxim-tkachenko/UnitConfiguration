@@ -3,14 +3,12 @@
 	"tasks": [
 		{
 			"type": "cppbuild",
-			"label": "C/C++: clang++ build main file",
+			"label": "C/C++: clang++ build all files",
 			"command": "/usr/bin/clang++",
 			"args": [
 				"-std=c++17",
-				"-g",
 				"\"${workspaceFolder}\"/*.cpp",
-				"-o",
-				"${workspaceFolder}/main"
+				"-c"
 			],
 			"options": {
 				"cwd": "${fileDirname}"
@@ -18,14 +16,28 @@
 			"problemMatcher": [
 				"$gcc"
 			],
+			"group": "build",
+			"presentation": {
+				"clear": true
+			},
+			"detail": "compiler: /usr/bin/clang++"
+		},
+		{
+			"label": "Move files",
+			"type": "shell",
+			"command": "./scripts/moveOutput.sh",
+			"windows": {
+				"command": ".\\scripts\\moveOutput.cmd"
+			},
 			"group": {
 				"kind": "build",
 				"isDefault": true
 			},
 			"presentation": {
-				"clear": true
+				"reveal": "always"
 			},
-			"detail": "compiler: /usr/bin/clang++"
-		}
+			"problemMatcher": [],
+			"dependsOn": "C/C++: clang++ build all files"
+		},
 	]
 }

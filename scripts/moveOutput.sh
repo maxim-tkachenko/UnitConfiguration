@@ -1,0 +1,1 @@
+find . -name '*.o' -exec mv {} build/ \;
