@@ -1,6 +1,7 @@
 #ifndef ButtonDebounced_h
 #define ButtonDebounced_h
 
+#include "_uint8_t.h"
 #include "Button.h"
 
 class ButtonDebounced : public Button

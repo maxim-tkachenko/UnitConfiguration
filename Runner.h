@@ -4,8 +4,6 @@
 #include "AVRPlatform.h"
 #include "IConfiguration.h"
 
-#define PLATFORM_FEATURES_DESTRUCTION_LOG_ENABLED
-
 class Runner
 {
 private:

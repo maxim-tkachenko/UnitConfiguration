@@ -1,6 +1,7 @@
 #ifndef FastLedLight_h
 #define FastLedLight_h
 
+#include "_uint8_t.h"
 #include "ILight.h"
 
 #ifdef __AVR

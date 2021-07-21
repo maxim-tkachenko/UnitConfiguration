@@ -10,6 +10,8 @@
 using namespace std;
 #endif
 
+#define PLATFORM_FEATURES_DESTRUCTION_LOG_ENABLED
+
 class IPlatform
 {
 public:

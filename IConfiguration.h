@@ -1,6 +1,7 @@
 #ifndef IConfiguration_h
 #define IConfiguration_h
 
+#include "_size_t.h"
 #include "LightUnit.h"
 
 class IBaseConfiguration

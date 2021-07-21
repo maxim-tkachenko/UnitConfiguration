@@ -2,6 +2,7 @@
 #define ILight_h
 
 #include "IPlatform.h"
+#include "_uint8_t.h"
 
 class ILight
 {
