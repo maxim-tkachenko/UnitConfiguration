@@ -3,11 +3,11 @@
 	"tasks": [
 		{
 			"type": "cppbuild",
-			"label": "C/C++: clang++ build all files",
+			"label": "clang++ build all files",
 			"command": "/usr/bin/clang++",
 			"args": [
 				"-std=c++17",
-				"\"${workspaceFolder}\"/*.cpp",
+				"${workspaceFolder}/*.cpp",
 				"-c"
 			],
 			"options": {
@@ -18,7 +18,9 @@
 			],
 			"group": "build",
 			"presentation": {
-				"clear": true
+				"clear": true,
+				"showReuseMessage": false,
+				"reveal": "always",
 			},
 			"detail": "compiler: /usr/bin/clang++"
 		},
@@ -29,15 +31,23 @@
 			"windows": {
 				"command": ".\\scripts\\moveOutput.cmd"
 			},
+			"group": "build",
+			"presentation": {
+				"reveal": "always",
+			},
+			"problemMatcher": [],
+		},
+		{
+			"label": "Build and move",
+			"dependsOn": [
+				"clang++ build all files",
+				"Move files",
+			],
+			"dependsOrder": "sequence",
 			"group": {
 				"kind": "build",
 				"isDefault": true
 			},
-			"presentation": {
-				"reveal": "always"
-			},
-			"problemMatcher": [],
-			"dependsOn": "C/C++: clang++ build all files"
-		},
+		}
 	]
 }
