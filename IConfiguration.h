@@ -9,6 +9,7 @@ class IBaseConfiguration
 public:
     virtual LightUnit *next() = 0;
     virtual void reset() = 0;
+    virtual void add(LightUnit *unit) = 0;
     virtual ~IBaseConfiguration()
     {
     }
@@ -37,6 +38,11 @@ public:
     void reset()
     {
         _index = 0;
+    }
+
+    void add(LightUnit *unit)
+    {
+        units[_index++] = unit;
     }
 
     virtual ~IConfiguration()
