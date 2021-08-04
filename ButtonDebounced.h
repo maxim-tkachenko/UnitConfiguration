@@ -15,7 +15,7 @@ private:
     unsigned long _lastDebounceTime;
 
     // the debounce time; increase if the output flickers
-    unsigned long _debounceDelay;
+    inline static unsigned long _debounceDelay = 50;
 
 public:
     ButtonDebounced(uint8_t pin);
