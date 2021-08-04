@@ -7,8 +7,8 @@
 class ButtonDebounced : public Button
 {
 private:
-    bool _buttonState;
-    bool _lastButtonState;
+    bool _state;
+    bool _lastState;
 
     // the following variable are unsigned longs because the time, measured in
     // milliseconds, will quickly become a bigger number than can be stored in an int.

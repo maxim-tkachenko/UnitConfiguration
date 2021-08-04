@@ -28,7 +28,7 @@ bool ButtonDebounced::readState()
     // since the last press to ignore any noise:
 
     // If the switch changed, due to noise or pressing:
-    if (reading != _lastButtonState)
+    if (reading != _lastState)
     {
         // reset the debouncing timer
         _lastDebounceTime = pPlatform->milliseconds();
@@ -40,18 +40,18 @@ bool ButtonDebounced::readState()
         // delay, so take it as the actual current state:
 
         // if the button state has changed:
-        if (reading != _buttonState)
+        if (reading != _state)
         {
-            _buttonState = reading;
-            if (_buttonState)
+            _state = reading;
+            if (_state)
             {
                 return true;
             }
         }
     }
 
-    // save the reading. Next time through the loop, it'll be the _lastButtonState:
-    _lastButtonState = reading;
+    // save the reading. Next time through the loop, it'll be the _lastState:
+    _lastState = reading;
 
     return false;
 }
