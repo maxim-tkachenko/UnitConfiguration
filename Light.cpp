@@ -18,8 +18,8 @@ void Light::init()
 {
   log(__PRETTY_FUNCTION__);
 
-  ILight::init();
   pPlatform->pinOut(relayPin);
+  ILight::init();
 }
 
 void Light::set(bool state)
