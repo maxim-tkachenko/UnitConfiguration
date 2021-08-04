@@ -19,7 +19,7 @@ template <size_t SIZE>
 class IConfiguration : public IBaseConfiguration
 {
 private:
-    int _index = 0;
+    uint8_t _index = 0;
 
 protected:
     LightUnit *units[SIZE];
