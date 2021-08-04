@@ -62,7 +62,9 @@ public:
   template <uint8_t DATA_PIN>
   void init()
   {
+#ifdef CALL_TRACING_ENABLED
     log(__PRETTY_FUNCTION__);
+#endif
 
     _controller =
 #ifdef __AVR

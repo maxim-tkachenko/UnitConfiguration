@@ -9,7 +9,9 @@ void fill_solid(struct CRGB *leds, int numToFill, const struct CRGB &color)
 FastLedLight::FastLedLight(bool initialState, int ledStripLenth)
     : ILight(initialState)
 {
+#ifdef CALL_TRACING_ENABLED
   log(__PRETTY_FUNCTION__);
+#endif
 
   _ledStripLenth = ledStripLenth;
   _leds = new CRGB[_ledStripLenth];
@@ -17,13 +19,18 @@ FastLedLight::FastLedLight(bool initialState, int ledStripLenth)
 
 FastLedLight::~FastLedLight()
 {
-  pPlatform->print(__PRETTY_FUNCTION__);
+#ifdef CALL_TRACING_ENABLED
+  log(__PRETTY_FUNCTION__);
+#endif
+
   delete[] _leds;
 }
 
 void FastLedLight::set(bool state)
 {
+#ifdef CALL_TRACING_ENABLED
   log(__PRETTY_FUNCTION__);
+#endif
 
   switchLed(state, 0, _ledStripLenth);
   ILight::set(state);
@@ -31,7 +38,9 @@ void FastLedLight::set(bool state)
 
 void FastLedLight::switchLed(bool state, int ledStripStart, int ledStripLenth)
 {
+#ifdef CALL_TRACING_ENABLED
   log(__PRETTY_FUNCTION__);
+#endif
 
   if (state)
   {
@@ -106,7 +115,9 @@ void FastLedLight::fillOne(CRGB color, int ledStripStart, int ledStripLenth)
   //    FastLED[0].showLeds(255);
   //  }
 
+#ifdef CALL_TRACING_ENABLED
   log(__PRETTY_FUNCTION__);
+#endif
 
   fill_solid(_leds, ledStripLenth, color);
 

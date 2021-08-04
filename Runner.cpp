@@ -2,7 +2,10 @@
 
 Runner::~Runner()
 {
+#ifdef CALL_TRACING_ENABLED
     _platform.print(__PRETTY_FUNCTION__);
+#endif
+
     delete _configuration;
 }
 

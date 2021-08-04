@@ -18,10 +18,12 @@ public:
     virtual ~IPlatform()
     {
 #ifdef PLATFORM_FEATURES_DESTRUCTION_LOG_ENABLED
+#ifdef CALL_TRACING_ENABLED
 #ifdef __AVR
         Serial.println(__PRETTY_FUNCTION__);
 #else
         cout << __PRETTY_FUNCTION__ << endl;
+#endif
 #endif
 #endif
     };

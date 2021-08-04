@@ -10,16 +10,16 @@ using namespace std;
 AVRPlatform::~AVRPlatform()
 {
 #ifdef PLATFORM_FEATURES_DESTRUCTION_LOG_ENABLED
+#ifdef CALL_TRACING_ENABLED
     print(__PRETTY_FUNCTION__);
+#endif
 #endif
 }
 
 void AVRPlatform::print(const char c[])
 {
 #ifdef __AVR
-    //Serial.println(__PRETTY_FUNCTION__);
     Serial.println(c);
-    //delay(100);
 #else
     cout << c << endl;
 #endif

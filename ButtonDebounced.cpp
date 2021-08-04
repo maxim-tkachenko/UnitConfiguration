@@ -2,12 +2,18 @@
 
 ButtonDebounced::ButtonDebounced(uint8_t pin) : Button(pin)
 {
+#ifdef CALL_TRACING_ENABLED
+    pPlatform->print(__PRETTY_FUNCTION__);
+#endif
+
     _debounceDelay = 50;
 }
 
 ButtonDebounced::~ButtonDebounced()
 {
+#ifdef CALL_TRACING_ENABLED
     pPlatform->print(__PRETTY_FUNCTION__);
+#endif
 }
 
 bool ButtonDebounced::readState()
