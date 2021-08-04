@@ -8,7 +8,7 @@ Button::Button(uint8_t pin)
     pPlatform->print(__PRETTY_FUNCTION__);
 #endif
 
-    _buttonPin = pin;
+    _pin = pin;
     init();
 }
 
@@ -27,10 +27,10 @@ void Button::init()
     pPlatform->print(__PRETTY_FUNCTION__);
 #endif
 
-    pPlatform->pinIn(_buttonPin);
+    pPlatform->pinIn(_pin);
 }
 
 bool Button::readState()
 {
-    return pPlatform->digitalGet(_buttonPin);
+    return pPlatform->digitalGet(_pin);
 }

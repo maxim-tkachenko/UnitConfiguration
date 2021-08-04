@@ -6,8 +6,10 @@
 
 class Button
 {
+private:
+    uint8_t _pin;
+
 protected:
-    uint8_t _buttonPin;
     IPlatform *pPlatform;
 
     void init();
