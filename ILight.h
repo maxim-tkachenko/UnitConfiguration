@@ -10,7 +10,7 @@ private:
     bool _state;
 
     // if debug
-    uint8_t _ledPin;
+    uint8_t _ledPin = 255;
     inline static bool _initialized = false;
 
 protected:

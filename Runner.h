@@ -7,8 +7,8 @@
 class Runner
 {
 private:
-    AVRPlatform _platform;
-    IBaseConfiguration *_configuration;
+    AVRPlatform _platform{};
+    IBaseConfiguration *_configuration = nullptr;
 
     void loopImpl();
 

@@ -2,14 +2,14 @@
 #include "AVRPlatform.h"
 
 ILight::ILight(bool initialState)
+    : pPlatform(new AVRPlatform()),
+      _state(initialState)
 {
-  pPlatform = new AVRPlatform();
 #ifdef CALL_TRACING_ENABLED
   log(__PRETTY_FUNCTION__);
 #endif
 
   _ledPin = pPlatform->ledPin();
-  _state = initialState;
 }
 
 ILight::~ILight()

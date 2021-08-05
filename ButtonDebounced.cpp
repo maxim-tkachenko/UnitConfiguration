@@ -1,6 +1,10 @@
 #include "ButtonDebounced.h"
 
-ButtonDebounced::ButtonDebounced(uint8_t pin) : Button(pin)
+ButtonDebounced::ButtonDebounced(uint8_t pin)
+    : Button(pin),
+      _state(false),
+      _lastState(false),
+      _lastDebounceTime(0)
 {
 #ifdef CALL_TRACING_ENABLED
     pPlatform->print(__PRETTY_FUNCTION__);

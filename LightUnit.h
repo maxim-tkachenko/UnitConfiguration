@@ -8,7 +8,7 @@
 class LightUnit
 {
 private:
-    AVRPlatform platform;
+    AVRPlatform platform{};
     Button *_button;
     ILight *_light;
 

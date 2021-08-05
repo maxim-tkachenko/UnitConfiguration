@@ -7,14 +7,13 @@ void fill_solid(struct CRGB *leds, int numToFill, const struct CRGB &color)
 #endif
 
 FastLedLight::FastLedLight(bool initialState, int ledStripLenth)
-    : ILight(initialState)
+    : ILight(initialState),
+      _ledStripLenth(ledStripLenth),
+      _leds(new CRGB[_ledStripLenth])
 {
 #ifdef CALL_TRACING_ENABLED
   log(__PRETTY_FUNCTION__);
 #endif
-
-  _ledStripLenth = ledStripLenth;
-  _leds = new CRGB[_ledStripLenth];
 }
 
 FastLedLight::~FastLedLight()

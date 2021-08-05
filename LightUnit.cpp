@@ -1,13 +1,12 @@
 #include "LightUnit.h"
 
 LightUnit::LightUnit(Button *button, ILight *light)
+    : _button(button),
+      _light(light)
 {
 #ifdef CALL_TRACING_ENABLED
     platform.print(__PRETTY_FUNCTION__);
 #endif
-
-    _button = button;
-    _light = light;
 }
 
 LightUnit::~LightUnit()

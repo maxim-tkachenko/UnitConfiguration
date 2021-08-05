@@ -39,7 +39,7 @@ class FastLedLight : public ILight
 private:
   int _ledStripLenth;
   CRGB *_leds;
-  CLEDController *_controller;
+  CLEDController *_controller = nullptr;
 
   void switchLed(bool state, int ledStripStart, int ledStripLenth);
   void setColor(CRGB color, int ledStripStart, int ledStripLenth);

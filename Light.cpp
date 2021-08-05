@@ -1,13 +1,13 @@
 #include "Light.h"
 
-Light::Light(int relayPin, bool initialState)
-    : ILight(initialState)
+Light::Light(uint8_t relayPin, bool initialState)
+    : ILight(initialState),
+      _relayPin(relayPin)
 {
 #ifdef CALL_TRACING_ENABLED
   log(__PRETTY_FUNCTION__);
 #endif
 
-  this->relayPin = relayPin;
   init();
 }
 
@@ -24,7 +24,7 @@ void Light::init()
   log(__PRETTY_FUNCTION__);
 #endif
 
-  pPlatform->pinOut(relayPin);
+  pPlatform->pinOut(_relayPin);
   ILight::init();
 }
 
@@ -34,6 +34,6 @@ void Light::set(bool state)
   log(__PRETTY_FUNCTION__);
 #endif
 
-  pPlatform->digitalSet(relayPin, state);
+  pPlatform->digitalSet(_relayPin, state);
   ILight::set(state);
 }

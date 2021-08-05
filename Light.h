@@ -5,11 +5,11 @@
 
 class Light : public ILight
 {
-protected:
-  int relayPin;
+private:
+  uint8_t _relayPin;
 
 public:
-  Light(int relayPin, bool initialState);
+  Light(uint8_t relayPin, bool initialState);
   virtual ~Light();
 
   void init();

@@ -2,13 +2,13 @@
 #include "AVRPlatform.h"
 
 Button::Button(uint8_t pin)
+    : pPlatform(new AVRPlatform()),
+      _pin(pin)
 {
-    pPlatform = new AVRPlatform();
 #ifdef CALL_TRACING_ENABLED
     pPlatform->print(__PRETTY_FUNCTION__);
 #endif
 
-    _pin = pin;
     init();
 }
 

@@ -20,8 +20,6 @@ class IConfiguration : public IBaseConfiguration
 {
 private:
     uint8_t _index = 0;
-
-protected:
     LightUnit *units[SIZE];
 
 public:
