@@ -11,16 +11,15 @@ Runner::~Runner()
 
 void Runner::setup(IBaseConfiguration *configuration)
 {
-    _platform.print("v0.7");
+#ifdef CALL_TRACING_ENABLED
     _platform.print(__PRETTY_FUNCTION__);
+#endif
 
     _configuration = configuration;
 }
 
 void Runner::loop()
 {
-    // _platform.print(__PRETTY_FUNCTION__);
-
     _configuration->reset();
     loopImpl();
 }

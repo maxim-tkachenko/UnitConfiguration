@@ -2,14 +2,14 @@
 #include "AVRPlatform.h"
 
 ILight::ILight(bool initialState)
-    : pPlatform(new AVRPlatform()),
+    : platform(new AVRPlatform()),
       _state(initialState)
 {
 #ifdef CALL_TRACING_ENABLED
   log(__PRETTY_FUNCTION__);
 #endif
 
-  _ledPin = pPlatform->ledPin();
+  _ledPin = platform->ledPin();
 }
 
 ILight::~ILight()
@@ -18,7 +18,7 @@ ILight::~ILight()
   log(__PRETTY_FUNCTION__);
 #endif
 
-  delete pPlatform;
+  delete platform;
 }
 
 void ILight::init()
@@ -47,11 +47,11 @@ void ILight::set(bool state)
 
   if (!_initialized)
   {
-    pPlatform->pinOut(_ledPin);
+    platform->pinOut(_ledPin);
     _initialized = true;
   }
 
-  pPlatform->digitalSet(_ledPin, state);
+  platform->digitalSet(_ledPin, state);
 
   _state = state;
 }
@@ -67,5 +67,5 @@ void ILight::switchState()
 
 void ILight::log(const char c[])
 {
-  pPlatform->print(c);
+  platform->print(c);
 }

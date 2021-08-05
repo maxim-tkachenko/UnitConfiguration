@@ -7,14 +7,14 @@ ButtonDebounced::ButtonDebounced(uint8_t pin)
       _lastDebounceTime(0)
 {
 #ifdef CALL_TRACING_ENABLED
-    pPlatform->print(__PRETTY_FUNCTION__);
+    platform->print(__PRETTY_FUNCTION__);
 #endif
 }
 
 ButtonDebounced::~ButtonDebounced()
 {
 #ifdef CALL_TRACING_ENABLED
-    pPlatform->print(__PRETTY_FUNCTION__);
+    platform->print(__PRETTY_FUNCTION__);
 #endif
 }
 
@@ -33,10 +33,10 @@ bool ButtonDebounced::readState()
     if (reading != _lastState)
     {
         // reset the debouncing timer
-        _lastDebounceTime = pPlatform->milliseconds();
+        _lastDebounceTime = platform->milliseconds();
     }
 
-    if ((pPlatform->milliseconds() - _lastDebounceTime) > _debounceDelay)
+    if ((platform->milliseconds() - _lastDebounceTime) > _debounceDelay)
     {
         // whatever the reading is at, it's been there for longer than the debounce
         // delay, so take it as the actual current state:

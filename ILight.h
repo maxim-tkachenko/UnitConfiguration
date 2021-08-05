@@ -14,7 +14,7 @@ private:
     inline static bool _initialized = false;
 
 protected:
-    IPlatform *pPlatform;
+    IPlatform *platform;
     ILight(bool initialState = false);
     void log(const char c[]);
 

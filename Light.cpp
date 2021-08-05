@@ -24,7 +24,7 @@ void Light::init()
   log(__PRETTY_FUNCTION__);
 #endif
 
-  pPlatform->pinOut(_relayPin);
+  platform->pinOut(_relayPin);
   ILight::init();
 }
 
@@ -34,6 +34,6 @@ void Light::set(bool state)
   log(__PRETTY_FUNCTION__);
 #endif
 
-  pPlatform->digitalSet(_relayPin, state);
+  platform->digitalSet(_relayPin, state);
   ILight::set(state);
 }

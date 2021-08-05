@@ -2,11 +2,11 @@
 #include "AVRPlatform.h"
 
 Button::Button(uint8_t pin)
-    : pPlatform(new AVRPlatform()),
+    : platform(new AVRPlatform()),
       _pin(pin)
 {
 #ifdef CALL_TRACING_ENABLED
-    pPlatform->print(__PRETTY_FUNCTION__);
+    platform->print(__PRETTY_FUNCTION__);
 #endif
 
     init();
@@ -15,22 +15,22 @@ Button::Button(uint8_t pin)
 Button::~Button()
 {
 #ifdef CALL_TRACING_ENABLED
-    pPlatform->print(__PRETTY_FUNCTION__);
+    platform->print(__PRETTY_FUNCTION__);
 #endif
 
-    delete pPlatform;
+    delete platform;
 }
 
 void Button::init()
 {
 #ifdef CALL_TRACING_ENABLED
-    pPlatform->print(__PRETTY_FUNCTION__);
+    platform->print(__PRETTY_FUNCTION__);
 #endif
 
-    pPlatform->pinIn(_pin);
+    platform->pinIn(_pin);
 }
 
 bool Button::readState()
 {
-    return pPlatform->digitalGet(_pin);
+    return platform->digitalGet(_pin);
 }

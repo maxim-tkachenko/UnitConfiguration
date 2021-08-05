@@ -10,7 +10,7 @@ private:
     uint8_t _pin;
 
 protected:
-    IPlatform *pPlatform;
+    IPlatform *platform;
 
     void init();
 
