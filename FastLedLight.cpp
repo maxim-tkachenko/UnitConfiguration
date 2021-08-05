@@ -6,7 +6,7 @@ void fill_solid(struct CRGB *leds, int numToFill, const struct CRGB &color)
 }
 #endif
 
-FastLedLight::FastLedLight(bool initialState, int ledStripLenth)
+FastLedLight::FastLedLight(int ledStripLenth, bool initialState)
     : ILight(initialState),
       _ledStripLenth(ledStripLenth),
       _leds(new CRGB[_ledStripLenth])

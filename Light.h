@@ -9,7 +9,7 @@ private:
   uint8_t _relayPin;
 
 public:
-  Light(uint8_t relayPin, bool initialState);
+  Light(uint8_t relayPin, bool initialState = false);
   virtual ~Light();
 
   void init();

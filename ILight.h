@@ -15,7 +15,7 @@ private:
 
 protected:
     IPlatform *pPlatform;
-    ILight(bool initialState);
+    ILight(bool initialState = false);
     void log(const char c[]);
 
 public:

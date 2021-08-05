@@ -46,13 +46,13 @@ private:
   void fillOne(CRGB color, int ledStripStart, int ledStripLenth);
 
 public:
-  FastLedLight(bool initialState, int ledStripLenth);
+  FastLedLight(int ledStripLenth, bool initialState = false);
   virtual ~FastLedLight();
 
   template <uint8_t DATA_PIN>
-  static FastLedLight *create(bool initialState, int ledStripLenth)
+  static FastLedLight *create(int ledStripLenth, bool initialState = false)
   {
-    auto fll = new FastLedLight(initialState, ledStripLenth);
+    auto fll = new FastLedLight(ledStripLenth, initialState);
     fll->init<DATA_PIN>();
 
     return fll;
