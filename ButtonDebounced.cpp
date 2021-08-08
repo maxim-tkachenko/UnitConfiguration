@@ -6,16 +6,12 @@ ButtonDebounced::ButtonDebounced(uint8_t pin)
       _lastState(false),
       _lastDebounceTime(0)
 {
-#ifdef CALL_TRACING_ENABLED
-    platform->print(__PRETTY_FUNCTION__);
-#endif
+    traceme;
 }
 
 ButtonDebounced::~ButtonDebounced()
 {
-#ifdef CALL_TRACING_ENABLED
-    platform->print(__PRETTY_FUNCTION__);
-#endif
+    traceme;
 }
 
 bool ButtonDebounced::readState()

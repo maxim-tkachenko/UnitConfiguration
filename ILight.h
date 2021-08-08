@@ -3,6 +3,7 @@
 
 #include "IPlatform.h"
 #include "_uint8_t.h"
+#include "Diagnostics.h"
 
 class ILight
 {
@@ -16,7 +17,6 @@ private:
 protected:
     IPlatform *platform;
     ILight(bool initialState = false);
-    void log(const char c[]);
 
 public:
     virtual ~ILight();

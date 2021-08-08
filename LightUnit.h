@@ -3,16 +3,11 @@
 
 #include "Button.h"
 #include "ILight.h"
-#ifdef CALL_TRACING_ENABLED
-#include "AVRPlatform.h"
-#endif
+#include "Diagnostics.h"
 
 class LightUnit
 {
 private:
-#ifdef CALL_TRACING_ENABLED
-    AVRPlatform platform{};
-#endif
     Button *_button;
     ILight *_light;
 

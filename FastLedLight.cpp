@@ -11,25 +11,19 @@ FastLedLight::FastLedLight(int ledStripLenth, bool initialState)
       _ledStripLenth(ledStripLenth),
       _leds(new CRGB[_ledStripLenth])
 {
-#ifdef CALL_TRACING_ENABLED
-  log(__PRETTY_FUNCTION__);
-#endif
+  traceme;
 }
 
 FastLedLight::~FastLedLight()
 {
-#ifdef CALL_TRACING_ENABLED
-  log(__PRETTY_FUNCTION__);
-#endif
+  traceme;
 
   delete[] _leds;
 }
 
 void FastLedLight::set(bool state)
 {
-#ifdef CALL_TRACING_ENABLED
-  log(__PRETTY_FUNCTION__);
-#endif
+  traceme;
 
   switchLed(state, 0, _ledStripLenth);
   ILight::set(state);
@@ -37,9 +31,7 @@ void FastLedLight::set(bool state)
 
 void FastLedLight::switchLed(bool state, int ledStripStart, int ledStripLenth)
 {
-#ifdef CALL_TRACING_ENABLED
-  log(__PRETTY_FUNCTION__);
-#endif
+  traceme;
 
   if (state)
   {
@@ -114,9 +106,7 @@ void FastLedLight::fillOne(CRGB color, int ledStripStart, int ledStripLenth)
   //    FastLED[0].showLeds(255);
   //  }
 
-#ifdef CALL_TRACING_ENABLED
-  log(__PRETTY_FUNCTION__);
-#endif
+  traceme;
 
   fill_solid(_leds, ledStripLenth, color);
 

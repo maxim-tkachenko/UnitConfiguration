@@ -6,7 +6,6 @@
 class AVRPlatform : public IPlatform
 {
 public:
-    virtual ~AVRPlatform();
     static void init()
     {
 #ifdef __AVR
@@ -14,9 +13,14 @@ public:
         while (!Serial)
             ;
 
+#ifdef TRACE_ENABLED
         Serial.println(__PRETTY_FUNCTION__);
+        // print("v0.8");
+#endif
 #endif
     }
+
+    virtual ~AVRPlatform();
     void print(const char c[]);
     int ledPin();
     void pinIn(uint8_t pin);

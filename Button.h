@@ -3,6 +3,7 @@
 
 #include "_uint8_t.h"
 #include "IPlatform.h"
+#include "Diagnostics.h"
 
 class Button
 {

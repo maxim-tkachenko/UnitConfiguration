@@ -3,11 +3,11 @@
 
 #include "_uint8_t.h"
 #include "ILight.h"
+#include "Diagnostics.h"
 
 #ifdef __AVR
 #include "FastLED.h"
 #else
-#include "AVRPlatform.h"
 
 #ifndef FastLedLightFake_h
 #define FastLedLightFake_h
@@ -20,13 +20,10 @@ struct CRGB
 
 class CLEDController
 {
-private:
-  AVRPlatform _platform;
-
 public:
   void showLeds(uint8_t brightness = 255)
   {
-    _platform.print(__PRETTY_FUNCTION__);
+    traceme;
   }
 };
 
@@ -62,9 +59,7 @@ public:
   template <uint8_t DATA_PIN>
   void init()
   {
-#ifdef CALL_TRACING_ENABLED
-    log(__PRETTY_FUNCTION__);
-#endif
+    traceme;
 
     _controller =
 #ifdef __AVR

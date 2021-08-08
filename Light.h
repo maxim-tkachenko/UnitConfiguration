@@ -2,6 +2,7 @@
 #define Light_h
 
 #include "ILight.h"
+#include "Diagnostics.h"
 
 class Light : public ILight
 {

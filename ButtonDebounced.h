@@ -3,6 +3,7 @@
 
 #include "_uint8_t.h"
 #include "Button.h"
+#include "Diagnostics.h"
 
 class ButtonDebounced : public Button
 {

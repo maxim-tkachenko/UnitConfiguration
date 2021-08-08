@@ -4,16 +4,12 @@ LightUnit::LightUnit(Button *button, ILight *light)
     : _button(button),
       _light(light)
 {
-#ifdef CALL_TRACING_ENABLED
-    platform.print(__PRETTY_FUNCTION__);
-#endif
+    traceme;
 }
 
 LightUnit::~LightUnit()
 {
-#ifdef CALL_TRACING_ENABLED
-    platform.print(__PRETTY_FUNCTION__);
-#endif
+    traceme;
 
     delete _button;
     delete _light;

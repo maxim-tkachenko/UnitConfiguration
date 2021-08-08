@@ -3,9 +3,7 @@
 
 #include "crossplatform_size_t.h"
 #include "LightUnit.h"
-#ifdef CALL_TRACING_ENABLED
-#include "AVRPlatform.h"
-#endif
+#include "Diagnostics.h"
 
 class IBaseConfiguration
 {
@@ -25,11 +23,6 @@ private:
     uint8_t _index = 0;
     LightUnit *_units[SIZE];
 
-#ifdef CALL_TRACING_ENABLED
-protected:
-    AVRPlatform platform{};
-#endif
-
 public:
     LightUnit *next()
     {
@@ -48,18 +41,14 @@ public:
 
     void add(LightUnit *unit)
     {
-        _units[_index++] = unit;
+        traceme;
 
-#ifdef CALL_TRACING_ENABLED
-        platform.print(__PRETTY_FUNCTION__);
-#endif
+        _units[_index++] = unit;
     }
 
     virtual ~IConfiguration()
     {
-#ifdef CALL_TRACING_ENABLED
-        platform.print(__PRETTY_FUNCTION__);
-#endif
+        traceme;
 
         for (auto &unit : _units)
         {

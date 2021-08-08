@@ -10,7 +10,7 @@ using namespace std;
 AVRPlatform::~AVRPlatform()
 {
 #ifdef PLATFORM_FEATURES_DESTRUCTION_LOG_ENABLED
-#ifdef CALL_TRACING_ENABLED
+#ifdef TRACE_ENABLED
     print(__PRETTY_FUNCTION__);
 #endif
 #endif

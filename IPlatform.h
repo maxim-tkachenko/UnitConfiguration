@@ -2,6 +2,7 @@
 #define IPlatform_h
 
 #include "_uint8_t.h"
+#include "DiagnosticsFlags.h"
 
 #ifdef __AVR
 #include "Arduino.h"
@@ -16,7 +17,7 @@ public:
     virtual ~IPlatform()
     {
 #ifdef PLATFORM_FEATURES_DESTRUCTION_LOG_ENABLED
-#ifdef CALL_TRACING_ENABLED
+#ifdef TRACE_ENABLED
 #ifdef __AVR
         Serial.println(__PRETTY_FUNCTION__);
 #else

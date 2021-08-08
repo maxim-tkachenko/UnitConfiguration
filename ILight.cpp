@@ -5,45 +5,35 @@ ILight::ILight(bool initialState)
     : platform(new AVRPlatform()),
       _state(initialState)
 {
-#ifdef CALL_TRACING_ENABLED
-  log(__PRETTY_FUNCTION__);
-#endif
+  traceme;
 
   _ledPin = platform->ledPin();
 }
 
 ILight::~ILight()
 {
-#ifdef CALL_TRACING_ENABLED
-  log(__PRETTY_FUNCTION__);
-#endif
+  traceme;
 
   delete platform;
 }
 
 void ILight::init()
 {
-#ifdef CALL_TRACING_ENABLED
-  log(__PRETTY_FUNCTION__);
-#endif
+  traceme;
 
   set(_state);
 }
 
 bool ILight::get()
 {
-#ifdef CALL_TRACING_ENABLED
-  log(__PRETTY_FUNCTION__);
-#endif
+  traceme;
 
   return _state;
 }
 
 void ILight::set(bool state)
 {
-#ifdef CALL_TRACING_ENABLED
-  log(__PRETTY_FUNCTION__);
-#endif
+  traceme;
 
   if (!_initialized)
   {
@@ -58,14 +48,7 @@ void ILight::set(bool state)
 
 void ILight::switchState()
 {
-#ifdef CALL_TRACING_ENABLED
-  log(__PRETTY_FUNCTION__);
-#endif
+  traceme;
 
   set(!_state);
-}
-
-void ILight::log(const char c[])
-{
-  platform->print(c);
 }
