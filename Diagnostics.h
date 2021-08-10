@@ -14,6 +14,6 @@ inline void trace(const char c[])
     platform.print(c);
 }
 #else
-#define traceme ;
+#define traceme
 #endif // end of TRACE_ENABLED
 #endif // end of EMBEDDED_DIAGNOSTICS_H
