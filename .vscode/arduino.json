@@ -1,6 +1,0 @@
-{
-    "board": "arduino:avr:nano",
-    "configuration": "cpu=atmega328",
-    "sketch": "wall_switch_kitchen.ino",
-    "port": "/dev/tty.usbserial-1430"
-}
