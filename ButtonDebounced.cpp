@@ -16,8 +16,6 @@ ButtonDebounced::~ButtonDebounced()
 
 bool ButtonDebounced::readState()
 {
-    //Serial.println("ButtonDebounced::readState");
-
     // read the state of the switch into a local variable:
     int reading = Button::readState();
 
