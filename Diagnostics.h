@@ -5,6 +5,9 @@
 
 #ifdef TRACE_ENABLED
 #include "AVRPlatform.h"
+
+// use __FUNCTION__ or __func__ instead to reduce
+// memory consumption by cutting off member's signature
 #define traceme trace(__PRETTY_FUNCTION__);
 
 inline AVRPlatform platform{};
