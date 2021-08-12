@@ -11,12 +11,12 @@ AVRPlatform::~AVRPlatform()
 {
 #ifdef PLATFORM_FEATURES_DESTRUCTION_LOG_ENABLED
 #ifdef TRACE_ENABLED
-    print(__PRETTY_FUNCTION__);
+    println(__PRETTY_FUNCTION__);
 #endif
 #endif
 }
 
-void AVRPlatform::print(const char c[])
+void AVRPlatform::println(const char c[])
 {
 #ifdef __AVR
     Serial.println(c);

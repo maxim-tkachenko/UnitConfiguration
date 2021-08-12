@@ -13,8 +13,8 @@
 inline AVRPlatform platform{};
 inline void trace(const char c[])
 {
-    // platform.print("TRACE: ");
-    platform.print(c);
+    // platform.println("TRACE: ");
+    platform.println(c);
 }
 #else
 #define traceme

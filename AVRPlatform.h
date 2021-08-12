@@ -15,13 +15,13 @@ public:
 
 #ifdef TRACE_ENABLED
         Serial.println(__PRETTY_FUNCTION__);
-        // print("v0.8");
+        // println("v0.8");
 #endif
 #endif
     }
 
     virtual ~AVRPlatform();
-    void print(const char c[]);
+    void println(const char c[]);
     int ledPin();
     void pinIn(uint8_t pin);
     void pinOut(uint8_t pin);
