@@ -16,6 +16,15 @@ AVRPlatform::~AVRPlatform()
 #endif
 }
 
+void AVRPlatform::print(const char c[])
+{
+#ifdef __AVR
+    Serial.print(c);
+#else
+    cout << c;
+#endif
+}
+
 void AVRPlatform::println(const char c[])
 {
 #ifdef __AVR

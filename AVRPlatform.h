@@ -21,6 +21,7 @@ public:
     }
 
     virtual ~AVRPlatform();
+    void print(const char c[]);
     void println(const char c[]);
     int ledPin();
     void pinIn(uint8_t pin);
