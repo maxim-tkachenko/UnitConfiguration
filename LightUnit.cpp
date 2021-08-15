@@ -1,13 +1,13 @@
 #include "LightUnit.h"
 
-LightUnit::LightUnit(Button *button, ILight *light)
+WorkUnit::WorkUnit(Button *button, ILight *light)
     : _button(button),
       _light(light)
 {
     traceme;
 }
 
-LightUnit::~LightUnit()
+WorkUnit::~WorkUnit()
 {
     traceme;
 
@@ -15,7 +15,7 @@ LightUnit::~LightUnit()
     delete _light;
 }
 
-void LightUnit::check()
+void WorkUnit::check()
 {
     if (_button->readState())
     {

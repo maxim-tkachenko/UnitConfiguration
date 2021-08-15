@@ -8,9 +8,9 @@
 class IBaseConfiguration
 {
 public:
-    virtual LightUnit *next() = 0;
+    virtual WorkUnit *next() = 0;
     virtual void reset() = 0;
-    virtual void add(LightUnit *unit) = 0;
+    virtual void add(WorkUnit *unit) = 0;
     virtual ~IBaseConfiguration()
     {
     }
@@ -21,10 +21,10 @@ class IConfiguration : public IBaseConfiguration
 {
 private:
     uint8_t _index = 0;
-    LightUnit *_units[SIZE];
+    WorkUnit *_units[SIZE];
 
 public:
-    LightUnit *next()
+    WorkUnit *next()
     {
         if (_index == SIZE)
         {
@@ -39,7 +39,7 @@ public:
         _index = 0;
     }
 
-    void add(LightUnit *unit)
+    void add(WorkUnit *unit)
     {
         traceme;
 

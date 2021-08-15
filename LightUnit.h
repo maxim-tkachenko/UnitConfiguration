@@ -1,19 +1,19 @@
-#ifndef LightUnit_h
-#define LightUnit_h
+#ifndef WorkUnit_h
+#define WorkUnit_h
 
 #include "Button.h"
 #include "ILight.h"
 #include "Diagnostics.h"
 
-class LightUnit
+class WorkUnit
 {
 private:
     Button *_button;
     ILight *_light;
 
 public:
-    LightUnit(Button *button, ILight *light);
-    ~LightUnit();
+    WorkUnit(Button *button, ILight *light);
+    ~WorkUnit();
     void check();
 };
 
