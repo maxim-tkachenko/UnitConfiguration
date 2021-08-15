@@ -2,7 +2,7 @@
 #define IConfiguration_h
 
 #include "crossplatform_size_t.h"
-#include "LightUnit.h"
+#include "WorkUnit.h"
 #include "Diagnostics.h"
 
 class IBaseConfiguration

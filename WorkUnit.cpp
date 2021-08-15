@@ -1,4 +1,4 @@
-#include "LightUnit.h"
+#include "WorkUnit.h"
 
 WorkUnit::WorkUnit(Button *button, ILight *light)
     : _button(button),
