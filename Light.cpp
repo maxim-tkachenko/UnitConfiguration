@@ -1,8 +1,8 @@
 #include "Light.h"
 
-Light::Light(uint8_t relayPin, bool initialState)
+Light::Light(uint8_t dataPin, bool initialState)
     : IDevice(initialState),
-      _relayPin(relayPin)
+      _dataPin(dataPin)
 {
   traceme;
 
@@ -18,7 +18,7 @@ void Light::init()
 {
   traceme;
 
-  platform->pinOut(_relayPin);
+  platform->pinOut(_dataPin);
   IDevice::init();
 }
 
@@ -26,6 +26,6 @@ void Light::set(bool state)
 {
   traceme;
 
-  platform->digitalSet(_relayPin, state);
+  platform->digitalSet(_dataPin, state);
   IDevice::set(state);
 }

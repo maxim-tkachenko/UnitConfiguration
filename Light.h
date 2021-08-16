@@ -7,10 +7,10 @@
 class Light : public IDevice
 {
 private:
-  uint8_t _relayPin;
+  uint8_t _dataPin;
 
 public:
-  Light(uint8_t relayPin, bool initialState = false);
+  Light(uint8_t dataPin, bool initialState = false);
   virtual ~Light();
 
   void init();
