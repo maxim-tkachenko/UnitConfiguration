@@ -13,8 +13,6 @@ PushButton::PushButton(uint8_t pin)
 PushButton::~PushButton()
 {
     traceme;
-
-    delete platform;
 }
 
 void PushButton::init()

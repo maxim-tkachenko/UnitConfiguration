@@ -2,7 +2,6 @@
 #define PushButton_h
 
 #include "_uint8_t.h"
-#include "IPlatform.h"
 #include "Diagnostics.h"
 #include "IController.h"
 
