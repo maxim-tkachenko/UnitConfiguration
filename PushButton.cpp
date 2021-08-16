@@ -1,5 +1,4 @@
 #include "PushButton.h"
-#include "AVRPlatform.h"
 
 PushButton::PushButton(uint8_t pin)
     : IController(),
