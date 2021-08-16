@@ -10,4 +10,6 @@ IController::IController()
 IController::~IController()
 {
     traceme;
+
+    delete platform;
 }
