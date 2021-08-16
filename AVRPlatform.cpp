@@ -66,7 +66,7 @@ void AVRPlatform::digitalSet(uint8_t pin, uint8_t value)
 #ifdef __AVR
     digitalWrite(pin, value);
 #else
-    cout << value << "value set for " << pin << endl;
+    cout << value << " value set for " << pin << endl;
 #endif
 }
 
