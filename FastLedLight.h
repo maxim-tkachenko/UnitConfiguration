@@ -2,7 +2,7 @@
 #define FastLedLight_h
 
 #include "_uint8_t.h"
-#include "ILight.h"
+#include "IDevice.h"
 #include "Diagnostics.h"
 
 #ifdef __AVR
@@ -31,7 +31,7 @@ void fill_solid(struct CRGB *leds, int numToFill, const struct CRGB &color);
 #endif
 #endif
 
-class FastLedLight : public ILight
+class FastLedLight : public IDevice
 {
 private:
   int _ledStripLenth;
@@ -68,7 +68,7 @@ public:
         new CLEDController();
 #endif
 
-    ILight::init();
+    IDevice::init();
   }
 
   void set(bool state);

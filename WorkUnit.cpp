@@ -1,8 +1,8 @@
 #include "WorkUnit.h"
 
-WorkUnit::WorkUnit(ILight *light, Button *button)
+WorkUnit::WorkUnit(IDevice *device, Button *button)
     : WorkUnit(
-          light,
+          device,
           new Button *[1]
           { button },
           1)
@@ -10,10 +10,10 @@ WorkUnit::WorkUnit(ILight *light, Button *button)
     traceme;
 }
 
-WorkUnit::WorkUnit(ILight *light, Button **button, uint8_t size)
+WorkUnit::WorkUnit(IDevice *device, Button **button, uint8_t size)
     : _controllers(button),
       _size(size),
-      _light(light)
+      _device(device)
 {
     traceme;
 }
@@ -28,7 +28,7 @@ WorkUnit::~WorkUnit()
     }
 
     delete[] _controllers;
-    delete _light;
+    delete _device;
 }
 
 void WorkUnit::check()
@@ -37,7 +37,7 @@ void WorkUnit::check()
     {
         if (_controllers[i]->readState())
         {
-            _light->switchState();
+            _device->switchState();
         }
     }
 }

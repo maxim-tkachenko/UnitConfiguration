@@ -7,7 +7,7 @@ void fill_solid(struct CRGB *leds, int numToFill, const struct CRGB &color)
 #endif
 
 FastLedLight::FastLedLight(int ledStripLenth, bool initialState)
-    : ILight(initialState),
+    : IDevice(initialState),
       _ledStripLenth(ledStripLenth),
       _leds(new CRGB[_ledStripLenth])
 {
@@ -26,7 +26,7 @@ void FastLedLight::set(bool state)
   traceme;
 
   switchLed(state, 0, _ledStripLenth);
-  ILight::set(state);
+  IDevice::set(state);
 }
 
 void FastLedLight::switchLed(bool state, int ledStripStart, int ledStripLenth)

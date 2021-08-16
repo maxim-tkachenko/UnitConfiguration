@@ -2,7 +2,7 @@
 #define UnitConfiguration_h
 
 #include "AVRPlatform.h"
-#include "ILight.h"
+#include "IDevice.h"
 #include "Button.h"
 #include "WorkUnit.h"
 #include "IConfiguration.h"

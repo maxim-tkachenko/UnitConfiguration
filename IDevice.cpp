@@ -1,7 +1,7 @@
-#include "ILight.h"
+#include "IDevice.h"
 #include "AVRPlatform.h"
 
-ILight::ILight(bool initialState)
+IDevice::IDevice(bool initialState)
     : platform(new AVRPlatform()),
       _state(initialState)
 {
@@ -10,28 +10,28 @@ ILight::ILight(bool initialState)
   _ledPin = platform->ledPin();
 }
 
-ILight::~ILight()
+IDevice::~IDevice()
 {
   traceme;
 
   delete platform;
 }
 
-void ILight::init()
+void IDevice::init()
 {
   traceme;
 
   set(_state);
 }
 
-bool ILight::get()
+bool IDevice::get()
 {
   traceme;
 
   return _state;
 }
 
-void ILight::set(bool state)
+void IDevice::set(bool state)
 {
   traceme;
 
@@ -46,7 +46,7 @@ void ILight::set(bool state)
   _state = state;
 }
 
-void ILight::switchState()
+void IDevice::switchState()
 {
   traceme;
 

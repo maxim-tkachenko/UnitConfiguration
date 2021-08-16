@@ -1,10 +1,10 @@
 #ifndef Light_h
 #define Light_h
 
-#include "ILight.h"
+#include "IDevice.h"
 #include "Diagnostics.h"
 
-class Light : public ILight
+class Light : public IDevice
 {
 private:
   uint8_t _relayPin;

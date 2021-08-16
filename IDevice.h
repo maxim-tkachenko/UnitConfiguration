@@ -1,11 +1,11 @@
-#ifndef ILight_h
-#define ILight_h
+#ifndef IDevice_h
+#define IDevice_h
 
 #include "IPlatform.h"
 #include "_uint8_t.h"
 #include "Diagnostics.h"
 
-class ILight
+class IDevice
 {
 private:
     bool _state;
@@ -16,10 +16,10 @@ private:
 
 protected:
     IPlatform *platform;
-    ILight(bool initialState = false);
+    IDevice(bool initialState = false);
 
 public:
-    virtual ~ILight();
+    virtual ~IDevice();
     void init();
     virtual bool get();
     virtual void set(bool state);
