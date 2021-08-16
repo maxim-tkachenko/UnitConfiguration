@@ -2,7 +2,7 @@
 #include "AVRPlatform.h"
 
 PushButton::PushButton(uint8_t pin)
-    : platform(new AVRPlatform()),
+    : IController(),
       _pin(pin)
 {
     traceme;

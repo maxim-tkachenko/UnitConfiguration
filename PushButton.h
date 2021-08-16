@@ -4,16 +4,15 @@
 #include "_uint8_t.h"
 #include "IPlatform.h"
 #include "Diagnostics.h"
+#include "IController.h"
 
-class PushButton
+class PushButton : public IController
 {
 private:
     uint8_t _pin;
 
 protected:
-    IPlatform *platform;
-
-    void init();
+    virtual void init();
 
 public:
     PushButton(uint8_t pin);
