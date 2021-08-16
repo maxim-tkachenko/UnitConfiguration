@@ -49,7 +49,7 @@ public:
     {
         traceme;
 
-        for (auto &unit : _units)
+        for (auto unit : _units)
         {
             delete unit;
         }
