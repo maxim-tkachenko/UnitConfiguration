@@ -8,11 +8,13 @@
 class WorkUnit
 {
 private:
-    Button *_button;
+    uint8_t _size;
+    Button **_controllers;
     ILight *_light;
 
 public:
-    WorkUnit(Button *button, ILight *light);
+    WorkUnit(ILight *light, Button *button);
+    WorkUnit(ILight *light, Button **button, uint8_t size);
     ~WorkUnit();
     void check();
 };
