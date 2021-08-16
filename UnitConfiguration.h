@@ -4,7 +4,7 @@
 #include "AVRPlatform.h"
 #include "IDevice.h"
 #include "GenericDevice.h"
-#include "Button.h"
+#include "PushButton.h"
 #include "ButtonDebounced.h"
 #include "WorkUnit.h"
 #include "IConfiguration.h"

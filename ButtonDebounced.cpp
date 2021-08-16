@@ -1,7 +1,7 @@
 #include "ButtonDebounced.h"
 
 ButtonDebounced::ButtonDebounced(uint8_t pin)
-    : Button(pin),
+    : PushButton(pin),
       _state(false),
       _lastState(false),
       _lastDebounceTime(0)
@@ -17,7 +17,7 @@ ButtonDebounced::~ButtonDebounced()
 bool ButtonDebounced::readState()
 {
     // read the state of the switch into a local variable:
-    int reading = Button::readState();
+    int reading = PushButton::readState();
 
     // check to see if you just pressed the button
     // (i.e. the input went from LOW to HIGH), and you've waited long enough

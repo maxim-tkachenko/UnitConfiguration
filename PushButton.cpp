@@ -1,7 +1,7 @@
-#include "Button.h"
+#include "PushButton.h"
 #include "AVRPlatform.h"
 
-Button::Button(uint8_t pin)
+PushButton::PushButton(uint8_t pin)
     : platform(new AVRPlatform()),
       _pin(pin)
 {
@@ -10,21 +10,21 @@ Button::Button(uint8_t pin)
     init();
 }
 
-Button::~Button()
+PushButton::~PushButton()
 {
     traceme;
 
     delete platform;
 }
 
-void Button::init()
+void PushButton::init()
 {
     traceme;
 
     platform->pinIn(_pin);
 }
 
-bool Button::readState()
+bool PushButton::readState()
 {
     return platform->digitalGet(_pin);
 }

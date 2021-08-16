@@ -1,16 +1,16 @@
 #include "WorkUnit.h"
 
-WorkUnit::WorkUnit(IDevice *device, Button *button)
+WorkUnit::WorkUnit(IDevice *device, PushButton *button)
     : WorkUnit(
           device,
-          new Button *[1]
+          new PushButton *[1]
           { button },
           1)
 {
     traceme;
 }
 
-WorkUnit::WorkUnit(IDevice *device, Button **button, uint8_t size)
+WorkUnit::WorkUnit(IDevice *device, PushButton **button, uint8_t size)
     : _controllers(button),
       _size(size),
       _device(device)
