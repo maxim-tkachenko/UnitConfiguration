@@ -9,7 +9,7 @@ class IController
 protected:
 	IPlatform *platform;
 
-	virtual void init();
+	virtual void init() = 0;
 
 public:
 	IController();
