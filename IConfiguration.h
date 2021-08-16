@@ -1,7 +1,6 @@
 #ifndef IConfiguration_h
 #define IConfiguration_h
 
-#include "crossplatform_size_t.h"
 #include "WorkUnit.h"
 #include "Diagnostics.h"
 
@@ -16,7 +15,7 @@ public:
     }
 };
 
-template <size_t SIZE>
+template <uint8_t SIZE>
 class IConfiguration : public IBaseConfiguration
 {
 private:
