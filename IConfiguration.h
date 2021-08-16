@@ -20,7 +20,7 @@ class IConfiguration : public IBaseConfiguration
 {
 private:
     uint8_t _index = 0;
-    WorkUnit *_units[SIZE];
+    WorkUnit *_units[SIZE]{};
 
 public:
     WorkUnit *next()
