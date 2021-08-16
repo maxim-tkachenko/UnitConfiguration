@@ -1,6 +1,6 @@
-#include "ButtonDebounced.h"
+#include "PushButtonDebounced.h"
 
-ButtonDebounced::ButtonDebounced(uint8_t pin)
+PushButtonDebounced::PushButtonDebounced(uint8_t pin)
     : PushButton(pin),
       _state(false),
       _lastState(false),
@@ -9,12 +9,12 @@ ButtonDebounced::ButtonDebounced(uint8_t pin)
     traceme;
 }
 
-ButtonDebounced::~ButtonDebounced()
+PushButtonDebounced::~PushButtonDebounced()
 {
     traceme;
 }
 
-bool ButtonDebounced::readState()
+bool PushButtonDebounced::readState()
 {
     // read the state of the switch into a local variable:
     int reading = PushButton::readState();

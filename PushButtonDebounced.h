@@ -1,11 +1,11 @@
-#ifndef ButtonDebounced_h
-#define ButtonDebounced_h
+#ifndef PushButtonDebounced_h
+#define PushButtonDebounced_h
 
 #include "_uint8_t.h"
 #include "PushButton.h"
 #include "Diagnostics.h"
 
-class ButtonDebounced : public PushButton
+class PushButtonDebounced : public PushButton
 {
 private:
     bool _state;
@@ -19,8 +19,8 @@ private:
     inline static unsigned long _debounceDelay = 50;
 
 public:
-    ButtonDebounced(uint8_t pin);
-    virtual ~ButtonDebounced();
+    PushButtonDebounced(uint8_t pin);
+    virtual ~PushButtonDebounced();
     virtual bool readState();
 };
 
