@@ -1,6 +1,6 @@
-#include "Light.h"
+#include "GenericDevice.h"
 
-Light::Light(uint8_t dataPin, bool initialState)
+GenericDevice::GenericDevice(uint8_t dataPin, bool initialState)
     : IDevice(initialState),
       _dataPin(dataPin)
 {
@@ -9,12 +9,12 @@ Light::Light(uint8_t dataPin, bool initialState)
   init();
 }
 
-Light::~Light()
+GenericDevice::~GenericDevice()
 {
   traceme;
 }
 
-void Light::init()
+void GenericDevice::init()
 {
   traceme;
 
@@ -22,7 +22,7 @@ void Light::init()
   IDevice::init();
 }
 
-void Light::set(bool state)
+void GenericDevice::set(bool state)
 {
   traceme;
 

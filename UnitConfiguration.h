@@ -9,7 +9,7 @@
 #include "Runner.h"
 
 // to be removed from lib
-#include "Light.h"
+#include "GenericDevice.h"
 #include "FastLedLight.h"
 #include "ButtonDebounced.h"
 
