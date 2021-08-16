@@ -1,5 +1,5 @@
-#ifndef Light_h
-#define Light_h
+#ifndef GenericDevice_h
+#define GenericDevice_h
 
 #include "IDevice.h"
 #include "Diagnostics.h"
