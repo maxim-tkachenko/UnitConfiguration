@@ -11,7 +11,6 @@ void Runner::setup(IBaseConfiguration *configuration)
 {
     traceme;
 
-    PlatformFeatures::init();
     _configuration = configuration;
 }
 

@@ -2,7 +2,6 @@
 #define Runner_h
 
 #include "IConfiguration.h"
-#include "PlatformFeatures.h"
 #include "Diagnostics.h"
 
 class Runner
