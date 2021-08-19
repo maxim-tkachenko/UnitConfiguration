@@ -11,7 +11,7 @@
 bool ControllerHandler::Execute(WORKUNIT_ARGS)
 {
     bool result = false;
-    for (uint8_t i = 0; i < size; i++)
+    for (uint8_t i = 0; i < controllersCount; i++)
     {
         if (controllers[i]->readState())
         {

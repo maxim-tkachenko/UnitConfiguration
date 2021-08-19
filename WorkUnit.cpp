@@ -19,14 +19,14 @@ WorkUnit::WorkUnit(IDevice *device, IController *controller, IHandler *handler)
 }
 
 WorkUnit::WorkUnit(WORKUNIT_ARGS)
-    : WorkUnit(device, controllers, size, new ControllerHandler())
+    : WorkUnit(device, controllers, controllersCount, new ControllerHandler())
 {
     traceme;
 }
 
 WorkUnit::WorkUnit(WORKUNIT_ARGS, IHandler *handler)
     : _controllers(controllers),
-      _size(size),
+      _controllersCount(controllersCount),
       _device(device),
       _handler(handler)
 {
@@ -37,7 +37,7 @@ WorkUnit::~WorkUnit()
 {
     traceme;
 
-    for (uint8_t i = 0; i < _size; i++)
+    for (uint8_t i = 0; i < _controllersCount; i++)
     {
         delete _controllers[i];
     }
@@ -49,5 +49,5 @@ WorkUnit::~WorkUnit()
 
 void WorkUnit::check()
 {
-    _handler->Execute(_device, _controllers, _size);
+    _handler->Execute(_device, _controllers, _controllersCount);
 }

@@ -8,7 +8,7 @@ TimeoutHandler::TimeoutHandler(unsigned long timeoutMs)
 
 bool TimeoutHandler::Execute(WORKUNIT_ARGS)
 {
-    auto interracted = ControllerHandler::Execute(device, controllers, size);
+    auto interracted = ControllerHandler::Execute(device, controllers, controllersCount);
     if (interracted)
     {
         platform.println("btn pressed");
