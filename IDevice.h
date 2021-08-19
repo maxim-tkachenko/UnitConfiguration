@@ -10,9 +10,6 @@ class IDevice
 private:
     bool _state;
 
-    // if debug
-    uint8_t _ledPin = 255;
-
 protected:
     static bool _initialized;
     IDevice(bool initialState = false);

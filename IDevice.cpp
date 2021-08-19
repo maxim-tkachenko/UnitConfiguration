@@ -6,8 +6,6 @@ IDevice::IDevice(bool initialState)
     : _state(initialState)
 {
   traceme;
-
-  _ledPin = PlatformFeatures::ledPin();
 }
 
 IDevice::~IDevice()
@@ -35,11 +33,11 @@ void IDevice::set(bool state)
 
   if (!_initialized)
   {
-    PlatformFeatures::pinOut(_ledPin);
+    PlatformFeatures::pinOut(PlatformFeatures::ledPin());
     _initialized = true;
   }
 
-  PlatformFeatures::digitalSet(_ledPin, state);
+  PlatformFeatures::digitalSet(PlatformFeatures::ledPin(), state);
 
   _state = state;
 }
