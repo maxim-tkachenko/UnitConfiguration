@@ -25,9 +25,9 @@ WorkUnit::WorkUnit(WORKUNIT_ARGS)
 }
 
 WorkUnit::WorkUnit(WORKUNIT_ARGS, IHandler *handler)
-    : _controllers(controllers),
+    : _device(device),
+      _controllers(controllers),
       _controllersCount(controllersCount),
-      _device(device),
       _handler(handler)
 {
     traceme;

@@ -10,9 +10,9 @@
 class WorkUnit
 {
 private:
-    uint8_t _controllersCount;
     IDevice *_device;
     IController **_controllers;
+    uint8_t _controllersCount;
     IHandler *_handler;
 
 public:
