@@ -3,7 +3,7 @@
 
 #include "IDevice.h"
 #include "IController.h"
-#include "IProcessor.h"
+#include "IHandler.h"
 #include "Diagnostics.h"
 
 class WorkUnit
@@ -12,13 +12,13 @@ private:
     uint8_t _size;
     IDevice *_device;
     IController **_controllers;
-    IProcessor *_processor;
+    IHandler *_handler;
 
 public:
     WorkUnit(IDevice *device, IController *controller);
-    WorkUnit(IDevice *device, IController *controller, IProcessor *processor);
+    WorkUnit(IDevice *device, IController *controller, IHandler *handler);
     WorkUnit(IDevice *device, IController **controllers, uint8_t size);
-    WorkUnit(IDevice *device, IController **controllers, uint8_t size, IProcessor *processor);
+    WorkUnit(IDevice *device, IController **controllers, uint8_t size, IHandler *handler);
     ~WorkUnit();
     void check();
 };

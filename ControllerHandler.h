@@ -1,9 +1,9 @@
 #ifndef ControllerHandler_h
 #define ControllerHandler_h
 
-#include "IProcessor.h"
+#include "IHandler.h"
 
-class ControllerHandler : public IProcessor
+class ControllerHandler : public IHandler
 {
 public:
     // ControllerHandler();

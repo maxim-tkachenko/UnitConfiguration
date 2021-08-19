@@ -1,13 +1,13 @@
-#ifndef IProcessor_h
-#define IProcessor_h
+#ifndef IHandler_h
+#define IHandler_h
 
 #include "IDevice.h"
 #include "IController.h"
 
-class IProcessor
+class IHandler
 {
 public:
-	virtual ~IProcessor() = default;
+	virtual ~IHandler() = default;
 	virtual bool Execute(
 		IDevice *device,
 		IController **controllers,

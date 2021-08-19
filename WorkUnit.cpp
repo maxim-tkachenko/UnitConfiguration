@@ -7,13 +7,13 @@ WorkUnit::WorkUnit(IDevice *device, IController *controller)
     traceme;
 }
 
-WorkUnit::WorkUnit(IDevice *device, IController *controller, IProcessor *processor)
+WorkUnit::WorkUnit(IDevice *device, IController *controller, IHandler *handler)
     : WorkUnit(
           device,
           new IController *[1]
           { controller },
           1,
-          processor)
+          handler)
 {
     traceme;
 }
@@ -24,11 +24,11 @@ WorkUnit::WorkUnit(IDevice *device, IController **controllers, uint8_t size)
     traceme;
 }
 
-WorkUnit::WorkUnit(IDevice *device, IController **controllers, uint8_t size, IProcessor *processor)
+WorkUnit::WorkUnit(IDevice *device, IController **controllers, uint8_t size, IHandler *handler)
     : _controllers(controllers),
       _size(size),
       _device(device),
-      _processor(processor)
+      _handler(handler)
 {
     traceme;
 }
@@ -44,10 +44,10 @@ WorkUnit::~WorkUnit()
 
     delete[] _controllers;
     delete _device;
-    delete _processor;
+    delete _handler;
 }
 
 void WorkUnit::check()
 {
-    _processor->Execute(_device, _controllers, _size);
+    _handler->Execute(_device, _controllers, _size);
 }
