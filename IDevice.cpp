@@ -1,6 +1,8 @@
 #include "IDevice.h"
 #include "AVRPlatform.h"
 
+bool IDevice::_initialized = false;
+
 IDevice::IDevice(bool initialState)
     : platform(new AVRPlatform()),
       _state(initialState)

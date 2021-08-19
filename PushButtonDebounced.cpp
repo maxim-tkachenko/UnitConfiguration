@@ -1,10 +1,12 @@
 #include "PushButtonDebounced.h"
 
-PushButtonDebounced::PushButtonDebounced(uint8_t pin)
+PushButtonDebounced::PushButtonDebounced(
+    uint8_t pin,
+    unsigned long debounceDelayMs)
     : PushButton(pin),
       _state(false),
       _lastState(false),
-      _lastDebounceTime(0)
+      _debounceDelay(debounceDelayMs)
 {
     traceme;
 }

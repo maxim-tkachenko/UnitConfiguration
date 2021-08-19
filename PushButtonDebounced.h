@@ -13,13 +13,13 @@ private:
 
     // the following variable are unsigned longs because the time, measured in
     // milliseconds, will quickly become a bigger number than can be stored in an int.
-    unsigned long _lastDebounceTime;
+    unsigned long _lastDebounceTime = 0;
 
     // the debounce time; increase if the output flickers
-    inline static unsigned long _debounceDelay = 50;
+    unsigned long _debounceDelay;
 
 public:
-    PushButtonDebounced(uint8_t pin);
+    PushButtonDebounced(uint8_t pin, unsigned long debounceDelayMs = 50);
     virtual ~PushButtonDebounced();
     virtual bool readState();
 };
