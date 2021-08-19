@@ -1,4 +1,5 @@
 #include "WorkUnit.h"
+#include "ControllerHandler.h"
 
 WorkUnit::WorkUnit(IDevice *device, IController *controller)
     : WorkUnit(device, controller, new ControllerHandler())
@@ -6,13 +7,13 @@ WorkUnit::WorkUnit(IDevice *device, IController *controller)
     traceme;
 }
 
-WorkUnit::WorkUnit(IDevice *device, IController *controller, ControllerHandler *handler)
+WorkUnit::WorkUnit(IDevice *device, IController *controller, IProcessor *processor)
     : WorkUnit(
           device,
           new IController *[1]
           { controller },
           1,
-          handler)
+          processor)
 {
     traceme;
 }
@@ -23,11 +24,11 @@ WorkUnit::WorkUnit(IDevice *device, IController **controllers, uint8_t size)
     traceme;
 }
 
-WorkUnit::WorkUnit(IDevice *device, IController **controllers, uint8_t size, ControllerHandler *handler)
+WorkUnit::WorkUnit(IDevice *device, IController **controllers, uint8_t size, IProcessor *processor)
     : _controllers(controllers),
       _size(size),
       _device(device),
-      _handler(handler)
+      _processor(processor)
 {
     traceme;
 }
@@ -43,10 +44,10 @@ WorkUnit::~WorkUnit()
 
     delete[] _controllers;
     delete _device;
-    delete _handler;
+    delete _processor;
 }
 
 void WorkUnit::check()
 {
-    _handler->Execute(_device, _controllers, _size);
+    _processor->Execute(_device, _controllers, _size);
 }
