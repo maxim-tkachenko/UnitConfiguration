@@ -31,13 +31,9 @@ void IDevice::set(bool state)
 {
   traceme;
 
-  if (!_initialized)
-  {
-    PlatformFeatures::pinOut(PlatformFeatures::ledPin());
-    _initialized = true;
-  }
-
+#ifdef LED_PIN_ENABLED
   PlatformFeatures::digitalSet(PlatformFeatures::ledPin(), state);
+#endif
 
   _state = state;
 }

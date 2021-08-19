@@ -4,6 +4,7 @@
 #include "PlatformFeatures.h"
 #include "_uint8_t.h"
 #include "Diagnostics.h"
+#include "DiagnosticsFlags.h"
 
 class IDevice
 {

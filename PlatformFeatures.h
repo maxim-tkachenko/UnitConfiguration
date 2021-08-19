@@ -27,6 +27,10 @@ public:
         Serial.println(__PRETTY_FUNCTION__);
 #endif
 #endif
+
+#ifdef LED_PIN_ENABLED
+        pinOut(ledPin());
+#endif
     }
 
     static void print(const char c[]);

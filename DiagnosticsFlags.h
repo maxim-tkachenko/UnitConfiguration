@@ -2,5 +2,6 @@
 #define EMBEDDED_DIAGNOSTICS_FLAGS_H
 
 // #define TRACE_ENABLED
+#define LED_PIN_ENABLED
 
 #endif
