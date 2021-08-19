@@ -13,12 +13,12 @@ void PlatformFeatures::init()
     Serial.begin(9600);
     while (!Serial)
         ;
+#endif
 
 #ifdef TRACE_ENABLED
-    Serial.println("v0.9");
-    Serial.print("TRACE: ");
-    Serial.println(__PRETTY_FUNCTION__);
-#endif
+    println("v0.9");
+    print("TRACE: ");
+    println(__PRETTY_FUNCTION__);
 #endif
 
 #ifdef LED_PIN_ENABLED
