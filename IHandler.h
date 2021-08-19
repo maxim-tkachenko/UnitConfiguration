@@ -3,11 +3,20 @@
 
 #include "IDevice.h"
 #include "IController.h"
+#include "AVRPlatform.h"
+#include "Diagnostics.h"
 
 class IHandler
 {
+protected:
+	AVRPlatform platform{};
+
 public:
-	virtual ~IHandler() = default;
+	virtual ~IHandler()
+	{
+		traceme;
+	};
+
 	virtual bool Execute(
 		IDevice *device,
 		IController **controllers,
