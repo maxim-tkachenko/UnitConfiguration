@@ -4,6 +4,7 @@
 #include "IDevice.h"
 #include "IController.h"
 #include "AVRPlatform.h"
+#include "Definitions.h"
 #include "Diagnostics.h"
 
 class IHandler
@@ -17,10 +18,7 @@ public:
 		traceme;
 	};
 
-	virtual bool Execute(
-		IDevice *device,
-		IController **controllers,
-		uint8_t size) = 0;
+	virtual bool Execute(WORKUNIT_ARGS) = 0;
 };
 
 #endif

@@ -18,13 +18,13 @@ WorkUnit::WorkUnit(IDevice *device, IController *controller, IHandler *handler)
     traceme;
 }
 
-WorkUnit::WorkUnit(IDevice *device, IController **controllers, uint8_t size)
+WorkUnit::WorkUnit(WORKUNIT_ARGS)
     : WorkUnit(device, controllers, size, new ControllerHandler())
 {
     traceme;
 }
 
-WorkUnit::WorkUnit(IDevice *device, IController **controllers, uint8_t size, IHandler *handler)
+WorkUnit::WorkUnit(WORKUNIT_ARGS, IHandler *handler)
     : _controllers(controllers),
       _size(size),
       _device(device),

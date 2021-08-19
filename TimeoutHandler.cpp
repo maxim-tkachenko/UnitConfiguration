@@ -6,10 +6,7 @@ TimeoutHandler::TimeoutHandler(unsigned long timeoutMs)
     traceme;
 }
 
-bool TimeoutHandler::Execute(
-    IDevice *device,
-    IController **controllers,
-    uint8_t size)
+bool TimeoutHandler::Execute(WORKUNIT_ARGS)
 {
     auto interracted = ControllerHandler::Execute(device, controllers, size);
     if (interracted)

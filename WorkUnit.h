@@ -4,6 +4,7 @@
 #include "IDevice.h"
 #include "IController.h"
 #include "IHandler.h"
+#include "Definitions.h"
 #include "Diagnostics.h"
 
 class WorkUnit
@@ -17,8 +18,8 @@ private:
 public:
     WorkUnit(IDevice *device, IController *controller);
     WorkUnit(IDevice *device, IController *controller, IHandler *handler);
-    WorkUnit(IDevice *device, IController **controllers, uint8_t size);
-    WorkUnit(IDevice *device, IController **controllers, uint8_t size, IHandler *handler);
+    WorkUnit(WORKUNIT_ARGS);
+    WorkUnit(WORKUNIT_ARGS, IHandler *handler);
     ~WorkUnit();
     void check();
 };

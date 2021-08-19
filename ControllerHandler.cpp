@@ -8,7 +8,7 @@
 // {
 // }
 
-bool ControllerHandler::Execute(IDevice *device, IController **controllers, uint8_t size)
+bool ControllerHandler::Execute(WORKUNIT_ARGS)
 {
     bool result = false;
     for (uint8_t i = 0; i < size; i++)
