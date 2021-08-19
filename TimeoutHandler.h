@@ -2,7 +2,7 @@
 #define TimeoutHandler_h
 
 #include "ControllerHandler.h"
-#include "AVRPlatform.h"
+#include "PlatformFeatures.h"
 #include "Definitions.h"
 
 class TimeoutHandler : public ControllerHandler

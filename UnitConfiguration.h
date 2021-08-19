@@ -1,7 +1,7 @@
 #ifndef UnitConfiguration_h
 #define UnitConfiguration_h
 
-#include "AVRPlatform.h"
+#include "PlatformFeatures.h"
 #include "IDevice.h"
 #include "GenericDevice.h"
 #include "IController.h"

@@ -1,4 +1,4 @@
-#include "AVRPlatform.h"
+#include "PlatformFeatures.h"
 
 #ifdef __AVR
 #include "Arduino.h"
@@ -7,7 +7,7 @@
 using namespace std;
 #endif
 
-void AVRPlatform::print(const char c[])
+void PlatformFeatures::print(const char c[])
 {
 #ifdef __AVR
     Serial.print(c);
@@ -16,7 +16,7 @@ void AVRPlatform::print(const char c[])
 #endif
 }
 
-void AVRPlatform::println(const char c[])
+void PlatformFeatures::println(const char c[])
 {
 #ifdef __AVR
     Serial.println(c);
@@ -25,7 +25,7 @@ void AVRPlatform::println(const char c[])
 #endif
 }
 
-int AVRPlatform::ledPin()
+int PlatformFeatures::ledPin()
 {
 #ifdef __AVR
     return LED_BUILTIN;
@@ -34,7 +34,7 @@ int AVRPlatform::ledPin()
 #endif
 }
 
-void AVRPlatform::pinIn(uint8_t pin)
+void PlatformFeatures::pinIn(uint8_t pin)
 {
 #ifdef __AVR
     pinMode(pin, INPUT);
@@ -43,7 +43,7 @@ void AVRPlatform::pinIn(uint8_t pin)
 #endif
 }
 
-void AVRPlatform::pinOut(uint8_t pin)
+void PlatformFeatures::pinOut(uint8_t pin)
 {
 #ifdef __AVR
     pinMode(pin, OUTPUT);
@@ -52,7 +52,7 @@ void AVRPlatform::pinOut(uint8_t pin)
 #endif
 }
 
-void AVRPlatform::digitalSet(uint8_t pin, uint8_t value)
+void PlatformFeatures::digitalSet(uint8_t pin, uint8_t value)
 {
 #ifdef __AVR
     digitalWrite(pin, value);
@@ -61,7 +61,7 @@ void AVRPlatform::digitalSet(uint8_t pin, uint8_t value)
 #endif
 }
 
-int AVRPlatform::digitalGet(uint8_t pin)
+int PlatformFeatures::digitalGet(uint8_t pin)
 {
 #ifdef __AVR
     return digitalRead(pin);
@@ -70,7 +70,7 @@ int AVRPlatform::digitalGet(uint8_t pin)
 #endif
 }
 
-unsigned long AVRPlatform::milliseconds()
+unsigned long PlatformFeatures::milliseconds()
 {
 #ifdef __AVR
     return millis();

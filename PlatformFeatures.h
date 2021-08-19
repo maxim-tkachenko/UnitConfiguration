@@ -1,5 +1,5 @@
-#ifndef AVRPlatform_h
-#define AVRPlatform_h
+#ifndef PlatformFeatures_h
+#define PlatformFeatures_h
 
 #include "_uint8_t.h"
 #include "DiagnosticsFlags.h"
@@ -11,7 +11,7 @@
 using namespace std;
 #endif
 
-class AVRPlatform
+class PlatformFeatures
 {
 public:
     static void init()

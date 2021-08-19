@@ -18,10 +18,10 @@ void PushButton::init()
 {
     traceme;
 
-    AVRPlatform::pinIn(_pin);
+    PlatformFeatures::pinIn(_pin);
 }
 
 bool PushButton::readState()
 {
-    return AVRPlatform::digitalGet(_pin);
+    return PlatformFeatures::digitalGet(_pin);
 }

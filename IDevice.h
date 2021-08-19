@@ -1,7 +1,7 @@
 #ifndef IDevice_h
 #define IDevice_h
 
-#include "AVRPlatform.h"
+#include "PlatformFeatures.h"
 #include "_uint8_t.h"
 #include "Diagnostics.h"
 

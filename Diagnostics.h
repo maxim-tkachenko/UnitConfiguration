@@ -4,7 +4,7 @@
 #include "DiagnosticsFlags.h"
 
 #ifdef TRACE_ENABLED
-#include "AVRPlatform.h"
+#include "PlatformFeatures.h"
 
 // use __FUNCTION__ or __func__ instead to reduce
 // memory consumption by cutting off member's signature
@@ -12,8 +12,8 @@
 
 inline void trace(const char c[])
 {
-    AVRPlatform::print("TRACE: ");
-    AVRPlatform::println(c);
+    PlatformFeatures::print("TRACE: ");
+    PlatformFeatures::println(c);
 }
 #else
 #define traceme

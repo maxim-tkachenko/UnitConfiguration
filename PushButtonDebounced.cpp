@@ -29,10 +29,10 @@ bool PushButtonDebounced::readState()
     if (reading != _lastState)
     {
         // reset the debouncing timer
-        _lastDebounceTime = AVRPlatform::milliseconds();
+        _lastDebounceTime = PlatformFeatures::milliseconds();
     }
 
-    if ((AVRPlatform::milliseconds() - _lastDebounceTime) > _debounceDelay)
+    if ((PlatformFeatures::milliseconds() - _lastDebounceTime) > _debounceDelay)
     {
         // whatever the reading is at, it's been there for longer than the debounce
         // delay, so take it as the actual current state:
