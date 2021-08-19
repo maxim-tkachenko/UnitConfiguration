@@ -14,25 +14,7 @@ using namespace std;
 class PlatformFeatures
 {
 public:
-    static void init()
-    {
-#ifdef __AVR
-        Serial.begin(9600);
-        while (!Serial)
-            ;
-
-#ifdef TRACE_ENABLED
-        Serial.println("v0.9");
-        Serial.print("TRACE: ");
-        Serial.println(__PRETTY_FUNCTION__);
-#endif
-#endif
-
-#ifdef LED_PIN_ENABLED
-        pinOut(ledPin());
-#endif
-    }
-
+    static void init();
     static void print(const char c[]);
     static void println(const char c[]);
     static int ledPin();

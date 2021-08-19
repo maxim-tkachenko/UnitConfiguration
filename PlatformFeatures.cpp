@@ -7,6 +7,25 @@
 using namespace std;
 #endif
 
+void PlatformFeatures::init()
+{
+#ifdef __AVR
+    Serial.begin(9600);
+    while (!Serial)
+        ;
+
+#ifdef TRACE_ENABLED
+    Serial.println("v0.9");
+    Serial.print("TRACE: ");
+    Serial.println(__PRETTY_FUNCTION__);
+#endif
+#endif
+
+#ifdef LED_PIN_ENABLED
+    pinOut(ledPin());
+#endif
+}
+
 void PlatformFeatures::print(const char c[])
 {
 #ifdef __AVR
