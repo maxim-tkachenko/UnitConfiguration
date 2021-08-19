@@ -1,9 +1,17 @@
 #ifndef AVRPlatform_h
 #define AVRPlatform_h
 
-#include "IPlatform.h"
+#include "_uint8_t.h"
+#include "DiagnosticsFlags.h"
 
-class AVRPlatform : public IPlatform
+#ifdef __AVR
+#include "Arduino.h"
+#else
+#include <iostream>
+using namespace std;
+#endif
+
+class AVRPlatform
 {
 public:
     static void init()
@@ -21,15 +29,14 @@ public:
 #endif
     }
 
-    virtual ~AVRPlatform();
-    void print(const char c[]);
-    void println(const char c[]);
-    int ledPin();
-    void pinIn(uint8_t pin);
-    void pinOut(uint8_t pin);
-    void digitalSet(uint8_t pin, uint8_t value);
-    int digitalGet(uint8_t pin);
-    unsigned long milliseconds();
+    static void print(const char c[]);
+    static void println(const char c[]);
+    static int ledPin();
+    static void pinIn(uint8_t pin);
+    static void pinOut(uint8_t pin);
+    static void digitalSet(uint8_t pin, uint8_t value);
+    static int digitalGet(uint8_t pin);
+    static unsigned long milliseconds();
 };
 
 #endif

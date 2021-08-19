@@ -2,6 +2,7 @@
 #define GenericDevice_h
 
 #include "IDevice.h"
+#include "AVRPlatform.h"
 #include "Diagnostics.h"
 
 class GenericDevice : public IDevice

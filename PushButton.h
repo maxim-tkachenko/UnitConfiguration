@@ -2,6 +2,7 @@
 #define PushButton_h
 
 #include "_uint8_t.h"
+#include "AVRPlatform.h"
 #include "Diagnostics.h"
 #include "IController.h"
 

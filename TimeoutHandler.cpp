@@ -11,16 +11,16 @@ bool TimeoutHandler::Execute(WORKUNIT_ARGS)
     auto interracted = ControllerHandler::Execute(device, controllers, controllersCount);
     if (interracted)
     {
-        platform.println("btn pressed");
-        _latestInterraction = platform.milliseconds();
+        AVRPlatform::println("btn pressed");
+        _latestInterraction = AVRPlatform::milliseconds();
 
         return false;
     }
 
-    auto current = platform.milliseconds();
+    auto current = AVRPlatform::milliseconds();
     if ((current - _latestInterraction) > _timeout && device->get())
     {
-        platform.println("timeout");
+        AVRPlatform::println("timeout");
         device->set(false);
         _latestInterraction = current;
 

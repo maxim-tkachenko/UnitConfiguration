@@ -7,15 +7,6 @@
 using namespace std;
 #endif
 
-AVRPlatform::~AVRPlatform()
-{
-#ifdef PLATFORM_FEATURES_DESTRUCTION_LOG_ENABLED
-#ifdef TRACE_ENABLED
-    println(__PRETTY_FUNCTION__);
-#endif
-#endif
-}
-
 void AVRPlatform::print(const char c[])
 {
 #ifdef __AVR

@@ -1,22 +1,18 @@
 #include "IDevice.h"
-#include "AVRPlatform.h"
 
 bool IDevice::_initialized = false;
 
 IDevice::IDevice(bool initialState)
-    : platform(new AVRPlatform()),
-      _state(initialState)
+    : _state(initialState)
 {
   traceme;
 
-  _ledPin = platform->ledPin();
+  _ledPin = AVRPlatform::ledPin();
 }
 
 IDevice::~IDevice()
 {
   traceme;
-
-  delete platform;
 }
 
 void IDevice::init()
@@ -39,11 +35,11 @@ void IDevice::set(bool state)
 
   if (!_initialized)
   {
-    platform->pinOut(_ledPin);
+    AVRPlatform::pinOut(_ledPin);
     _initialized = true;
   }
 
-  platform->digitalSet(_ledPin, state);
+  AVRPlatform::digitalSet(_ledPin, state);
 
   _state = state;
 }

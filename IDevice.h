@@ -1,7 +1,7 @@
 #ifndef IDevice_h
 #define IDevice_h
 
-#include "IPlatform.h"
+#include "AVRPlatform.h"
 #include "_uint8_t.h"
 #include "Diagnostics.h"
 
@@ -14,7 +14,6 @@ private:
     uint8_t _ledPin = 255;
 
 protected:
-    IPlatform *platform;
     static bool _initialized;
     IDevice(bool initialState = false);
 

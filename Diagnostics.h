@@ -10,11 +10,10 @@
 // memory consumption by cutting off member's signature
 #define traceme trace(__PRETTY_FUNCTION__);
 
-inline AVRPlatform platform{};
 inline void trace(const char c[])
 {
-    platform.print("TRACE: ");
-    platform.println(c);
+    AVRPlatform::print("TRACE: ");
+    AVRPlatform::println(c);
 }
 #else
 #define traceme

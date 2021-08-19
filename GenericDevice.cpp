@@ -18,7 +18,7 @@ void GenericDevice::init()
 {
   traceme;
 
-  platform->pinOut(_dataPin);
+  AVRPlatform::pinOut(_dataPin);
   IDevice::init();
 }
 
@@ -26,6 +26,6 @@ void GenericDevice::set(bool state)
 {
   traceme;
 
-  platform->digitalSet(_dataPin, state);
+  AVRPlatform::digitalSet(_dataPin, state);
   IDevice::set(state);
 }
