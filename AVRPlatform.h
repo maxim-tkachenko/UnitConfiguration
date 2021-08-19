@@ -14,7 +14,7 @@ public:
             ;
 
 #ifdef TRACE_ENABLED
-        Serial.println("v0.8");
+        Serial.println("v0.9");
         Serial.print("TRACE: ");
         Serial.println(__PRETTY_FUNCTION__);
 #endif
