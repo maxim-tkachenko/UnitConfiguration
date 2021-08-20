@@ -13,7 +13,8 @@ private:
 
 public:
     ~Runner();
-    void setup(IBaseConfiguration *configuration);
+    void init();
+    void setConfig(IBaseConfiguration *configuration);
     void loop();
 };
 

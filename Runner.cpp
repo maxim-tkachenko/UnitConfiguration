@@ -1,4 +1,5 @@
 #include "Runner.h"
+#include "PlatformFeatures.h"
 
 Runner::~Runner()
 {
@@ -7,7 +8,14 @@ Runner::~Runner()
     delete _configuration;
 }
 
-void Runner::setup(IBaseConfiguration *configuration)
+void Runner::init()
+{
+    traceme;
+
+    PlatformFeatures::init();
+}
+
+void Runner::setConfig(IBaseConfiguration *configuration)
 {
     traceme;
 
