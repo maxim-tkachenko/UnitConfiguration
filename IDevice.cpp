@@ -1,7 +1,5 @@
 #include "IDevice.h"
 
-bool IDevice::_initialized = false;
-
 IDevice::IDevice(bool initialState)
     : _state(initialState)
 {

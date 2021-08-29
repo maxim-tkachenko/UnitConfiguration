@@ -12,7 +12,6 @@ private:
     bool _state;
 
 protected:
-    static bool _initialized;
     IDevice(bool initialState = false);
 
 public:
