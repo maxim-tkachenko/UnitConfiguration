@@ -24,6 +24,8 @@ public:
   void showLeds(uint8_t brightness = 255)
   {
     traceme;
+
+    (void)brightness; // suppress warning
   }
 };
 

@@ -85,6 +85,7 @@ int PlatformFeatures::digitalGet(uint8_t pin)
 #ifdef __AVR
     return digitalRead(pin);
 #else
+    (void)pin; // suppress warning
     return 1;
 #endif
 }

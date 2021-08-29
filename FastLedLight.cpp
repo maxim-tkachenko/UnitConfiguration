@@ -3,6 +3,12 @@
 #ifdef FastLedLightFake_h
 void fill_solid(struct CRGB *leds, int numToFill, const struct CRGB &color)
 {
+  traceme;
+
+  // suppress warnings
+  (void)leds;
+  (void)numToFill;
+  (void)color;
 }
 #endif
 
@@ -95,6 +101,8 @@ void FastLedLight::setColor(CRGB color, int ledStripStart, int ledStripLenth)
 
 void FastLedLight::fillOne(CRGB color, int ledStripStart, int ledStripLenth)
 {
+  (void)ledStripStart; // suppress warning
+
   //  if (ledStripStart > 0)
   //  {
   //    fill_solid(leds2, ledStripLenth, color);
