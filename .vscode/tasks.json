@@ -8,7 +8,9 @@
 			"args": [
 				"-std=c++11",
 				"${workspaceFolder}/*.cpp",
-				"-c"
+				"-c",
+				"-Wall",
+				"-Wextra",
 			],
 			"options": {
 				"cwd": "${fileDirname}"
