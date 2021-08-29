@@ -36,22 +36,22 @@ void fill_solid(struct CRGB *leds, int numToFill, const struct CRGB &color);
 class FastLedLight : public IDevice
 {
 private:
-  int _ledStripLenth;
+  int _ledStripLength;
   CRGB *_leds;
   CLEDController *_controller = nullptr;
 
-  void switchLed(bool state, int ledStripStart, int ledStripLenth);
-  void setColor(CRGB color, int ledStripStart, int ledStripLenth);
-  void fillOne(CRGB color, int ledStripStart, int ledStripLenth);
+  void switchLed(bool state, int ledStripStart, int ledStripLength);
+  void setColor(CRGB color, int ledStripStart, int ledStripLength);
+  void fillOne(CRGB color, int ledStripStart, int ledStripLength);
 
 public:
-  FastLedLight(int ledStripLenth, bool initialState = false);
+  FastLedLight(int ledStripLength, bool initialState = false);
   virtual ~FastLedLight();
 
   template <uint8_t DATA_PIN>
-  static FastLedLight *create(int ledStripLenth, bool initialState = false)
+  static FastLedLight *create(int ledStripLength, bool initialState = false)
   {
-    auto fll = new FastLedLight(ledStripLenth, initialState);
+    auto fll = new FastLedLight(ledStripLength, initialState);
     fll->init<DATA_PIN>();
 
     return fll;
@@ -65,7 +65,7 @@ public:
 
     _controller =
 #ifdef __AVR
-        &FastLED.addLeds<WS2812B, DATA_PIN, GRB>(_leds, _ledStripLenth);
+        &FastLED.addLeds<WS2812B, DATA_PIN, GRB>(_leds, _ledStripLength);
 #else
         new CLEDController();
 #endif

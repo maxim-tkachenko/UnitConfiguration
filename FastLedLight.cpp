@@ -12,10 +12,10 @@ void fill_solid(struct CRGB *leds, int numToFill, const struct CRGB &color)
 }
 #endif
 
-FastLedLight::FastLedLight(int ledStripLenth, bool initialState)
+FastLedLight::FastLedLight(int ledStripLength, bool initialState)
     : IDevice(initialState),
-      _ledStripLenth(ledStripLenth),
-      _leds(new CRGB[_ledStripLenth])
+      _ledStripLength(ledStripLength),
+      _leds(new CRGB[_ledStripLength])
 {
   traceme;
 }
@@ -31,11 +31,11 @@ void FastLedLight::set(bool state)
 {
   traceme;
 
-  switchLed(state, 0, _ledStripLenth);
+  switchLed(state, 0, _ledStripLength);
   IDevice::set(state);
 }
 
-void FastLedLight::switchLed(bool state, int ledStripStart, int ledStripLenth)
+void FastLedLight::switchLed(bool state, int ledStripStart, int ledStripLength)
 {
   traceme;
 
@@ -43,7 +43,7 @@ void FastLedLight::switchLed(bool state, int ledStripStart, int ledStripLenth)
   {
     //FastLED.setBrightness(16);
     //FastLED.setTemperature(Candle);
-    setColor(CRGB::Green, ledStripStart, ledStripLenth);
+    setColor(CRGB::Green, ledStripStart, ledStripLength);
   }
   else
   {
@@ -51,13 +51,13 @@ void FastLedLight::switchLed(bool state, int ledStripStart, int ledStripLenth)
     //      FastLED[1].clear();
     //    else
     //      FastLED[0].clear();
-    setColor(CRGB::Red, ledStripStart, ledStripLenth);
+    setColor(CRGB::Red, ledStripStart, ledStripLength);
   }
 }
 
-void FastLedLight::setColor(CRGB color, int ledStripStart, int ledStripLenth)
+void FastLedLight::setColor(CRGB color, int ledStripStart, int ledStripLength)
 {
-  fillOne(color, ledStripStart, ledStripLenth);
+  fillOne(color, ledStripStart, ledStripLength);
   return;
 
   /*
@@ -99,24 +99,24 @@ void FastLedLight::setColor(CRGB color, int ledStripStart, int ledStripLenth)
     }*/
 }
 
-void FastLedLight::fillOne(CRGB color, int ledStripStart, int ledStripLenth)
+void FastLedLight::fillOne(CRGB color, int ledStripStart, int ledStripLength)
 {
   (void)ledStripStart; // suppress warning
 
   //  if (ledStripStart > 0)
   //  {
-  //    fill_solid(leds2, ledStripLenth, color);
+  //    fill_solid(leds2, ledStripLength, color);
   //    FastLED[1].showLeds(255);
   //  }
   //  else
   //  {
-  //    fill_solid(leds1, ledStripLenth, color);
+  //    fill_solid(leds1, ledStripLength, color);
   //    FastLED[0].showLeds(255);
   //  }
 
   traceme;
 
-  fill_solid(_leds, ledStripLenth, color);
+  fill_solid(_leds, ledStripLength, color);
 
   _controller->showLeds(1);
 }
