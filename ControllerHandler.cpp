@@ -10,15 +10,18 @@
 
 bool ControllerHandler::Execute(WORKUNIT_ARGS)
 {
-    bool result = false;
-    for (uint8_t i = 0; i < controllersCount; i++)
+    for (uint8_t ci = 0; ci < controllersCount; ci++)
     {
-        if (controllers[i]->readState())
+        if (controllers[ci]->readState())
         {
-            device->switchState();
-            result = true;
+            for (uint8_t di = 0; di < devicesCount; di++)
+            {
+                devices[di]->switchState();
+            }
+
+            return true;
         }
     }
 
-    return result;
+    return false;
 }

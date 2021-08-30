@@ -8,7 +8,7 @@ TimeoutHandler::TimeoutHandler(unsigned long timeoutMs)
 
 bool TimeoutHandler::Execute(WORKUNIT_ARGS)
 {
-    auto interracted = ControllerHandler::Execute(device, controllers, controllersCount);
+    auto interracted = ControllerHandler::Execute(devices, devicesCount, controllers, controllersCount);
     if (interracted)
     {
         PlatformFeatures::println("btn pressed");
@@ -18,10 +18,23 @@ bool TimeoutHandler::Execute(WORKUNIT_ARGS)
     }
 
     auto current = PlatformFeatures::milliseconds();
-    if ((current - _latestInterraction) > _timeout && device->get())
+    if ((current - _latestInterraction) > _timeout)
     {
+        for (uint8_t di = 0; di < devicesCount; di++)
+        {
+            if (devices[di]->get())
+            {
+                continue;
+            }
+        }
+
         PlatformFeatures::println("timeout");
-        device->set(false);
+
+        for (uint8_t di = 0; di < devicesCount; di++)
+        {
+            devices[di]->set(false);
+        }
+
         _latestInterraction = current;
 
         return true;

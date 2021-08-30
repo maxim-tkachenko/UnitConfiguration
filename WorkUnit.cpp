@@ -18,14 +18,39 @@ WorkUnit::WorkUnit(IDevice *device, IController *controller, IHandler *handler)
     traceme;
 }
 
+WorkUnit::WorkUnit(IDevice *device, IController **controllers, uint8_t controllersCount)
+    : WorkUnit(
+          new IDevice *[1]
+          { device },
+          1,
+          controllers,
+          controllersCount,
+          new ControllerHandler())
+{
+    traceme;
+}
+
+WorkUnit::WorkUnit(IDevice *device, IController **controllers, uint8_t controllersCount, IHandler *handler)
+    : WorkUnit(
+          new IDevice *[1]
+          { device },
+          1,
+          controllers,
+          controllersCount,
+          handler)
+{
+    traceme;
+}
+
 WorkUnit::WorkUnit(WORKUNIT_ARGS)
-    : WorkUnit(device, controllers, controllersCount, new ControllerHandler())
+    : WorkUnit(devices, devicesCount, controllers, controllersCount, new ControllerHandler())
 {
     traceme;
 }
 
 WorkUnit::WorkUnit(WORKUNIT_ARGS, IHandler *handler)
-    : _device(device),
+    : _devices(devices),
+      _devicesCount(devicesCount),
       _controllers(controllers),
       _controllersCount(controllersCount),
       _handler(handler)
@@ -37,17 +62,23 @@ WorkUnit::~WorkUnit()
 {
     traceme;
 
-    for (uint8_t i = 0; i < _controllersCount; i++)
+    for (uint8_t ci = 0; ci < _controllersCount; ci++)
     {
-        delete _controllers[i];
+        delete _controllers[ci];
     }
 
     delete[] _controllers;
-    delete _device;
+
+    for (uint8_t di = 0; di < _devicesCount; di++)
+    {
+        delete _devices[di];
+    }
+
+    delete[] _devices;
     delete _handler;
 }
 
 void WorkUnit::check()
 {
-    _handler->Execute(_device, _controllers, _controllersCount);
+    _handler->Execute(_devices, _devicesCount, _controllers, _controllersCount);
 }
