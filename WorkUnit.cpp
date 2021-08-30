@@ -58,6 +58,7 @@ WorkUnit::WorkUnit(WORKUNIT_ARGS, IHandler *handler)
     traceme;
 }
 
+// this could throw an exception when freeing already freed pointer.
 WorkUnit::~WorkUnit()
 {
     traceme;
