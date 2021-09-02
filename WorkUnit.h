@@ -26,6 +26,9 @@ public:
     WorkUnit(IDevice *device, IController **controllers, uint8_t controllersCount);
     WorkUnit(IDevice *device, IController **controllers, uint8_t controllersCount, IHandler *handler);
     WorkUnit(IDevice *device, IController **controllers, uint8_t controllersCount, IHandler **handlers, uint8_t handlersCount);
+    WorkUnit(IDevice **devices, uint8_t devicesCount, IController *controller);
+    WorkUnit(IDevice **devices, uint8_t devicesCount, IController *controller, IHandler *handler);
+    WorkUnit(IDevice **devices, uint8_t devicesCount, IController *controller, IHandler **handlers, uint8_t handlersCount);
     WorkUnit(WORKUNIT_ARGS);
     WorkUnit(WORKUNIT_ARGS, IHandler *handler);
     WorkUnit(WORKUNIT_ARGS, IHandler **handlers, uint8_t handlersCount);

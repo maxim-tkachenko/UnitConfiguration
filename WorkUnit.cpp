@@ -67,6 +67,43 @@ WorkUnit::WorkUnit(IDevice *device, IController **controllers, uint8_t controlle
     traceme;
 }
 
+WorkUnit::WorkUnit(IDevice **devices, uint8_t devicesCount, IController *controller)
+    : WorkUnit(
+          devices,
+          devicesCount,
+          new IController *[1]
+          { controller },
+          1,
+          new ControllerHandler())
+{
+    traceme;
+}
+
+WorkUnit::WorkUnit(IDevice **devices, uint8_t devicesCount, IController *controller, IHandler *handler)
+    : WorkUnit(
+          devices,
+          devicesCount,
+          new IController *[1]
+          { controller },
+          1,
+          handler)
+{
+    traceme;
+}
+
+WorkUnit::WorkUnit(IDevice **devices, uint8_t devicesCount, IController *controller, IHandler **handlers, uint8_t handlersCount)
+    : WorkUnit(
+          devices,
+          devicesCount,
+          new IController *[1]
+          { controller },
+          1,
+          handlers,
+          handlersCount)
+{
+    traceme;
+}
+
 WorkUnit::WorkUnit(WORKUNIT_ARGS)
     : WorkUnit(devices, devicesCount, controllers, controllersCount, new ControllerHandler())
 {
