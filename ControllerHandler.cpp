@@ -16,7 +16,7 @@ bool ControllerHandler::Execute(WORKUNIT_ARGS)
         {
             for (uint8_t di = 0; di < devicesCount; di++)
             {
-                devices[di]->switchState();
+                devices[di]->switchState(true);
             }
 
             return true;

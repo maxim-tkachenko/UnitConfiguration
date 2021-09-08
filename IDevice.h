@@ -5,21 +5,24 @@
 #include "_uint8_t.h"
 #include "Diagnostics.h"
 #include "DiagnosticsFlags.h"
+#include "IAnimation.h"
 
 class IDevice
 {
 private:
     bool _state;
+    IAnimation *_turnAnimation = nullptr;
 
 protected:
     IDevice(bool initialState = false);
+    virtual void setImpl(bool state) = 0;
 
 public:
     virtual ~IDevice();
     void init();
     virtual bool get();
-    virtual void set(bool state);
-    virtual void switchState();
+    void set(bool state, bool animate = false);
+    void switchState(bool animate = false);
 };
 
 #endif

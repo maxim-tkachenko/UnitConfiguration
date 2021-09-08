@@ -25,7 +25,7 @@ bool IDevice::get()
   return _state;
 }
 
-void IDevice::set(bool state)
+void IDevice::set(bool state, bool animate)
 {
   traceme;
 
@@ -33,12 +33,30 @@ void IDevice::set(bool state)
   PlatformFeatures::digitalSet(PlatformFeatures::ledPin(), state);
 #endif
 
+  if (animate)
+  {
+    if (_turnAnimation == nullptr)
+    {
+      setImpl(state);
+    }
+
+    bool handled = _turnAnimation->Execute(state);
+    if (!handled)
+    {
+      setImpl(state);
+    }
+  }
+  else
+  {
+    setImpl(state);
+  }
+
   _state = state;
 }
 
-void IDevice::switchState()
+void IDevice::switchState(bool animate)
 {
   traceme;
 
-  set(!_state);
+  set(!_state, animate);
 }

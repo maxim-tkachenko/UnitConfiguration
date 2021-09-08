@@ -27,12 +27,11 @@ FastLedLight::~FastLedLight()
   delete[] _leds;
 }
 
-void FastLedLight::set(bool state)
+void FastLedLight::setImpl(bool state)
 {
   traceme;
 
   switchLed(state, 0, _ledStripLength);
-  IDevice::set(state);
 }
 
 void FastLedLight::switchLed(bool state, int ledStripStart, int ledStripLength)
@@ -117,6 +116,14 @@ void FastLedLight::fillOne(CRGB color, int ledStripStart, int ledStripLength)
   traceme;
 
   fill_solid(_leds, ledStripLength, color);
+
+  // for (int i = 0; i < ledStripLength; i++)
+  // {
+  //   _leds[i] = color;
+  //   _controller->showLeds(1);
+  //   FastLED.delay(50);
+  //   // _controller->delay(20);
+  // }
 
   _controller->showLeds(1);
 }

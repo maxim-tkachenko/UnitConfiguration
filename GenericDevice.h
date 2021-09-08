@@ -10,12 +10,14 @@ class GenericDevice : public IDevice
 private:
   uint8_t _dataPin;
 
+protected:
+  void setImpl(bool state) override;
+
 public:
   GenericDevice(uint8_t dataPin, bool initialState = false);
   virtual ~GenericDevice();
 
   void init();
-  void set(bool state);
 };
 
 #endif

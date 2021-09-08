@@ -44,6 +44,9 @@ private:
   void setColor(CRGB color, int ledStripStart, int ledStripLength);
   void fillOne(CRGB color, int ledStripStart, int ledStripLength);
 
+protected:
+  void setImpl(bool state) override;
+
 public:
   FastLedLight(int ledStripLength, bool initialState = false);
   virtual ~FastLedLight();
@@ -72,8 +75,6 @@ public:
 
     IDevice::init();
   }
-
-  void set(bool state);
 };
 
 #endif

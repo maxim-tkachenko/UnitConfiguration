@@ -22,10 +22,9 @@ void GenericDevice::init()
   IDevice::init();
 }
 
-void GenericDevice::set(bool state)
+void GenericDevice::setImpl(bool state)
 {
   traceme;
 
   PlatformFeatures::digitalSet(_dataPin, state);
-  IDevice::set(state);
 }
