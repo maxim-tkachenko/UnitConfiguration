@@ -20,6 +20,7 @@ void Runner::setConfig(IBaseConfiguration *configuration)
     traceme;
 
     _configuration = configuration;
+    PlatformFeatures::println("setup finished");
 }
 
 void Runner::loop()

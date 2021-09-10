@@ -1,7 +1,13 @@
 #include "IDevice.h"
 
 IDevice::IDevice(bool initialState)
-    : _state(initialState)
+    : IDevice(nullptr, initialState)
+{
+  traceme;
+}
+
+IDevice::IDevice(IBaseAnimation *animation, bool initialState)
+    : _turnAnimation(animation), _state(initialState)
 {
   traceme;
 }
@@ -39,11 +45,13 @@ void IDevice::set(bool state, bool animate)
     {
       setImpl(state);
     }
-
-    bool handled = _turnAnimation->Execute(state);
-    if (!handled)
+    else
     {
-      setImpl(state);
+      bool handled = _turnAnimation->execute(state);
+      if (!handled)
+      {
+        setImpl(state);
+      }
     }
   }
   else

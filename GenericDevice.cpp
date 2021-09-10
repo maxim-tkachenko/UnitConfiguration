@@ -1,12 +1,18 @@
 #include "GenericDevice.h"
 
-GenericDevice::GenericDevice(uint8_t dataPin, bool initialState)
-    : IDevice(initialState),
+GenericDevice::GenericDevice(uint8_t dataPin, IBaseAnimation *animation, bool initialState)
+    : IDevice(animation, initialState),
       _dataPin(dataPin)
 {
   traceme;
 
   init();
+}
+
+GenericDevice::GenericDevice(uint8_t dataPin, bool initialState)
+    : GenericDevice(dataPin, nullptr, initialState)
+{
+  traceme;
 }
 
 GenericDevice::~GenericDevice()

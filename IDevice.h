@@ -10,10 +10,11 @@
 class IDevice
 {
 private:
+    IBaseAnimation *_turnAnimation;
     bool _state;
-    IAnimation *_turnAnimation = nullptr;
 
 protected:
+    IDevice(IBaseAnimation *animation, bool initialState = false);
     IDevice(bool initialState = false);
     virtual void setImpl(bool state) = 0;
 
@@ -23,6 +24,10 @@ public:
     virtual bool get();
     void set(bool state, bool animate = false);
     void switchState(bool animate = false);
+    void setAnimation(IBaseAnimation *animation)
+    {
+        _turnAnimation = animation;
+    }
 };
 
 #endif

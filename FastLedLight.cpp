@@ -10,12 +10,25 @@ void fill_solid(struct CRGB *leds, int numToFill, const struct CRGB &color)
   (void)numToFill;
   (void)color;
 }
+
+void delay(unsigned long ms)
+{
+  traceme;
+
+  (void)ms;
+}
 #endif
 
-FastLedLight::FastLedLight(int ledStripLength, bool initialState)
-    : IDevice(initialState),
+FastLedLight::FastLedLight(int ledStripLength, IBaseAnimation *animation, bool initialState)
+    : IDevice(animation, initialState),
       _ledStripLength(ledStripLength),
       _leds(new CRGB[_ledStripLength])
+{
+  traceme;
+}
+
+FastLedLight::FastLedLight(int ledStripLength, bool initialState)
+    : FastLedLight(ledStripLength, nullptr, initialState)
 {
   traceme;
 }
@@ -56,6 +69,8 @@ void FastLedLight::switchLed(bool state, int ledStripStart, int ledStripLength)
 
 void FastLedLight::setColor(CRGB color, int ledStripStart, int ledStripLength)
 {
+  traceme;
+
   fillOne(color, ledStripStart, ledStripLength);
   return;
 
@@ -100,6 +115,8 @@ void FastLedLight::setColor(CRGB color, int ledStripStart, int ledStripLength)
 
 void FastLedLight::fillOne(CRGB color, int ledStripStart, int ledStripLength)
 {
+  traceme;
+
   (void)ledStripStart; // suppress warning
 
   //  if (ledStripStart > 0)
@@ -112,8 +129,6 @@ void FastLedLight::fillOne(CRGB color, int ledStripStart, int ledStripLength)
   //    fill_solid(leds1, ledStripLength, color);
   //    FastLED[0].showLeds(255);
   //  }
-
-  traceme;
 
   fill_solid(_leds, ledStripLength, color);
 
