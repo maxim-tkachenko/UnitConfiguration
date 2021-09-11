@@ -12,6 +12,11 @@ public:
 	{
 		return state ? on() : off();
 	}
+
+	// template <class TDevice>
+	// void init(TDevice *device)
+	// {
+	// }
 };
 
 template <class TDevice>

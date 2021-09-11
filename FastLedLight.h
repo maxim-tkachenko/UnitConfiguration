@@ -56,16 +56,20 @@ private:
 
 protected:
   void setImpl(bool state) override;
+  // void setupAnimation() override
+  // {
+  //   _turnAnimation->init<FastLedLight>(this);
+  // }
 
 public:
   CLEDController *_controller = nullptr;
 
   FastLedLight(int ledStripLength, bool initialState = false);
-  FastLedLight(int ledStripLength, IBaseAnimation *animation, bool initialState = false);
+  FastLedLight(int ledStripLength, IAnimation<FastLedLight> *animation, bool initialState = false);
   virtual ~FastLedLight();
 
   template <uint8_t DATA_PIN>
-  static FastLedLight *create(int ledStripLength, IBaseAnimation *animation, bool initialState = false)
+  static FastLedLight *create(int ledStripLength, IAnimation<FastLedLight> *animation, bool initialState = false)
   {
     auto fll = new FastLedLight(ledStripLength, animation, initialState);
     fll->init<DATA_PIN>();
