@@ -1,5 +1,5 @@
-#ifndef IAnimation_h
-#define IAnimation_h
+#ifndef IDeviceTurnConfiguration_h
+#define IDeviceTurnConfiguration_h
 
 #include "IDevice.h"
 
@@ -14,14 +14,14 @@ public:
 		return state ? on() : off();
 	}
 
-	virtual ~IBaseAnimation()
+	virtual ~IDeviceBaseTurnConfiguration()
 	{
 		traceme;
 	}
 };
 
 template <class TDevice>
-class IAnimation : public IDeviceBaseTurnConfiguration
+class IDeviceTurnConfiguration : public IDeviceBaseTurnConfiguration
 {
 protected:
 	TDevice *_device = nullptr;

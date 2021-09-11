@@ -5,7 +5,7 @@
 #include "_uint8_t.h"
 #include "Diagnostics.h"
 #include "DiagnosticsFlags.h"
-#include "IAnimation.h"
+#include "IDeviceTurnConfiguration.h"
 
 class IDevice
 {

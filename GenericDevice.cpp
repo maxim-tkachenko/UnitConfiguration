@@ -1,6 +1,6 @@
 #include "GenericDevice.h"
 
-GenericDevice::GenericDevice(uint8_t dataPin, IAnimation<GenericDevice> *animation, bool initialState)
+GenericDevice::GenericDevice(uint8_t dataPin, IDeviceTurnConfiguration<GenericDevice> *animation, bool initialState)
     : IDevice(animation, initialState),
       _dataPin(dataPin)
 {

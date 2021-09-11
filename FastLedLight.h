@@ -69,11 +69,11 @@ public:
   CLEDController *ledController = nullptr;
 
   FastLedLight(int ledStripLength, bool initialState = false);
-  FastLedLight(int ledStripLength, IAnimation<FastLedLight> *animation, bool initialState = false);
+  FastLedLight(int ledStripLength, IDeviceTurnConfiguration<FastLedLight> *animation, bool initialState = false);
   virtual ~FastLedLight();
 
   template <uint8_t DATA_PIN>
-  static FastLedLight *create(int ledStripLength, IAnimation<FastLedLight> *animation, bool initialState = false)
+  static FastLedLight *create(int ledStripLength, IDeviceTurnConfiguration<FastLedLight> *animation, bool initialState = false)
   {
     auto fll = new FastLedLight(ledStripLength, animation, initialState);
     fll->init<DATA_PIN>();

@@ -15,7 +15,7 @@ protected:
 
 public:
   GenericDevice(uint8_t dataPin, bool initialState = false);
-  GenericDevice(uint8_t dataPin, IAnimation<GenericDevice> *animation, bool initialState = false);
+  GenericDevice(uint8_t dataPin, IDeviceTurnConfiguration<GenericDevice> *animation, bool initialState = false);
   virtual ~GenericDevice();
 
   void init();

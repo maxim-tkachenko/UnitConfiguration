@@ -19,7 +19,7 @@ void delay(unsigned long ms)
 }
 #endif
 
-FastLedLight::FastLedLight(int ledStripLength, IAnimation<FastLedLight> *animation, bool initialState)
+FastLedLight::FastLedLight(int ledStripLength, IDeviceTurnConfiguration<FastLedLight> *animation, bool initialState)
     : IDevice(animation, initialState),
       _ledStripLength(ledStripLength),
       _leds(new CRGB[_ledStripLength])
