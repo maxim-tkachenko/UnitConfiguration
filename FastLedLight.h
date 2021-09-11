@@ -56,10 +56,6 @@ private:
 
 protected:
   void setImpl(bool state) override;
-  // void setupAnimation() override
-  // {
-  //   _turnAnimation->init<FastLedLight>(this);
-  // }
 
 public:
   CLEDController *_controller = nullptr;

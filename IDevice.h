@@ -18,7 +18,6 @@ protected:
     IDevice(IBaseAnimation *animation, bool initialState = false);
     IDevice(bool initialState = false);
     virtual void setImpl(bool state) = 0;
-    // virtual void setupAnimation() = 0;
 
 public:
     virtual ~IDevice();
@@ -26,11 +25,6 @@ public:
     virtual bool get();
     void set(bool state, bool animate = false);
     void switchState(bool animate = false);
-    // void setAnimation(IBaseAnimation *animation)
-    // {
-    //     _turnAnimation = animation;
-    //     setupAnimation();
-    // }
 };
 
 #endif
