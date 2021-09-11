@@ -20,7 +20,15 @@ struct CRGB
 
 class CLEDController
 {
+private:
+  int _size;
+
 public:
+  CLEDController(int size) : _size(size)
+  {
+    traceme;
+  }
+
   void showLeds(uint8_t brightness = 255)
   {
     traceme;
@@ -30,7 +38,7 @@ public:
 
   int size()
   {
-    return 5;
+    return _size;
   }
 
   CRGB *leds()
@@ -89,7 +97,7 @@ public:
 #ifdef __AVR
         &FastLED.addLeds<WS2812B, DATA_PIN, GRB>(_leds, _ledStripLength);
 #else
-        new CLEDController();
+        new CLEDController(_ledStripLength);
 #endif
 
     IDevice::init();
