@@ -13,6 +13,11 @@ public:
 	{
 		return state ? on() : off();
 	}
+
+	virtual ~IBaseAnimation()
+	{
+		traceme;
+	}
 };
 
 template <class TDevice>
