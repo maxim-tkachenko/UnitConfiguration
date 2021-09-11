@@ -7,7 +7,7 @@ IDevice::IDevice(bool initialState)
 }
 
 IDevice::IDevice(IBaseAnimation *animation, bool initialState)
-    : _turnAnimation(animation), _state(initialState)
+    : _state(initialState), _turnAnimation(animation)
 {
   traceme;
 }
