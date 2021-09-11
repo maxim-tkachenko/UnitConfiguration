@@ -8,15 +8,11 @@ class IBaseAnimation
 public:
 	virtual bool on() = 0;
 	virtual bool off() = 0;
+
 	bool execute(bool state)
 	{
 		return state ? on() : off();
 	}
-
-	// template <class TDevice>
-	// void init(TDevice *device)
-	// {
-	// }
 };
 
 template <class TDevice>
@@ -26,11 +22,6 @@ protected:
 	TDevice *_device = nullptr;
 
 public:
-	// IAnimation(TDevice *device) : _device(device)
-	// {
-	// 	traceme;
-	// }
-
 	void init(TDevice *device)
 	{
 		traceme;
