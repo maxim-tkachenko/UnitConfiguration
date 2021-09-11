@@ -15,6 +15,11 @@ IDevice::IDevice(IBaseAnimation *animation, bool initialState)
 IDevice::~IDevice()
 {
   traceme;
+
+  if (_turnAnimation != nullptr)
+  {
+    delete _turnAnimation;
+  }
 }
 
 void IDevice::init()
