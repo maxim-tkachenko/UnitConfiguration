@@ -137,5 +137,5 @@ void FastLedLight::fillOne(CRGB color, int ledStripStart, int ledStripLength)
 
   fill_solid(_leds, ledStripLength, color);
 
-  _controller->showLeds(1);
+  ledController->showLeds(1);
 }

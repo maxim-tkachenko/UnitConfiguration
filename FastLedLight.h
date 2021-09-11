@@ -66,7 +66,7 @@ protected:
   void setImpl(bool state) override;
 
 public:
-  CLEDController *_controller = nullptr;
+  CLEDController *ledController = nullptr;
 
   FastLedLight(int ledStripLength, bool initialState = false);
   FastLedLight(int ledStripLength, IAnimation<FastLedLight> *animation, bool initialState = false);
@@ -93,7 +93,7 @@ public:
   {
     traceme;
 
-    _controller =
+    ledController =
 #ifdef __AVR
         &FastLED.addLeds<WS2812B, DATA_PIN, GRB>(_leds, _ledStripLength);
 #else
