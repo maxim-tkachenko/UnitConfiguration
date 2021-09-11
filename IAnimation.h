@@ -3,7 +3,7 @@
 
 #include "IDevice.h"
 
-class IBaseAnimation
+class IDeviceBaseTurnConfiguration
 {
 public:
 	virtual bool on() = 0;
@@ -16,7 +16,7 @@ public:
 };
 
 template <class TDevice>
-class IAnimation : public IBaseAnimation
+class IAnimation : public IDeviceBaseTurnConfiguration
 {
 protected:
 	TDevice *_device = nullptr;

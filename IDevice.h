@@ -13,9 +13,9 @@ private:
     bool _state;
 
 protected:
-    IBaseAnimation *_turnAnimation;
+    IDeviceBaseTurnConfiguration *_turnAnimation;
 
-    IDevice(IBaseAnimation *animation, bool initialState = false);
+    IDevice(IDeviceBaseTurnConfiguration *animation, bool initialState = false);
     IDevice(bool initialState = false);
     virtual void setImpl(bool state) = 0;
 
