@@ -33,12 +33,20 @@ protected:
     {
         if (config == nullptr)
         {
-            auto defaultTurnConfig = new TDefaultTurnConfig();
-            defaultTurnConfig->init(instance);
-
-            _turnConfig = defaultTurnConfig;
+            config = new TDefaultTurnConfig();
+            _turnConfig = config;
         }
-        else
+
+        initConfigs<TDevice>(config, animation, instance);
+    }
+
+    template <class TDevice>
+    void initConfigs(
+        IDeviceTurnConfiguration<TDevice> *config,
+        IDeviceTurnConfiguration<TDevice> *animation,
+        TDevice *instance)
+    {
+        if (config != nullptr)
         {
             config->init(instance);
         }

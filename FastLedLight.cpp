@@ -30,16 +30,7 @@ FastLedLight::FastLedLight(
 {
   traceme;
 
-  // ensure config
-  if (config != nullptr)
-  {
-    config->init(this);
-  }
-
-  if (animation != nullptr)
-  {
-    animation->init(this);
-  }
+  initConfigs<FastLedLight>(config, animation, this);
 }
 
 FastLedLight::~FastLedLight()
