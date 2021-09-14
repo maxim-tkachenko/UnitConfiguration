@@ -43,9 +43,6 @@ void IDevice::set(bool state, bool animate)
   PlatformFeatures::digitalSet(PlatformFeatures::ledPin(), state);
 #endif
 
-  PlatformFeatures::print("animate: ");
-  PlatformFeatures::println(animate ? "y" : "n");
-
   if (animate)
   {
     if (_turnAnimation == nullptr)
