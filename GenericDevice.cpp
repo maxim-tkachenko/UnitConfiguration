@@ -1,4 +1,5 @@
 #include "GenericDevice.h"
+#include "GenericDeviceTurnConfig.h"
 
 GenericDevice::GenericDevice(
     uint8_t dataPin,
@@ -6,7 +7,6 @@ GenericDevice::GenericDevice(
     IDeviceTurnConfiguration<GenericDevice> *animation,
     bool initialState)
     : IDevice(
-          // config == nullptr ? new GenericDeviceTurnConfig() : config,
           config,
           animation,
           initialState),
@@ -14,15 +14,14 @@ GenericDevice::GenericDevice(
 {
   traceme;
 
-  init();
+  if (_turnConfig == nullptr)
+  {
+    auto genericDeviceTurnConfig = new GenericDeviceTurnConfig();
+    genericDeviceTurnConfig->init(this);
 
-  // if (config == nullptr)
-  // {
-  //   // setDefaultTurnConfig();
-  //   _turnConfig = new GenericDeviceTurnConfig();
-  // }
-
-  if (config != nullptr)
+    _turnConfig = genericDeviceTurnConfig;
+  }
+  else
   {
     config->init(this);
   }
@@ -31,6 +30,8 @@ GenericDevice::GenericDevice(
   {
     animation->init(this);
   }
+
+  init();
 }
 
 GenericDevice::~GenericDevice()

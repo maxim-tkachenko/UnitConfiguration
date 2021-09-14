@@ -3,8 +3,6 @@
 
 #include "GenericDevice.h"
 
-// class GenericDevice;
-
 class GenericDeviceTurnConfig : public IDeviceTurnConfiguration<GenericDevice>
 {
 private:

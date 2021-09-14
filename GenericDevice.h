@@ -2,7 +2,6 @@
 #define GenericDevice_h
 
 #include "IDevice.h"
-// #include "GenericDeviceTurnConfig.h"
 #include "PlatformFeatures.h"
 #include "Diagnostics.h"
 
