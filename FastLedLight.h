@@ -63,28 +63,29 @@ private:
   void fillOne(CRGB color, int ledStripStart, int ledStripLength);
 
 protected:
-  void setImpl(bool state) override;
+  // void setImpl(bool state) override;
 
 public:
   CLEDController *ledController = nullptr;
 
-  FastLedLight(int ledStripLength, bool initialState = false);
-  FastLedLight(int ledStripLength, IDeviceTurnConfiguration<FastLedLight> *animation, bool initialState = false);
+  FastLedLight(
+      int ledStripLength,
+      IDeviceTurnConfiguration<FastLedLight> *config = nullptr,
+      IDeviceTurnConfiguration<FastLedLight> *animation = nullptr,
+      bool initialState = false);
   virtual ~FastLedLight();
 
   template <uint8_t DATA_PIN>
-  static FastLedLight *create(int ledStripLength, IDeviceTurnConfiguration<FastLedLight> *animation, bool initialState = false)
+  static FastLedLight *create(
+      int ledStripLength,
+      IDeviceTurnConfiguration<FastLedLight> *config = nullptr,
+      IDeviceTurnConfiguration<FastLedLight> *animation = nullptr,
+      bool initialState = false)
   {
-    auto fll = new FastLedLight(ledStripLength, animation, initialState);
+    auto fll = new FastLedLight(ledStripLength, config, animation, initialState);
     fll->init<DATA_PIN>();
 
     return fll;
-  }
-
-  template <uint8_t DATA_PIN>
-  static FastLedLight *create(int ledStripLength, bool initialState = false)
-  {
-    return create<DATA_PIN>(ledStripLength, nullptr, initialState);
   }
 
   //template <ESPIChipsets CHIPSET, uint8_t DATA_PIN, EOrder RGB_ORDER>

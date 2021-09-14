@@ -2,6 +2,7 @@
 #define GenericDevice_h
 
 #include "IDevice.h"
+// #include "GenericDeviceTurnConfig.h"
 #include "PlatformFeatures.h"
 #include "Diagnostics.h"
 
@@ -11,14 +12,18 @@ private:
   uint8_t _dataPin;
 
 protected:
-  void setImpl(bool state) override;
+  // void setImpl(bool state) override;
 
 public:
-  GenericDevice(uint8_t dataPin, bool initialState = false);
-  GenericDevice(uint8_t dataPin, IDeviceTurnConfiguration<GenericDevice> *animation, bool initialState = false);
+  GenericDevice(
+      uint8_t dataPin,
+      IDeviceTurnConfiguration<GenericDevice> *config = nullptr,
+      IDeviceTurnConfiguration<GenericDevice> *animation = nullptr,
+      bool initialState = false);
   virtual ~GenericDevice();
 
   void init();
+  uint8_t getPin();
 };
 
 #endif

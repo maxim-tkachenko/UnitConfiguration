@@ -12,12 +12,18 @@ class IDevice
 private:
     bool _state;
 
+    void xx(bool state);
+
 protected:
+    IDeviceBaseTurnConfiguration *_turnConfig;
     IDeviceBaseTurnConfiguration *_turnAnimation;
 
-    IDevice(IDeviceBaseTurnConfiguration *animation, bool initialState = false);
-    IDevice(bool initialState = false);
-    virtual void setImpl(bool state) = 0;
+    IDevice(
+        IDeviceBaseTurnConfiguration *config,
+        IDeviceBaseTurnConfiguration *animation,
+        bool initialState);
+    // virtual void setImpl(bool state) = 0;
+    // virtual void setDefaultTurnConfig() = 0;
 
 public:
     virtual ~IDevice();

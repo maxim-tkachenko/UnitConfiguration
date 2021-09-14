@@ -19,23 +19,27 @@ void delay(unsigned long ms)
 }
 #endif
 
-FastLedLight::FastLedLight(int ledStripLength, IDeviceTurnConfiguration<FastLedLight> *animation, bool initialState)
-    : IDevice(animation, initialState),
+FastLedLight::FastLedLight(
+    int ledStripLength,
+    IDeviceTurnConfiguration<FastLedLight> *config,
+    IDeviceTurnConfiguration<FastLedLight> *animation,
+    bool initialState)
+    : IDevice(config, animation, initialState),
       _ledStripLength(ledStripLength),
       _leds(new CRGB[_ledStripLength])
 {
   traceme;
 
+  // ensure config
+  if (config != nullptr)
+  {
+    config->init(this);
+  }
+
   if (animation != nullptr)
   {
     animation->init(this);
   }
-}
-
-FastLedLight::FastLedLight(int ledStripLength, bool initialState)
-    : FastLedLight(ledStripLength, nullptr, initialState)
-{
-  traceme;
 }
 
 FastLedLight::~FastLedLight()
@@ -45,12 +49,12 @@ FastLedLight::~FastLedLight()
   delete[] _leds;
 }
 
-void FastLedLight::setImpl(bool state)
-{
-  traceme;
+// void FastLedLight::setImpl(bool state)
+// {
+//   traceme;
 
-  switchLed(state, 0, _ledStripLength);
-}
+//   switchLed(state, 0, _ledStripLength);
+// }
 
 void FastLedLight::switchLed(bool state, int ledStripStart, int ledStripLength)
 {

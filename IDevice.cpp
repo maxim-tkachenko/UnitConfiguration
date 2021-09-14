@@ -1,13 +1,10 @@
 #include "IDevice.h"
 
-IDevice::IDevice(bool initialState)
-    : IDevice(nullptr, initialState)
-{
-  traceme;
-}
-
-IDevice::IDevice(IDeviceBaseTurnConfiguration *animation, bool initialState)
-    : _state(initialState), _turnAnimation(animation)
+IDevice::IDevice(
+    IDeviceBaseTurnConfiguration *config,
+    IDeviceBaseTurnConfiguration *animation,
+    bool initialState)
+    : _state(initialState), _turnConfig(config), _turnAnimation(animation)
 {
   traceme;
 }
@@ -20,6 +17,8 @@ IDevice::~IDevice()
   {
     delete _turnAnimation;
   }
+
+  delete _turnConfig;
 }
 
 void IDevice::init()
@@ -44,27 +43,54 @@ void IDevice::set(bool state, bool animate)
   PlatformFeatures::digitalSet(PlatformFeatures::ledPin(), state);
 #endif
 
+  PlatformFeatures::print("animate: ");
+  PlatformFeatures::println(animate ? "y" : "n");
+
   if (animate)
   {
     if (_turnAnimation == nullptr)
     {
-      setImpl(state);
+      // if (_turnConfig == nullptr)
+      // {
+      //   // throw;
+      //   PlatformFeatures::println("turn config is null");
+      // }
+
+      // xx(state);
+
+      if (_turnConfig == nullptr)
+      {
+        PlatformFeatures::println("turn config is null");
+      }
+      else
+      {
+        xx(state);
+      }
     }
     else
     {
       bool handled = _turnAnimation->execute(state);
       if (!handled)
       {
-        setImpl(state);
+        xx(state);
       }
     }
   }
   else
   {
-    setImpl(state);
+    xx(state);
   }
 
   _state = state;
+}
+
+void IDevice::xx(bool state)
+{
+  bool handled = _turnConfig->execute(state);
+  if (!handled)
+  {
+    // throw;
+  }
 }
 
 void IDevice::switchState(bool animate)
