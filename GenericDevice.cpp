@@ -6,10 +6,7 @@ GenericDevice::GenericDevice(
     IDeviceTurnConfiguration<GenericDevice> *config,
     IDeviceTurnConfiguration<GenericDevice> *animation,
     bool initialState)
-    : IDevice(
-          config,
-          animation,
-          initialState),
+    : IDevice(config, animation, initialState),
       _dataPin(dataPin)
 {
   traceme;
