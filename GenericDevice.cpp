@@ -11,23 +11,7 @@ GenericDevice::GenericDevice(
 {
   traceme;
 
-  if (_turnConfig == nullptr)
-  {
-    auto genericDeviceTurnConfig = new GenericDeviceTurnConfig();
-    genericDeviceTurnConfig->init(this);
-
-    _turnConfig = genericDeviceTurnConfig;
-  }
-  else
-  {
-    config->init(this);
-  }
-
-  if (animation != nullptr)
-  {
-    animation->init(this);
-  }
-
+  initConfigs<GenericDevice, GenericDeviceTurnConfig>(config, animation, this);
   init();
 }
 

@@ -25,6 +25,30 @@ protected:
     // virtual void setImpl(bool state) = 0;
     // virtual void setDefaultTurnConfig() = 0;
 
+    template <class TDevice, class TDefaultTurnConfig>
+    void initConfigs(
+        IDeviceTurnConfiguration<TDevice> *config,
+        IDeviceTurnConfiguration<TDevice> *animation,
+        TDevice *instance)
+    {
+        if (config == nullptr)
+        {
+            auto defaultTurnConfig = new TDefaultTurnConfig();
+            defaultTurnConfig->init(instance);
+
+            _turnConfig = defaultTurnConfig;
+        }
+        else
+        {
+            config->init(instance);
+        }
+
+        if (animation != nullptr)
+        {
+            animation->init(instance);
+        }
+    }
+
 public:
     virtual ~IDevice();
     void init();
