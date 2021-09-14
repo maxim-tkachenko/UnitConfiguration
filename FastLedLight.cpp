@@ -39,11 +39,3 @@ FastLedLight::~FastLedLight()
 
   delete[] _leds;
 }
-
-// void FastLedLight::setImpl(bool state)
-// {
-//   traceme;
-//
-//   fill_solid(_leds, _ledStripLength, state ? CRGB::Green : CRGB::Red);
-//   ledController->showLeds(1);
-// }

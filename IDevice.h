@@ -22,8 +22,6 @@ protected:
         IDeviceBaseTurnConfiguration *config,
         IDeviceBaseTurnConfiguration *animation,
         bool initialState);
-    // virtual void setImpl(bool state) = 0;
-    // virtual void setDefaultTurnConfig() = 0;
 
     template <class TDevice, class TDefaultTurnConfig>
     void initConfigs(

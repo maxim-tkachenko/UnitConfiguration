@@ -28,13 +28,6 @@ void GenericDevice::init()
   IDevice::init();
 }
 
-// void GenericDevice::setImpl(bool state)
-// {
-//   traceme;
-
-//   PlatformFeatures::digitalSet(_dataPin, state);
-// }
-
 uint8_t GenericDevice::getPin()
 {
   return _dataPin;

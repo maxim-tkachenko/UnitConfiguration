@@ -10,9 +10,6 @@ class GenericDevice : public IDevice
 private:
   uint8_t _dataPin;
 
-protected:
-  // void setImpl(bool state) override;
-
 public:
   GenericDevice(
       uint8_t dataPin,

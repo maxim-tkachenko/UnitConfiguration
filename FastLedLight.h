@@ -62,9 +62,6 @@ private:
   void setColor(CRGB color, int ledStripStart, int ledStripLength);
   void fillOne(CRGB color, int ledStripStart, int ledStripLength);
 
-protected:
-  // void setImpl(bool state) override;
-
 public:
   CLEDController *ledController = nullptr;
 
