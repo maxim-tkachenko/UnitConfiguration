@@ -12,7 +12,7 @@ class IDevice
 private:
     bool _state;
 
-    void xx(bool state);
+    void turn(bool state);
 
 protected:
     IDeviceBaseTurnConfiguration *_turnConfig;

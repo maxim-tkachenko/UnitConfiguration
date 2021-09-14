@@ -50,41 +50,26 @@ void IDevice::set(bool state, bool animate)
   {
     if (_turnAnimation == nullptr)
     {
-      // if (_turnConfig == nullptr)
-      // {
-      //   // throw;
-      //   PlatformFeatures::println("turn config is null");
-      // }
-
-      // xx(state);
-
-      if (_turnConfig == nullptr)
-      {
-        PlatformFeatures::println("turn config is null");
-      }
-      else
-      {
-        xx(state);
-      }
+      turn(state);
     }
     else
     {
       bool handled = _turnAnimation->execute(state);
       if (!handled)
       {
-        xx(state);
+        turn(state);
       }
     }
   }
   else
   {
-    xx(state);
+    turn(state);
   }
 
   _state = state;
 }
 
-void IDevice::xx(bool state)
+void IDevice::turn(bool state)
 {
   bool handled = _turnConfig->execute(state);
   if (!handled)
