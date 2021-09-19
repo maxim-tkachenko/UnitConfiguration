@@ -12,17 +12,19 @@ private:
 	}
 
 public:
-	bool on() override
+	bool on(uint8_t requestorId) override
 	{
 		traceme;
+		(void)requestorId;
 
 		set(true);
 		return true;
 	}
 
-	bool off() override
+	bool off(uint8_t requestorId) override
 	{
 		traceme;
+		(void)requestorId;
 
 		set(false);
 		return true;

@@ -12,7 +12,7 @@ class IDevice
 private:
     bool _state;
 
-    void turn(bool state);
+    void turn(bool state, uint8_t requestorId);
 
 protected:
     IDeviceBaseTurnConfiguration *_turnConfig;
@@ -59,8 +59,8 @@ public:
     virtual ~IDevice();
     void init();
     virtual bool get();
-    void set(bool state, bool animate = false);
-    void switchState(bool animate = false);
+    void set(bool state, bool animate = false, uint8_t requestorId = 0);
+    void switchState(bool animate = false, uint8_t requestorId = 0);
 };
 
 #endif

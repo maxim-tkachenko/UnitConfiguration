@@ -35,7 +35,7 @@ bool IDevice::get()
   return _state;
 }
 
-void IDevice::set(bool state, bool animate)
+void IDevice::set(bool state, bool animate, uint8_t requestorId)
 {
   traceme;
 
@@ -47,37 +47,37 @@ void IDevice::set(bool state, bool animate)
   {
     if (_turnAnimation == nullptr)
     {
-      turn(state);
+      turn(state, requestorId);
     }
     else
     {
-      bool handled = _turnAnimation->execute(state);
+      bool handled = _turnAnimation->execute(state, requestorId);
       if (!handled)
       {
-        turn(state);
+        turn(state, requestorId);
       }
     }
   }
   else
   {
-    turn(state);
+    turn(state, requestorId);
   }
 
   _state = state;
 }
 
-void IDevice::turn(bool state)
+void IDevice::turn(bool state, uint8_t requestorId)
 {
-  bool handled = _turnConfig->execute(state);
+  bool handled = _turnConfig->execute(state, requestorId);
   if (!handled)
   {
     // throw;
   }
 }
 
-void IDevice::switchState(bool animate)
+void IDevice::switchState(bool animate, uint8_t requestorId)
 {
   traceme;
 
-  set(!_state, animate);
+  set(!_state, animate, requestorId);
 }

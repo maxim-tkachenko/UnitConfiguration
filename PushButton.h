@@ -15,7 +15,7 @@ protected:
     virtual void init();
 
 public:
-    PushButton(uint8_t pin);
+    PushButton(uint8_t pin, uint8_t id = 0);
     virtual ~PushButton();
     virtual bool readState();
 };

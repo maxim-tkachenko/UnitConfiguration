@@ -1,7 +1,7 @@
 #include "PushButton.h"
 
-PushButton::PushButton(uint8_t pin)
-    : IController(),
+PushButton::PushButton(uint8_t pin, uint8_t id)
+    : IController(id),
       _pin(pin)
 {
     traceme;
