@@ -6,9 +6,9 @@ TimeoutHandler::TimeoutHandler(unsigned long timeoutMs)
     traceme;
 }
 
-bool TimeoutHandler::Execute(WORKUNIT_ARGS)
+bool TimeoutHandler::execute(WORKUNIT_ARGS)
 {
-    auto interracted = ControllerHandler::Execute(devices, devicesCount, controllers, controllersCount);
+    auto interracted = ControllerHandler::execute(devices, devicesCount, controllers, controllersCount);
     if (interracted)
     {
         PlatformFeatures::println("btn pressed");

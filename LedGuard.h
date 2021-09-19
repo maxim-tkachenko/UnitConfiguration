@@ -17,9 +17,9 @@ public:
         traceme;
     }
 
-    bool Execute(WORKUNIT_ARGS)
+    bool execute(WORKUNIT_ARGS)
     {
-        auto interracted = ControllerHandler::Execute(devices, devicesCount, controllers, controllersCount);
+        auto interracted = ControllerHandler::execute(devices, devicesCount, controllers, controllersCount);
         auto current = PlatformFeatures::milliseconds();
 
         if (interracted)

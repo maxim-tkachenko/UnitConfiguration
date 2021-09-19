@@ -14,7 +14,7 @@ public:
 		traceme;
 	};
 
-	virtual bool Execute(WORKUNIT_ARGS) = 0;
+	virtual bool execute(WORKUNIT_ARGS) = 0;
 };
 
 #endif

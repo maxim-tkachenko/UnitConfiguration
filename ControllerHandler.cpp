@@ -8,7 +8,7 @@
 // {
 // }
 
-bool ControllerHandler::Execute(WORKUNIT_ARGS)
+bool ControllerHandler::execute(WORKUNIT_ARGS)
 {
     for (uint8_t ci = 0; ci < controllersCount; ci++)
     {
