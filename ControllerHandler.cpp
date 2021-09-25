@@ -16,7 +16,7 @@ bool ControllerHandler::execute(WORKUNIT_ARGS)
         {
             for (uint8_t di = 0; di < devicesCount; di++)
             {
-                devices[di]->switchState(true);
+                devices[di]->switchState(true, controllers[ci]->getId());
             }
 
             return true;
