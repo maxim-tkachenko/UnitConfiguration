@@ -1,5 +1,4 @@
 #include "Runner.h"
-#include "PlatformFeatures.h"
 
 Runner::~Runner()
 {
@@ -25,7 +24,7 @@ void Runner::setConfig(IBaseConfiguration *configuration)
 
 void Runner::loop()
 {
-    _configuration->reset();
+    _configuration->resetEnumerator();
     loopImpl();
 }
 

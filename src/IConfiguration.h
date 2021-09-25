@@ -8,7 +8,7 @@ class IBaseConfiguration
 {
 public:
     virtual WorkUnit *next() = 0;
-    virtual void reset() = 0;
+    virtual void resetEnumerator() = 0;
     virtual void add(WorkUnit *unit) = 0;
     virtual ~IBaseConfiguration()
     {
@@ -23,7 +23,7 @@ private:
     WorkUnit *_units[SIZE]{};
 
 public:
-    WorkUnit *next()
+    WorkUnit *next() override
     {
         if (_index == SIZE)
         {
@@ -33,19 +33,19 @@ public:
         return _units[_index++];
     }
 
-    void reset()
+    void resetEnumerator() override
     {
         _index = 0;
     }
 
-    void add(WorkUnit *unit)
+    void add(WorkUnit *unit) override
     {
         traceme;
 
         _units[_index++] = unit;
     }
 
-    virtual ~IConfiguration()
+    virtual ~IConfiguration() override
     {
         traceme;
 
