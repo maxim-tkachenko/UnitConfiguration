@@ -1,7 +1,7 @@
 #ifndef LedGuard_h
 #define LedGuard_h
 
-#include "UnitConfiguration.h"
+#include "ControllerHandler.h"
 
 // temp software led workaround to "prevent" led interferences.
 class LedGuard : public ControllerHandler

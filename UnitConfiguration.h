@@ -12,6 +12,8 @@
 #include "src/WorkUnit.h"
 #include "src/IConfiguration.h"
 #include "src/Runner.h"
+#include "src/TimeoutHandler.h"
+#include "src/LedGuard.h"
 
 // to be removed from lib
 #include "src/FastLedLight.h"
