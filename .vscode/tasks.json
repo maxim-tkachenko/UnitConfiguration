@@ -7,7 +7,7 @@
 			"command": "/usr/bin/clang++",
 			"args": [
 				"-std=c++11",
-				"${workspaceFolder}/*.cpp",
+				"${workspaceFolder}/src/*.cpp",
 				"-c",
 				"-Wall",
 				"-Wextra",
