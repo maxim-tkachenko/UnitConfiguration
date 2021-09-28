@@ -8,8 +8,10 @@
 // {
 // }
 
-bool ControllerHandler::execute(WORKUNIT_ARGS)
+bool ControllerHandler::execute(HANDLER_ARGS)
 {
+    (void)results;
+
     for (uint8_t ci = 0; ci < controllersCount; ci++)
     {
         if (controllers[ci]->readState())

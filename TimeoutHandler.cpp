@@ -6,9 +6,9 @@ TimeoutHandler::TimeoutHandler(unsigned long timeoutMs)
     traceme;
 }
 
-bool TimeoutHandler::execute(WORKUNIT_ARGS)
+bool TimeoutHandler::execute(HANDLER_ARGS)
 {
-    auto interracted = ControllerHandler::execute(devices, devicesCount, controllers, controllersCount);
+    auto interracted = ControllerHandler::execute(HANDLER_ARGS_PASS);
     if (interracted)
     {
         _latestInterraction = PlatformFeatures::milliseconds();

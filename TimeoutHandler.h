@@ -13,7 +13,7 @@ private:
 
 public:
 	TimeoutHandler(unsigned long timeoutMs = 1800000); // 30 mins
-	virtual bool execute(WORKUNIT_ARGS);
+	virtual bool execute(HANDLER_ARGS);
 };
 
 #endif

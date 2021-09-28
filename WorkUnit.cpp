@@ -169,6 +169,6 @@ void WorkUnit::check()
 {
     for (uint8_t hi = 0; hi < _handlersCount; hi++)
     {
-        _handlersResults[hi] = _handlers[hi]->execute(_devices, _devicesCount, _controllers, _controllersCount);
+        _handlersResults[hi] = _handlers[hi]->execute(_handlersResults, _devices, _devicesCount, _controllers, _controllersCount);
     }
 }

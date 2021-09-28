@@ -9,7 +9,7 @@ class ControllerHandler : public IHandler
 public:
     // ControllerHandler();
     // virtual ~ControllerHandler();
-    virtual bool execute(WORKUNIT_ARGS);
+    virtual bool execute(HANDLER_ARGS);
 };
 
 #endif
