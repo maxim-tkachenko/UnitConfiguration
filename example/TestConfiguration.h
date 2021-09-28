@@ -3,6 +3,7 @@
 
 #include <UnitConfiguration.h>
 #include <TimeoutHandler.h>
+#include "LeftLedTurnConfig.h"
 
 class TestConfiguration : public IConfiguration<3>
 {
@@ -13,7 +14,9 @@ public:
         add(new WorkUnit(new GenericDevice(2), new PushButtonDebounced(12)));
 
         // Setup leds using FastLED:
-        add(new WorkUnit(FastLedLight::create<3>(200), new PushButtonDebounced(11)));
+        add(new WorkUnit(
+            FastLedLight::create<3>(200, new LeftLedTurnConfig()),
+            new PushButtonDebounced(11)));
 
         // Setup two light zones which are controlled by two buttons and turned off after 15 mins of inactivity:
         add(
