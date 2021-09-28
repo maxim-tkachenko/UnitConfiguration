@@ -9,6 +9,9 @@
 #include "FastLED.h"
 #else
 
+#ifndef FastLedLightFake_h
+#define FastLedLightFake_h
+
 struct CRGB
 {
   static CRGB Green;
@@ -60,6 +63,7 @@ void delay(unsigned long ms)
 
   (void)ms;
 }
+#endif
 #endif
 
 class FastLedLight : public IDevice
