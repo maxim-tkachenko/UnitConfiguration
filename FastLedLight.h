@@ -9,6 +9,9 @@
 #include "FastLED.h"
 #else
 
+#ifndef FastLedLightFake_h
+#define FastLedLightFake_h
+
 struct CRGB
 {
   static CRGB Green;
@@ -44,22 +47,9 @@ public:
   }
 };
 
-void fill_solid(struct CRGB *leds, int numToFill, const struct CRGB &color)
-{
-  traceme;
-
-  // suppress warnings
-  (void)leds;
-  (void)numToFill;
-  (void)color;
-}
-
-void delay(unsigned long ms)
-{
-  traceme;
-
-  (void)ms;
-}
+void fill_solid(struct CRGB *leds, int numToFill, const struct CRGB &color);
+void delay(unsigned long ms);
+#endif
 #endif
 
 class FastLedLight : public IDevice
