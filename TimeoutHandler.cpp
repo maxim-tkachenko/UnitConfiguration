@@ -11,7 +11,6 @@ bool TimeoutHandler::execute(WORKUNIT_ARGS)
     auto interracted = ControllerHandler::execute(devices, devicesCount, controllers, controllersCount);
     if (interracted)
     {
-        PlatformFeatures::println("btn pressed");
         _latestInterraction = PlatformFeatures::milliseconds();
 
         return false;

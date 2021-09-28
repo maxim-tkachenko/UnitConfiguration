@@ -14,6 +14,7 @@ bool ControllerHandler::execute(WORKUNIT_ARGS)
     {
         if (controllers[ci]->readState())
         {
+            PlatformFeatures::println("controller triggerred");
             for (uint8_t di = 0; di < devicesCount; di++)
             {
                 devices[di]->switchState(true, controllers[ci]->getId());
