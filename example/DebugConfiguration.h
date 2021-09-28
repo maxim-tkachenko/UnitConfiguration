@@ -24,12 +24,13 @@ public:
                 },
                 2,
                 new PushButtonDebounced(9, LEFT_LED_BUTTON_ID),
-                new IHandler *[2]
+                new IHandler *[3]
                 {
-                    new LedGuard(5000),
-                        new TimeoutHandler(15000),
+                    new ControllerHandler(),
+                        new LedGuard(0, 5000),
+                        new TimeoutHandler(0, 15000),
                 },
-                2));
+                3));
 
         add(
             new WorkUnit(

@@ -1,25 +1,30 @@
 #ifndef LedGuard_h
 #define LedGuard_h
 
-#include "UnitConfiguration.h"
+#include "IHandler.h"
+#include "PlatformFeatures.h"
+#include "Definitions.h"
 
 // temp software led workaround to "prevent" led interferences.
-class LedGuard : public ControllerHandler
+class LedGuard : public IHandler
 {
 private:
     unsigned long _timeout;
     unsigned long _latestInterraction = 0;
 
 public:
-    LedGuard(unsigned long timeoutMs = 300000) // 5 mins
-        : _timeout(timeoutMs)
+    LedGuard(short dependentHandlerId = -1, unsigned long timeoutMs = 300000) // 5 mins
+        : IHandler(dependentHandlerId), _timeout(timeoutMs)
     {
         traceme;
     }
 
     bool execute(HANDLER_ARGS)
     {
-        auto interracted = ControllerHandler::execute(HANDLER_ARGS_PASS);
+        (void)controllers;
+        (void)controllersCount;
+
+        auto interracted = getDependentHandlerResult(results);
         auto current = PlatformFeatures::milliseconds();
 
         if (interracted)
@@ -31,9 +36,7 @@ public:
 
         if ((current - _latestInterraction) > _timeout)
         {
-            PlatformFeatures::println("re-fill");
-            // PlatformFeatures::println(device->get());
-
+            PlatformFeatures::println("re-filled");
             for (uint8_t di = 0; di < devicesCount; di++)
             {
                 devices[di]->set(devices[di]->get());

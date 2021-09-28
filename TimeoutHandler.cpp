@@ -1,22 +1,26 @@
 #include "TimeoutHandler.h"
 
-TimeoutHandler::TimeoutHandler(unsigned long timeoutMs)
-    : _timeout(timeoutMs)
+TimeoutHandler::TimeoutHandler(short dependentHandlerId, unsigned long timeoutMs)
+    : IHandler(dependentHandlerId), _timeout(timeoutMs)
 {
     traceme;
 }
 
 bool TimeoutHandler::execute(HANDLER_ARGS)
 {
-    auto interracted = ControllerHandler::execute(HANDLER_ARGS_PASS);
+    (void)controllers;
+    (void)controllersCount;
+
+    auto interracted = getDependentHandlerResult(results);
+    auto current = PlatformFeatures::milliseconds();
+
     if (interracted)
     {
-        _latestInterraction = PlatformFeatures::milliseconds();
+        _latestInterraction = current;
 
         return false;
     }
 
-    auto current = PlatformFeatures::milliseconds();
     if ((current - _latestInterraction) > _timeout)
     {
         for (uint8_t di = 0; di < devicesCount; di++)

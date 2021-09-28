@@ -33,7 +33,7 @@ public:
                         new PushButtonDebounced(9),
                 },
                 2,
-                new TimeoutHandler(1000 * 60 * 15))); // 15 mins
+                new TimeoutHandler(-1, 1000 * 60 * 15))); // 15 mins
     }
 };
 
