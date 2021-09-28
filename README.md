@@ -4,6 +4,8 @@ This is a library for easily managing various numbers of your devices. Extremely
 Platform-specific API is stored in a single class for easily adding more architectures (avr and x86_x64 works for now).
 `Runner` class is there to allow to develop and debug code in your favourite C/C++ IDE and than deploy to microcontroller via native one (works well for Arduino IDE + VS Code).
 
+## Examples:
+
 Setup primitive devices which can be controled via relay and button, just specify data pins:
 
 ```C++
