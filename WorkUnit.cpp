@@ -131,7 +131,8 @@ WorkUnit::WorkUnit(WORKUNIT_ARGS, IHandler **handlers, uint8_t handlersCount)
       _controllers(controllers),
       _controllersCount(controllersCount),
       _handlers(handlers),
-      _handlersCount(handlersCount)
+      _handlersCount(handlersCount),
+      _handlersResults(new bool[handlersCount])
 {
     traceme;
 }
@@ -161,12 +162,13 @@ WorkUnit::~WorkUnit()
     }
 
     delete[] _handlers;
+    delete[] _handlersResults;
 }
 
 void WorkUnit::check()
 {
     for (uint8_t hi = 0; hi < _handlersCount; hi++)
     {
-        _handlers[hi]->execute(_devices, _devicesCount, _controllers, _controllersCount);
+        _handlersResults[hi] = _handlers[hi]->execute(_devices, _devicesCount, _controllers, _controllersCount);
     }
 }

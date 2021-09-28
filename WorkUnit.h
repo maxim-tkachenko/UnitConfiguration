@@ -18,6 +18,7 @@ private:
 
     IHandler **_handlers;
     uint8_t _handlersCount;
+    bool *_handlersResults;
 
 public:
     WorkUnit(IDevice *device, IController *controller);
