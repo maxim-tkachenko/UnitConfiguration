@@ -9,10 +9,10 @@
 class IHandler
 {
 private:
-	short _dep;
+	short _dependentHandlerId;
 
 public:
-	IHandler(short dependentHandlerId = -1) : _dep(dependentHandlerId)
+	IHandler(short dependentHandlerId = -1) : _dependentHandlerId(dependentHandlerId)
 	{
 		traceme;
 	}
@@ -24,7 +24,7 @@ public:
 
 	virtual bool getDependentHandlerResult(bool *results)
 	{
-		return _dep < 0 ? false : results[_dep];
+		return _dependentHandlerId < 0 ? false : results[_dependentHandlerId];
 	}
 
 	virtual bool execute(HANDLER_ARGS) = 0;
