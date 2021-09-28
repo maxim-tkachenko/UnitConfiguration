@@ -1,0 +1,7 @@
+{
+    "board": "arduino:avr:nano",
+    "configuration": "cpu=atmega328",
+    "sketch": "example.ino",
+    "output": "/Users/mtkachenko/.vscode/ArduinoOutput",
+    "port": "/dev/tty.usbserial-1430"
+}
