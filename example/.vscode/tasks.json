@@ -1,0 +1,36 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "clang++ build all files",
+			"command": "/usr/bin/clang++",
+			"args": [
+				"-std=c++11",
+				"-g",
+				"-Wall",
+				"-Wextra",
+				"-o",
+				"${workspaceFolder}/main",
+				"-I/Users/mtkachenko/Projects/local/iot/libraries/UnitConfiguration",
+				"${workspaceFolder}/*.cpp",
+				"/Users/mtkachenko/Projects/local/iot/libraries/UnitConfiguration/*.cpp",
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"presentation": {
+				"clear": true,
+				"showReuseMessage": false,
+			},
+			"detail": "compiler: /usr/bin/clang++"
+		}
+	]
+}
