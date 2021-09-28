@@ -67,7 +67,7 @@ public:
 
   FastLedLight(
       int ledStripLength,
-      IDeviceTurnConfiguration<FastLedLight> *config = nullptr,
+      IDeviceTurnConfiguration<FastLedLight> *config,
       IDeviceTurnConfiguration<FastLedLight> *animation = nullptr,
       bool initialState = false);
   virtual ~FastLedLight();
@@ -75,7 +75,7 @@ public:
   template <uint8_t DATA_PIN>
   static FastLedLight *create(
       int ledStripLength,
-      IDeviceTurnConfiguration<FastLedLight> *config = nullptr,
+      IDeviceTurnConfiguration<FastLedLight> *config,
       IDeviceTurnConfiguration<FastLedLight> *animation = nullptr,
       bool initialState = false)
   {
