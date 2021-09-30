@@ -12,7 +12,7 @@ private:
 	unsigned long _timeout;
 
 public:
-	TimeoutHandler(short dependentHandlerId = -1, unsigned long timeoutMs = 1800000); // 30 mins
+	TimeoutHandler(short masterHandlerId = -1, unsigned long timeoutMs = 1800000); // 30 mins
 	virtual bool execute(HANDLER_ARGS);
 };
 

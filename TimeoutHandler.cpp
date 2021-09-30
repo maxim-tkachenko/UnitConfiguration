@@ -1,7 +1,7 @@
 #include "TimeoutHandler.h"
 
-TimeoutHandler::TimeoutHandler(short dependentHandlerId, unsigned long timeoutMs)
-    : IHandler(dependentHandlerId), _timeout(timeoutMs)
+TimeoutHandler::TimeoutHandler(short masterHandlerId, unsigned long timeoutMs)
+    : IHandler(masterHandlerId), _timeout(timeoutMs)
 {
     traceme;
 }
@@ -11,7 +11,7 @@ bool TimeoutHandler::execute(HANDLER_ARGS)
     (void)controllers;
     (void)controllersCount;
 
-    auto interracted = getDependentHandlerResult(results);
+    auto interracted = getMasterHandlerResult(results);
     auto current = PlatformFeatures::milliseconds();
 
     if (interracted)

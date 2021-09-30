@@ -13,8 +13,8 @@ private:
     unsigned long _latestInterraction = 0;
 
 public:
-    LedGuard(short dependentHandlerId = -1, unsigned long timeoutMs = 300000) // 5 mins
-        : IHandler(dependentHandlerId), _timeout(timeoutMs)
+    LedGuard(short masterHandlerId = -1, unsigned long timeoutMs = 300000) // 5 mins
+        : IHandler(masterHandlerId), _timeout(timeoutMs)
     {
         traceme;
     }
@@ -24,7 +24,7 @@ public:
         (void)controllers;
         (void)controllersCount;
 
-        auto interracted = getDependentHandlerResult(results);
+        auto interracted = getMasterHandlerResult(results);
         auto current = PlatformFeatures::milliseconds();
 
         if (interracted)
