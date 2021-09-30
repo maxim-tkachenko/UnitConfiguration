@@ -2,10 +2,10 @@
 #define PushButtonDebounced_h
 
 #include "_uint8_t.h"
-#include "PushButton.h"
+#include "Button.h"
 #include "Diagnostics.h"
 
-class PushButtonDebounced : public PushButton
+class PushButtonDebounced : public Button
 {
 private:
     bool _state;

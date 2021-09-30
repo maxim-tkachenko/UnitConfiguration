@@ -4,7 +4,7 @@ PushButtonDebounced::PushButtonDebounced(
     uint8_t pin,
     uint8_t id,
     unsigned long debounceDelayMs)
-    : PushButton(pin, id),
+    : Button(pin, id),
       _state(false),
       _lastState(false),
       _debounceDelay(debounceDelayMs)

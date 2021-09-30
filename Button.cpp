@@ -1,6 +1,6 @@
-#include "PushButton.h"
+#include "Button.h"
 
-PushButton::PushButton(uint8_t pin, uint8_t id)
+Button::Button(uint8_t pin, uint8_t id)
     : IController(id),
       _pin(pin),
       _prevState(false)
@@ -10,12 +10,12 @@ PushButton::PushButton(uint8_t pin, uint8_t id)
     init();
 }
 
-PushButton::~PushButton()
+Button::~Button()
 {
     traceme;
 }
 
-void PushButton::init()
+void Button::init()
 {
     traceme;
 
@@ -23,12 +23,12 @@ void PushButton::init()
     _prevState = readState();
 }
 
-bool PushButton::readState()
+bool Button::readState()
 {
     return PlatformFeatures::digitalGet(_pin);
 }
 
-bool PushButton::stateIsChanged()
+bool Button::stateIsChanged()
 {
     auto current = readState();
     auto stateIsChanged = _prevState != current;
