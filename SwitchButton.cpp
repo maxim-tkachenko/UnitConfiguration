@@ -2,11 +2,13 @@
 
 SwitchButton::SwitchButton(
     uint8_t pin,
+    bool invertState,
     uint8_t id,
     unsigned long debounceDelayMs)
     : Button(pin, id),
       _state(false),
       _lastState(false),
+      _invertState(invertState),
       _debounceDelay(debounceDelayMs)
 {
     traceme;
@@ -51,4 +53,9 @@ bool SwitchButton::stateIsChanged()
     _lastState = reading;
 
     return false;
+}
+
+bool SwitchButton::readState()
+{
+    return _invertState ? !Button::readState() : Button::readState();
 }

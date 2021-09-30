@@ -10,6 +10,7 @@ class SwitchButton : public Button
 private:
     bool _state;
     bool _lastState;
+    bool _invertState;
 
     // the following variable are unsigned longs because the time, measured in
     // milliseconds, will quickly become a bigger number than can be stored in an int.
@@ -19,8 +20,13 @@ private:
     unsigned long _debounceDelay;
 
 public:
-    SwitchButton(uint8_t pin, uint8_t id = 0, unsigned long debounceDelayMs = 50);
+    SwitchButton(
+        uint8_t pin,
+        bool invertState = false,
+        uint8_t id = 0,
+        unsigned long debounceDelayMs = 50);
     virtual ~SwitchButton();
+    virtual bool readState() override;
     virtual bool stateIsChanged() override;
 };
 
