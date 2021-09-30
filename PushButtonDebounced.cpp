@@ -17,10 +17,10 @@ PushButtonDebounced::~PushButtonDebounced()
     traceme;
 }
 
-bool PushButtonDebounced::readState()
+bool PushButtonDebounced::stateIsChanged()
 {
     // read the state of the switch into a local variable:
-    int reading = PushButton::readState();
+    int reading = readState();
 
     // check to see if you just pressed the button
     // (i.e. the input went from LOW to HIGH), and you've waited long enough

@@ -16,6 +16,7 @@ public:
 	IController(uint8_t id = 0);
 	virtual ~IController();
 	virtual bool readState() = 0;
+	virtual bool stateIsChanged() = 0;
 	uint8_t getId();
 };
 
