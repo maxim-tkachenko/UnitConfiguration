@@ -5,7 +5,7 @@
 #include "IDevice.h"
 #include "GenericDevice.h"
 #include "IController.h"
-#include "PushButton.h"
+#include "SwitchButton.h"
 #include "PushButtonDebounced.h"
 #include "IHandler.h"
 #include "ControllerHandler.h"

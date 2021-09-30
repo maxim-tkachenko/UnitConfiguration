@@ -40,7 +40,8 @@ public:
                         leftLed,
                 },
                 2,
-                new PushButtonDebounced(11, RIGHT_LED_BUTTON_ID)));
+                // new PushButtonDebounced(11, RIGHT_LED_BUTTON_ID)));
+                new SwitchButton(12, RIGHT_LED_BUTTON_ID)));
     }
 };
 
