@@ -1,20 +1,9 @@
 #ifndef IController_h
 #define IController_h
 
+#include "StateChangedResult.h"
 #include "_uint8_t.h"
 #include "Diagnostics.h"
-
-class ControllerChangedResult
-{
-public:
-	bool isChanged;
-	bool newState;
-
-	ControllerChangedResult(bool _isChanged, bool _newState)
-		: isChanged(_isChanged), newState(_newState)
-	{
-	}
-};
 
 class IController
 {
@@ -29,7 +18,7 @@ public:
 	virtual ~IController();
 	virtual bool readState() = 0;
 	virtual bool stateIsChanged() = 0;
-	virtual ControllerChangedResult stateIsChanged2() = 0;
+	virtual StateChangedResult stateIsChanged2() = 0;
 	uint8_t getId();
 };
 

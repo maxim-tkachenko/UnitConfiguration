@@ -55,7 +55,7 @@ bool PushButtonDebounced::stateIsChanged()
     return false;
 }
 
-ControllerChangedResult PushButtonDebounced::stateIsChanged2()
+StateChangedResult PushButtonDebounced::stateIsChanged2()
 {
     // read the state of the switch into a local variable:
     int reading = readState();
@@ -82,7 +82,7 @@ ControllerChangedResult PushButtonDebounced::stateIsChanged2()
             _state = reading;
             if (_state)
             {
-                ControllerChangedResult r(true, _state);
+                StateChangedResult r(true, _state);
                 return r;
             }
         }
@@ -91,6 +91,6 @@ ControllerChangedResult PushButtonDebounced::stateIsChanged2()
     // save the reading. Next time through the loop, it'll be the _lastState:
     _lastState = reading;
 
-    ControllerChangedResult r(false, reading);
+    StateChangedResult r(false, reading);
     return r;
 }

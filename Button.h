@@ -20,7 +20,7 @@ public:
     virtual ~Button();
     virtual bool readState() override;
     virtual bool stateIsChanged() override;
-    virtual ControllerChangedResult stateIsChanged2() override;
+    virtual StateChangedResult stateIsChanged2() override;
 };
 
 #endif

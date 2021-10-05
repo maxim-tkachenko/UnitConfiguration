@@ -55,7 +55,7 @@ bool SwitchButton::stateIsChanged()
     return false;
 }
 
-ControllerChangedResult SwitchButton::stateIsChanged2()
+StateChangedResult SwitchButton::stateIsChanged2()
 {
     // read the state of the switch into a local variable:
     int reading = readState();
@@ -81,7 +81,7 @@ ControllerChangedResult SwitchButton::stateIsChanged2()
         {
             _state = reading;
 
-            ControllerChangedResult r(true, _state);
+            StateChangedResult r(true, _state);
             return r;
         }
     }
@@ -89,7 +89,7 @@ ControllerChangedResult SwitchButton::stateIsChanged2()
     // save the reading. Next time through the loop, it'll be the _lastState:
     _lastState = reading;
 
-    ControllerChangedResult r(false, reading);
+    StateChangedResult r(false, reading);
     return r;
 }
 
