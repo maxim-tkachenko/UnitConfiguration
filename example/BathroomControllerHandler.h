@@ -16,48 +16,14 @@ public:
 
         for (uint8_t ci = 0; ci < controllersCount; ci++)
         {
-            // if (controllers[ci]->getId() == DOOR_REED_SWITCH_ID)
-            // {
-            //     // PlatformFeatures::println("skip reed switch signals");
-            //     continue;
-            // }
-
-            auto stateIsChanged = controllers[ci]->stateIsChanged2();
-            if (stateIsChanged.isChanged)
+            auto stateChanges = controllers[ci]->stateIsChanged();
+            if (stateChanges.isChanged)
             {
-                // if (!stateIsChanged.newState &&
-                //     // devices[0]->get() && // TODO: ensure count
-                //     controllers[ci]->getId() == DOOR_REED_SWITCH_ID)
-                // {
-                //     PlatformFeatures::println("reed switch triggerred to off");
-
-                //     // do nothing if door is closed and light already on
-                //     return false;
-                // }
-
-                // if (controllers[ci]->getId() == DOOR_REED_SWITCH_ID)
-                // {
-                //     PlatformFeatures::print("reed switch triggerred to ");
-
-                //     if (stateIsChanged.newState)
-                //     {
-                //         PlatformFeatures::println("on");
-
-                //         // do nothing if door is closed and light already on
-                //         return false;
-                //     }
-
-                //     PlatformFeatures::println("off");
-
-                //     // do nothing if door is closed and light already on
-                //     return false;
-                // }
-
                 if (controllers[ci]->getId() == DOOR_REED_SWITCH_ID)
                 {
                     PlatformFeatures::print("reed switch triggerred to ");
 
-                    if (stateIsChanged.newState &&
+                    if (stateChanges.newState &&
                         !devices[0]->get())
                     {
                         PlatformFeatures::println("on");

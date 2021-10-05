@@ -28,16 +28,7 @@ bool Button::readState()
     return PlatformFeatures::digitalGet(_pin);
 }
 
-bool Button::stateIsChanged()
-{
-    auto current = readState();
-    auto stateIsChanged = _prevState != current;
-    _prevState = current;
-
-    return stateIsChanged;
-}
-
-StateChangedResult Button::stateIsChanged2()
+StateChangedResult Button::stateIsChanged()
 {
     auto current = readState();
     auto stateIsChanged = _prevState != current;

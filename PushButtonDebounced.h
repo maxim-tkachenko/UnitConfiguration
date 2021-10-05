@@ -21,8 +21,7 @@ private:
 public:
     PushButtonDebounced(uint8_t pin, uint8_t id = 0, unsigned long debounceDelayMs = 50);
     virtual ~PushButtonDebounced();
-    virtual bool stateIsChanged() override;
-    virtual StateChangedResult stateIsChanged2() override;
+    virtual StateChangedResult stateIsChanged() override;
 };
 
 #endif

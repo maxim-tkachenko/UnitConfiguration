@@ -19,8 +19,7 @@ public:
     Button(uint8_t pin, uint8_t id = 0);
     virtual ~Button();
     virtual bool readState() override;
-    virtual bool stateIsChanged() override;
-    virtual StateChangedResult stateIsChanged2() override;
+    virtual StateChangedResult stateIsChanged() override;
 };
 
 #endif

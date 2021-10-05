@@ -27,8 +27,7 @@ public:
         unsigned long debounceDelayMs = 50);
     virtual ~SwitchButton();
     virtual bool readState() override;
-    virtual bool stateIsChanged() override;
-    virtual StateChangedResult stateIsChanged2() override;
+    virtual StateChangedResult stateIsChanged() override;
 };
 
 #endif
