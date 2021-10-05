@@ -23,20 +23,30 @@ public:
                 {
                     PlatformFeatures::print("reed switch triggerred to ");
 
-                    if (stateChanges.newState &&
-                        !devices[0]->get())
+                    if (stateChanges.newState)
                     {
-                        PlatformFeatures::println("on");
-
-                        for (uint8_t di = 0; di < devicesCount; di++)
+                        PlatformFeatures::print("on");
+                        if (devices[0]->get())
                         {
-                            devices[di]->switchState(true, controllers[ci]->getId());
+                            // do nothing if door is opened but light is already on
+                            PlatformFeatures::println(" but ignored");
+                            return false;
+                        }
+                        else
+                        {
+                            PlatformFeatures::println(" and changed state");
+                            for (uint8_t di = 0; di < devicesCount; di++)
+                            {
+                                devices[di]->switchState(true, controllers[ci]->getId());
+                            }
+
+                            return true;
                         }
                     }
 
                     PlatformFeatures::println("off");
 
-                    // do nothing if door is closed and light already on
+                    // do nothing if door is closed
                     return false;
                 }
 
