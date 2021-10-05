@@ -20,7 +20,7 @@ bool ControllerHandler::execute(HANDLER_ARGS)
             PlatformFeatures::println("controller triggerred");
             for (uint8_t di = 0; di < devicesCount; di++)
             {
-                devices[di]->set(stateChanges.newState, true, controllers[ci]->getId());
+                devices[di]->switchState(true, controllers[ci]->getId());
             }
 
             return true;

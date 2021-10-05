@@ -44,6 +44,7 @@ StateChangedResult PushButtonDebounced::stateIsChanged()
             _state = reading;
             if (_state)
             {
+                // NOTE: _state will be always 'true' due to the nature of push button.
                 StateChangedResult r(true, _state);
                 return r;
             }
