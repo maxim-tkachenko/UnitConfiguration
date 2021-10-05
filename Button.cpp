@@ -36,3 +36,13 @@ bool Button::stateIsChanged()
 
     return stateIsChanged;
 }
+
+ControllerChangedResult Button::stateIsChanged2()
+{
+    auto current = readState();
+    auto stateIsChanged = _prevState != current;
+    _prevState = current;
+
+    ControllerChangedResult r(stateIsChanged, current);
+    return r;
+}

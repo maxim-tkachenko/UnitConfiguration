@@ -28,6 +28,7 @@ public:
     virtual ~SwitchButton();
     virtual bool readState() override;
     virtual bool stateIsChanged() override;
+    virtual ControllerChangedResult stateIsChanged2() override;
 };
 
 #endif
