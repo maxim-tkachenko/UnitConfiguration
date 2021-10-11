@@ -101,6 +101,6 @@ void loop()
 ## Roadmap:
 
 - ~~Custom turn on/off animations support.~~
-- Switch button/reed switch controller support.
+- ~~Switch button/reed switch controller support.~~
 - Push button multi clicks support (double-click, long-click, etc).
 - MQTT controller support to allow to control devices from remote.
