@@ -25,16 +25,18 @@ bool TimeoutHandler::execute(HANDLER_ARGS)
 
     if ((current - _latestInterraction) > _timeout)
     {
-        PlatformFeatures::println("timeout");
+        PlatformFeatures::print("timeout");
 
         for (uint8_t di = 0; di < devicesCount; di++)
         {
             if (devices[di]->get())
             {
                 devices[di]->set(false);
+                PlatformFeatures::print("!");
             }
         }
 
+        PlatformFeatures::println("");
         _latestInterraction = current;
 
         return true;
