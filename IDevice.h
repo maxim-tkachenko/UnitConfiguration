@@ -2,7 +2,6 @@
 #define IDevice_h
 
 #include "PlatformFeatures.h"
-#include "_uint8_t.h"
 #include "Diagnostics.h"
 #include "DiagnosticsFlags.h"
 #include "IDeviceTurnConfiguration.h"
@@ -12,7 +11,7 @@ class IDevice
 private:
     bool _state;
 
-    void turn(bool state, uint8_t requestorId);
+    void turn(bool state, short requestorId);
 
 protected:
     IDeviceBaseTurnConfiguration *_turnConfig;
@@ -59,8 +58,8 @@ public:
     virtual ~IDevice();
     void init();
     virtual bool get();
-    void set(bool state, bool animate = false, uint8_t requestorId = 0);
-    void switchState(bool animate = false, uint8_t requestorId = 0);
+    void set(bool state, bool animate = false, short requestorId = -1);
+    void switchState(bool animate = false, short requestorId = -1);
 };
 
 #endif

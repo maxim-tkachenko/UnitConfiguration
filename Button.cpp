@@ -1,8 +1,7 @@
 #include "Button.h"
 
-Button::Button(uint8_t pin, uint8_t id)
-    : IController(id),
-      _pin(pin),
+Button::Button(uint8_t pin)
+    : _pin(pin),
       _prevState(false)
 {
     traceme;

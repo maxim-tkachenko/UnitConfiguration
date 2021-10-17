@@ -6,10 +6,10 @@
 class IDeviceBaseTurnConfiguration
 {
 public:
-	virtual bool on(uint8_t requestorId) = 0;
-	virtual bool off(uint8_t requestorId) = 0;
+	virtual bool on(short requestorId) = 0;
+	virtual bool off(short requestorId) = 0;
 
-	bool execute(bool state, uint8_t requestorId = 0)
+	bool execute(bool state, short requestorId = 0)
 	{
 		return state ? on(requestorId) : off(requestorId);
 	}

@@ -19,7 +19,7 @@ private:
     unsigned long _debounceDelay;
 
 public:
-    PushButtonDebounced(uint8_t pin, uint8_t id = 0, unsigned long debounceDelayMs = 50);
+    PushButtonDebounced(uint8_t pin, unsigned long debounceDelayMs = 50);
     virtual ~PushButtonDebounced();
     virtual StateChangedResult stateIsChanged() override;
 };

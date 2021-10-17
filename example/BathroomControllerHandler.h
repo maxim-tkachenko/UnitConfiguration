@@ -14,12 +14,12 @@ public:
     {
         (void)results;
 
-        for (uint8_t ci = 0; ci < controllersCount; ci++)
+        for (short ci = 0; ci < controllersCount; ci++)
         {
             auto stateChanges = controllers[ci]->stateIsChanged();
             if (stateChanges.isChanged)
             {
-                if (controllers[ci]->getId() == DOOR_REED_SWITCH_ID)
+                if (ci == DOOR_REED_SWITCH_ID)
                 {
                     PlatformFeatures::print("reed switch triggerred to ");
 
@@ -35,9 +35,9 @@ public:
                         else
                         {
                             PlatformFeatures::println(" and changed state");
-                            for (uint8_t di = 0; di < devicesCount; di++)
+                            for (short di = 0; di < devicesCount; di++)
                             {
-                                devices[di]->switchState(true, controllers[ci]->getId());
+                                devices[di]->switchState(true, ci);
                             }
 
                             return true;
@@ -51,9 +51,9 @@ public:
                 }
 
                 PlatformFeatures::println("controller triggerred");
-                for (uint8_t di = 0; di < devicesCount; di++)
+                for (short di = 0; di < devicesCount; di++)
                 {
-                    devices[di]->switchState(true, controllers[ci]->getId());
+                    devices[di]->switchState(true, ci);
                 }
 
                 return true;

@@ -23,7 +23,6 @@ public:
     SwitchButton(
         uint8_t pin,
         bool invertState = false,
-        uint8_t id = 0,
         unsigned long debounceDelayMs = 50);
     virtual ~SwitchButton();
     virtual bool readState() override;
