@@ -47,6 +47,11 @@ public:
   }
 
   void clearLedData() {}
+
+  void clearLeds(int nLeds)
+  {
+    (void)nLeds;
+  }
 };
 
 void fill_solid(struct CRGB *leds, int numToFill, const struct CRGB &color);
