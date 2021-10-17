@@ -16,6 +16,8 @@ bool TimeoutHandler::execute(HANDLER_ARGS)
 
     if (interracted)
     {
+        // treat master's handler interraction as its own
+        // since there is some activity has been caught.
         _latestInterraction = current;
 
         return false;
@@ -23,19 +25,14 @@ bool TimeoutHandler::execute(HANDLER_ARGS)
 
     if ((current - _latestInterraction) > _timeout)
     {
-        for (uint8_t di = 0; di < devicesCount; di++)
-        {
-            if (devices[di]->get())
-            {
-                continue;
-            }
-        }
-
         PlatformFeatures::println("timeout");
 
         for (uint8_t di = 0; di < devicesCount; di++)
         {
-            devices[di]->set(false);
+            if (devices[di]->get())
+            {
+                devices[di]->set(false);
+            }
         }
 
         _latestInterraction = current;
