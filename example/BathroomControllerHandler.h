@@ -10,7 +10,7 @@
 class BathroomControllerHandler : public IHandler
 {
 public:
-    bool BathroomControllerHandler::execute(HANDLER_ARGS)
+    bool execute(HANDLER_ARGS) override
     {
         (void)results;
 
