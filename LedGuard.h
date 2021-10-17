@@ -9,12 +9,13 @@
 class LedGuard : public IHandler
 {
 private:
+    short _deviceIndex; // TODO: nice to have for each handler.
     unsigned long _timeout;
     unsigned long _latestInterraction = 0;
 
 public:
-    LedGuard(short masterHandlerId = -1, unsigned long timeoutMs = 300000) // 5 mins
-        : IHandler(masterHandlerId), _timeout(timeoutMs)
+    LedGuard(short masterHandlerId = -1, short deviceIndex = -1, unsigned long timeoutMs = 300000) // 5 mins
+        : IHandler(masterHandlerId), _deviceIndex(deviceIndex), _timeout(timeoutMs)
     {
         traceme;
     }
@@ -37,9 +38,17 @@ public:
         if ((current - _latestInterraction) > _timeout)
         {
             PlatformFeatures::println("re-filled");
-            for (uint8_t di = 0; di < devicesCount; di++)
+
+            if (_deviceIndex == -1)
             {
-                devices[di]->set(devices[di]->get());
+                for (uint8_t di = 0; di < devicesCount; di++)
+                {
+                    devices[di]->set(devices[di]->get());
+                }
+            }
+            else
+            {
+                devices[_deviceIndex]->set(devices[_deviceIndex]->get());
             }
 
             _latestInterraction = current;
