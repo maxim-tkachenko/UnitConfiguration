@@ -16,7 +16,14 @@ struct CRGB
 {
   static CRGB Green;
   static CRGB Red;
+  static CRGB White;
+  static CRGB Black;
 };
+
+typedef enum
+{
+  Candle
+} ColorTemperature;
 
 class CLEDController
 {
@@ -51,6 +58,13 @@ public:
   void clearLeds(int nLeds)
   {
     (void)nLeds;
+  }
+
+  CLEDController &setTemperature(ColorTemperature temperature)
+  {
+    (void)temperature;
+
+    return *this;
   }
 };
 
