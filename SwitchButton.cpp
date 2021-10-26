@@ -45,16 +45,14 @@ StateChangedResult SwitchButton::stateIsChanged()
         {
             _state = reading;
 
-            StateChangedResult r(true, _state);
-            return r;
+            return StateChangedResult(true, _state);
         }
     }
 
     // save the reading. Next time through the loop, it'll be the _lastState:
     _lastState = reading;
 
-    StateChangedResult r(false, reading);
-    return r;
+    return StateChangedResult(false, reading);
 }
 
 bool SwitchButton::readState()

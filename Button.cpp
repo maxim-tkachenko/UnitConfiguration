@@ -34,6 +34,5 @@ StateChangedResult Button::stateIsChanged()
     auto stateIsChanged = _prevState != current;
     _prevState = current;
 
-    StateChangedResult r(stateIsChanged, current);
-    return r;
+    return StateChangedResult(stateIsChanged, current);
 }

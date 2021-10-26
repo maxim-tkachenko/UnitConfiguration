@@ -45,8 +45,7 @@ StateChangedResult PushButtonDebounced::stateIsChanged()
             if (_state)
             {
                 // NOTE: _state will be always 'true' due to the nature of push button.
-                StateChangedResult r(true, _state);
-                return r;
+                return StateChangedResult(true, _state);
             }
         }
     }
@@ -54,6 +53,5 @@ StateChangedResult PushButtonDebounced::stateIsChanged()
     // save the reading. Next time through the loop, it'll be the _lastState:
     _lastState = reading;
 
-    StateChangedResult r(false, reading);
-    return r;
+    return StateChangedResult(false, reading);
 }

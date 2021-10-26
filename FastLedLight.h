@@ -17,6 +17,7 @@ struct CRGB
   static CRGB Green;
   static CRGB Red;
   static CRGB White;
+  static CRGB Blue;
   static CRGB Black;
 };
 
