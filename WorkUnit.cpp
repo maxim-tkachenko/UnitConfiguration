@@ -170,5 +170,11 @@ void WorkUnit::check()
     for (uint8_t hi = 0; hi < _handlersCount; hi++)
     {
         _handlersResults[hi] = _handlers[hi]->execute(_handlersResults, _devices, _devicesCount, _controllers, _controllersCount);
+
+        // ensure timing-sensitive controllers (like PushButtonMulticlick) to work
+        for (uint8_t ci = 0; ci < _controllersCount; ci++)
+        {
+            _controllers[ci]->tick();
+        }
     }
 }

@@ -19,6 +19,7 @@ public:
 	virtual bool readState() = 0;
 	virtual StateChangedResult stateIsChanged() = 0;
 	uint8_t getId();
+	virtual void tick() {}
 };
 
 #endif
