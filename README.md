@@ -102,5 +102,5 @@ void loop()
 
 - ~~Custom turn on/off animations support.~~
 - ~~Switch button/reed switch controller support.~~
-- Push button multi clicks support (double-click, long-click, etc).
+- ~~Push button multi clicks support (double-click, long-click, etc).~~ (built based on [OneButton](https://github.com/mathertel/OneButton) as external lib to reduce dependency: [UCButtonMulticlick](https://github.com/maxim-tkachenko/UCButtonMulticlick))
 - MQTT controller support to allow to control devices from remote.
