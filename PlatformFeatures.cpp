@@ -1,6 +1,6 @@
 #include "PlatformFeatures.h"
 
-#ifdef __AVR
+#if REAL_BOARD
 #include "Arduino.h"
 #else
 #include <iostream>
@@ -9,7 +9,7 @@ using namespace std;
 
 void PlatformFeatures::init()
 {
-#ifdef __AVR
+#if REAL_BOARD
     Serial.begin(9600);
     while (!Serial)
         ;
@@ -28,7 +28,7 @@ void PlatformFeatures::init()
 
 void PlatformFeatures::print(const char c[])
 {
-#ifdef __AVR
+#if REAL_BOARD
     Serial.print(c);
 #else
     cout << c;
@@ -37,7 +37,7 @@ void PlatformFeatures::print(const char c[])
 
 void PlatformFeatures::println(const char c[])
 {
-#ifdef __AVR
+#if REAL_BOARD
     Serial.println(c);
 #else
     cout << c << endl;
@@ -46,7 +46,7 @@ void PlatformFeatures::println(const char c[])
 
 int PlatformFeatures::ledPin()
 {
-#ifdef __AVR
+#if REAL_BOARD
     return LED_BUILTIN;
 #else
     return -1;
@@ -55,7 +55,7 @@ int PlatformFeatures::ledPin()
 
 void PlatformFeatures::pinIn(uint8_t pin)
 {
-#ifdef __AVR
+#if REAL_BOARD
     pinMode(pin, INPUT);
 #else
     cout << "pin input mode set for " << pin << endl;
@@ -64,7 +64,7 @@ void PlatformFeatures::pinIn(uint8_t pin)
 
 void PlatformFeatures::pinOut(uint8_t pin)
 {
-#ifdef __AVR
+#if REAL_BOARD
     pinMode(pin, OUTPUT);
 #else
     cout << "pin output mode set for " << pin << endl;
@@ -73,7 +73,7 @@ void PlatformFeatures::pinOut(uint8_t pin)
 
 void PlatformFeatures::digitalSet(uint8_t pin, uint8_t value)
 {
-#ifdef __AVR
+#if REAL_BOARD
     digitalWrite(pin, value);
 #else
     cout << value << " value set for " << pin << endl;
@@ -82,7 +82,7 @@ void PlatformFeatures::digitalSet(uint8_t pin, uint8_t value)
 
 int PlatformFeatures::digitalGet(uint8_t pin)
 {
-#ifdef __AVR
+#if REAL_BOARD
     return digitalRead(pin);
 #else
     (void)pin; // suppress warning
@@ -92,7 +92,7 @@ int PlatformFeatures::digitalGet(uint8_t pin)
 
 unsigned long PlatformFeatures::milliseconds()
 {
-#ifdef __AVR
+#if REAL_BOARD
     return millis();
 #else
     return 1234567;

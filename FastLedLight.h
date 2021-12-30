@@ -4,8 +4,9 @@
 #include "_uint8_t.h"
 #include "IDevice.h"
 #include "Diagnostics.h"
+#include "Definitions.h"
 
-#ifdef __AVR
+#if REAL_BOARD
 #include "FastLED.h"
 #else
 
@@ -114,7 +115,7 @@ public:
     traceme;
 
     ledController =
-#ifdef __AVR
+#if REAL_BOARD
         &FastLED.addLeds<WS2812B, DATA_PIN, GRB>(_leds, _ledStripLength);
 #else
         new CLEDController(_ledStripLength);

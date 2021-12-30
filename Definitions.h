@@ -4,5 +4,6 @@
 #define WORKUNIT_ARGS IDevice **devices, uint8_t devicesCount, IController **controllers, uint8_t controllersCount
 #define HANDLER_ARGS bool *results, WORKUNIT_ARGS
 #define HANDLER_ARGS_PASS results, devices, devicesCount, controllers, controllersCount
+#define REAL_BOARD __AVR || ARDUINO_ESP8266_NODEMCU
 
 #endif

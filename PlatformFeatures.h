@@ -3,8 +3,9 @@
 
 #include "_uint8_t.h"
 #include "DiagnosticsFlags.h"
+#include "Definitions.h"
 
-#ifdef __AVR
+#if REAL_BOARD
 #include "Arduino.h"
 #else
 #include <iostream>
