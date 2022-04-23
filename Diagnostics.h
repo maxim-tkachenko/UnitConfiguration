@@ -8,7 +8,13 @@
 
 // use __FUNCTION__ or __func__ instead to reduce
 // memory consumption by cutting off member's signature
-#define traceme trace(__PRETTY_FUNCTION__);
+#ifdef TRACE_VERBOSITY_DETAILED_ENABLED
+#define TRACE_VERBOSITY __PRETTY_FUNCTION__
+#else
+#define TRACE_VERBOSITY __FUNCTION__
+#endif
+
+#define traceme trace(TRACE_VERBOSITY);
 
 inline void trace(const char c[])
 {
