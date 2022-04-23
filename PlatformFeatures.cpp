@@ -53,10 +53,10 @@ int PlatformFeatures::ledPin()
 #endif
 }
 
-void PlatformFeatures::pinIn(uint8_t pin)
+void PlatformFeatures::pinIn(uint8_t pin, bool pullup)
 {
 #if REAL_BOARD
-    pinMode(pin, INPUT);
+    pinMode(pin, pullup ? INPUT_PULLUP : INPUT);
 #else
     cout << "pin input mode set for " << pin << endl;
 #endif

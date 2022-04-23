@@ -1,13 +1,20 @@
 #include "Button.h"
 
-Button::Button(uint8_t pin, uint8_t id)
+Button::Button(uint8_t pin, bool pullup, uint8_t id)
     : IController(id),
       _pin(pin),
+      _pullup(pullup),
       _prevState(false)
 {
     traceme;
 
     init();
+}
+
+Button::Button(uint8_t pin, uint8_t id)
+    : Button(pin, false, id)
+{
+    traceme;
 }
 
 Button::~Button()
@@ -19,7 +26,7 @@ void Button::init()
 {
     traceme;
 
-    PlatformFeatures::pinIn(_pin);
+    PlatformFeatures::pinIn(_pin, _pullup);
     _prevState = readState();
 }
 

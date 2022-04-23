@@ -22,6 +22,12 @@ private:
 public:
     SwitchButton(
         uint8_t pin,
+        bool pullup,
+        bool invertState = false,
+        uint8_t id = 0,
+        unsigned long debounceDelayMs = 50);
+    SwitchButton(
+        uint8_t pin,
         bool invertState = false,
         uint8_t id = 0,
         unsigned long debounceDelayMs = 50);

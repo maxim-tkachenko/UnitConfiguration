@@ -19,7 +19,7 @@ public:
     static void print(const char c[]);
     static void println(const char c[]);
     static int ledPin();
-    static void pinIn(uint8_t pin);
+    static void pinIn(uint8_t pin, bool pullup = false);
     static void pinOut(uint8_t pin);
     static void digitalSet(uint8_t pin, uint8_t value);
     static int digitalGet(uint8_t pin);

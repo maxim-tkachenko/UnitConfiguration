@@ -2,14 +2,25 @@
 
 SwitchButton::SwitchButton(
     uint8_t pin,
+    bool pullup,
     bool invertState,
     uint8_t id,
     unsigned long debounceDelayMs)
-    : Button(pin, id),
+    : Button(pin, pullup, id),
       _state(false),
       _lastState(false),
       _invertState(invertState),
       _debounceDelay(debounceDelayMs)
+{
+    traceme;
+}
+
+SwitchButton::SwitchButton(
+    uint8_t pin,
+    bool invertState,
+    uint8_t id,
+    unsigned long debounceDelayMs)
+    : SwitchButton(pin, false, invertState, id, debounceDelayMs)
 {
     traceme;
 }
