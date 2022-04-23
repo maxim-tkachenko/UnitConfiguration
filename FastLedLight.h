@@ -95,6 +95,7 @@ public:
       bool initialState = false);
   virtual ~FastLedLight();
 
+  // TODO: to templated class
   template <uint8_t DATA_PIN>
   static FastLedLight *create(
       int ledStripLength,
@@ -108,7 +109,7 @@ public:
     return fll;
   }
 
-  //template <ESPIChipsets CHIPSET, uint8_t DATA_PIN, EOrder RGB_ORDER>
+  // template <ESPIChipsets CHIPSET, uint8_t DATA_PIN, EOrder RGB_ORDER>
   template <uint8_t DATA_PIN>
   void init()
   {
