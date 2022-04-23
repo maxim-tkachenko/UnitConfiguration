@@ -34,6 +34,7 @@ void Runner::loopImpl()
     auto next = _configuration->next();
     if (next == nullptr)
     {
+        // TODO: move iterator reset here to make global loop shorter; rename reset method;
         return;
     }
 
