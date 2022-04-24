@@ -1,6 +1,6 @@
 #include "Button.h"
 
-Button::Button(uint8_t pin, bool pullup, uint8_t id)
+Button::Button(uint8_t pin, uint8_t id, bool pullup)
     : IController(id),
       _pin(pin),
       _pullup(pullup),
@@ -9,12 +9,6 @@ Button::Button(uint8_t pin, bool pullup, uint8_t id)
     traceme;
 
     init();
-}
-
-Button::Button(uint8_t pin, uint8_t id)
-    : Button(pin, false, id)
-{
-    traceme;
 }
 
 Button::~Button()

@@ -27,7 +27,7 @@ public:
                 new IController *[2]
                 {
                     new PushButtonDebounced(11, WALL_SWITCH_ID),
-                        new SwitchButton(12, false, DOOR_REED_SWITCH_ID),
+                        new SwitchButton(12, DOOR_REED_SWITCH_ID),
                 },
                 2,
                 new IHandler *[3]

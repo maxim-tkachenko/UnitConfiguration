@@ -2,22 +2,13 @@
 
 PushButtonDebounced::PushButtonDebounced(
     uint8_t pin,
-    bool pullup,
     uint8_t id,
+    bool pullup,
     unsigned long debounceDelayMs)
     : Button(pin, pullup, id),
       _state(false),
       _lastState(false),
       _debounceDelay(debounceDelayMs)
-{
-    traceme;
-}
-
-PushButtonDebounced::PushButtonDebounced(
-    uint8_t pin,
-    uint8_t id,
-    unsigned long debounceDelayMs)
-    : PushButtonDebounced(pin, false, id, debounceDelayMs)
 {
     traceme;
 }
