@@ -58,6 +58,7 @@ void PlatformFeatures::pinIn(uint8_t pin, bool pullup)
 #if REAL_BOARD
     pinMode(pin, pullup ? INPUT_PULLUP : INPUT);
 #else
+    (void)pullup;
     cout << "pin input mode set for " << pin << endl;
 #endif
 }
