@@ -167,6 +167,9 @@ WorkUnit::~WorkUnit()
 
 void WorkUnit::check()
 {
+    // TODO: is it possible to invert this logic?
+    //       we should try to iterate throught the controllers and execute
+    //       all the handlers if any (controller) has been triggered.
     for (uint8_t hi = 0; hi < _handlersCount; hi++)
     {
         _handlersResults[hi] = _handlers[hi]->execute(_handlersResults, _devices, _devicesCount, _controllers, _controllersCount);
