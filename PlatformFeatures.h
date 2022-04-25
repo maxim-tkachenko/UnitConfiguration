@@ -14,6 +14,9 @@ using namespace std;
 
 class PlatformFeatures
 {
+private:
+    static bool proxyValue(bool value);
+
 public:
     static void init();
     static void print(const char c[]);
